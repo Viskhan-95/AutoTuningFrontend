@@ -7,19 +7,21 @@ const initialState = {
    showSignUp: false,
    error: null,
    token: localStorage.getItem('token'),
+   role: localStorage.getItem('role'),
+   users: []
 }
 
 export const addUser = createAsyncThunk("user/add", async ({
-   firstName, lastName, email, login, password, role
+   login, password
 }, thunkAPI) => {
    try {
-      const res = await fetch("http://localhost:4000/user/add",
+      const res = await fetch("http://localhost:4000/user",
          {
             method: "POST",
             headers: {
                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ firstName, lastName, email, login, password, role })
+            body: JSON.stringify({ login, password })
          }
       );
       const data = await res.json();
@@ -54,6 +56,7 @@ export const auth = createAsyncThunk("login", async ({ login, password }, thunkA
       }
       else {
          localStorage.setItem('token', data.token);
+         localStorage.setItem('role', data.role)
          return thunkAPI.fulfillWithValue(data);
       }
    } catch (err) {
