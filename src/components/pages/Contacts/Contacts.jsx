@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import Navibar from "../Navibar/Navibar";
 import "./styles.css";
 
 const Constacts = () => {
+  const [call, setCall] = useState(false);
+  const [text, setText] = useState("");
+
+  function handleText(e) {
+    setText(e.target.value);
+  }
+
+  function handleOpenCall() {
+    if (!text) {
+      setCall(!call);
+    }
+  }
+
   return (
     <div className="contacts">
+      <Navibar />
       <div className="street_and_we_contacts">
         <div className="we_contacts">Наши контакты</div>
         <div className="street">Трошева ул., 7, Грозный</div>
@@ -37,7 +52,9 @@ const Constacts = () => {
         <div className="numbers">
           +7 (123) 45-67-890 <br /> +7 (111) 45-67-890
         </div>
-        <button className="ship_phone">Заказать звонок</button>
+        <button className="ship_phone" onClick={handleOpenCall}>
+          Заказать звонок
+        </button>
         <div className="email">sitename@mail.ru</div>
       </div>
       <iframe
@@ -50,6 +67,54 @@ const Constacts = () => {
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
+      {call && (
+        <div className="set_call_block">
+          <div className="call_block">
+            <form className="call_form" action="">
+              <div className="form_head">
+                <div className="form_head_title">Обратный звонок</div>
+                <div className="form_head_text">
+                  Заполните форму и наш менеджер свяжется с <br /> Вами в
+                  ближайщее время
+                </div>
+              </div>
+              <div className="form_body">
+                <div className="form_body_data">
+                  <label className="label" htmlFor="">
+                    Представьтесь<span> *</span>
+                  </label>
+                  <br />
+                  <input onChange={handleText} value={text} type="text" />
+                  <br />
+                  <label className="label" htmlFor="">
+                    Номер телефона<span> *</span>
+                  </label>
+                  <br />
+                  <input
+                    onChange={handleText}
+                    value={text}
+                    maxLength={15}
+                    type="text"
+                  />
+                  <br />
+                  <br />
+                  <label htmlFor="">Email (не обязательно)</label>
+                  <br />
+                  <input type="email" />
+                  <br />
+                  <button className="ship_button">Заказать звонок</button>
+                </div>
+              </div>
+            </form>
+            <div onClick={handleOpenCall} className="form_close">
+              <img
+                src="https://tuning.sboxdemo.ru/assets/template/images/form_close.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
