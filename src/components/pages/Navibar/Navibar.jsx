@@ -9,6 +9,7 @@ import { ImUserPlus, ImEnter } from 'react-icons/im';
 import { GiExitDoor } from 'react-icons/gi';
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../../icon/iconAutoTuning.png"
+import { Link } from "react-router-dom";
 
 
 const Navibar = () => {
@@ -29,53 +30,56 @@ const Navibar = () => {
     }
 
     const activePageStyle = {
-        color: 'white',
-        borderBottom: '3px solid',
+        color: 'blue',
         textDecoration: "none",
         marginRight: "20px",
+        fontWeight: "500",
     };
 
     const inActivePageStyle = {
-        color: 'lightGray',
+        color: "white",
         textDecoration: "none",
         marginRight: "20px",
     };
     return (
-        <Container fluid className="d-flex">
-            <Container style={{ width: "10%" }}>
-                <img className="ms-3"
-                    src={logo}
-                    width="80"
-                    alt="logotip"
-                />
-            </Container>
+        <Container fluid className="header d-flex align-items-baseline " >
+            <div className="header_logo" style={{
+                padding: "20px",
+            }}>
+                <Link to="/">
+                    <img src={logo} alt="logotip" />
+                </Link>
+            </div >
 
-            <Navbar collapseOnSelect expand="md" style={{ width: "90%" }}>
+            <Navbar collapseOnSelect expand="md" style={{ width: "100%", }}>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" >
-                    <Nav className="me-auto mx-4" style={{ fontSize: 18 }}>
-                        <div >
-                            <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
-                                to="/"> ГЛАВНАЯ
-                            </NavLink>
+                    <Container >
+                        <Nav style={{ fontSize: 20 }}>
+                            <div style={{margin: "auto"}}>
+                                <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
+                                    to="/"> ГЛАВНАЯ
+                                </NavLink>
 
-                            <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
-                                to="/about"> О НАС
-                            </NavLink>
+                                <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
+                                    to="/about"> О НАС
+                                </NavLink>
 
-                            <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
-                                to="/services"> УСЛУГИ
-                            </NavLink>
+                                <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
+                                    to="/services"> УСЛУГИ
+                                </NavLink>
 
-                            <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
-                                to="/portfolio"> ПОРТФОЛИО
-                            </NavLink>
+                                <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
+                                    to="/portfolio"> ПОРТФОЛИО
+                                </NavLink>
 
-                            <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
-                                to="/contacts"> КОНТАКТЫ
-                            </NavLink>
-                        </div>
-                    </Nav>
+                                <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
+                                    to="/contacts"> КОНТАКТЫ
+                                </NavLink>
+                            </div>
+                        </Nav>
+                    </Container>
+
                     {token ?
                         <Nav>
                             <Button variant="primary" onClick={handleExit}
@@ -97,10 +101,10 @@ const Navibar = () => {
                     }
                 </Navbar.Collapse>
             </Navbar>
-            
-            <SignInPage/>
-            <SignUpPage/>
+            <SignInPage />
+            <SignUpPage />
         </Container>
+
     )
 };
 export default Navibar;

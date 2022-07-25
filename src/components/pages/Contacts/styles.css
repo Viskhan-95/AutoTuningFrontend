@@ -1,0 +1,94 @@
+.street_and_we_contacts {
+  margin-left: 2%;
+}
+
+.we_contacts {
+  font-size: 36px;
+  font-weight: 600;
+  color: #232325;
+  font-family: "Gilroy", Tahoma, Arial;
+}
+
+.street {
+  font-family: "Gilroy", Tahoma, Arial;
+  color: #555555;
+  font-size: 34px;
+  margin-top: 0.6%;
+}
+
+.share_block {
+  width: 310px;
+  float: right;
+  margin-right: 2%;
+}
+
+.share_text {
+  font-size: 20px;
+}
+
+.logo_block {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.5%;
+}
+
+.vk_logo {
+  width: 14%;
+  height: 14%;
+  cursor: pointer;
+}
+
+.facebook_logo {
+  width: 13%;
+  height: 13%;
+  cursor: pointer;
+}
+
+.instagram_logo {
+  width: 13%;
+  height: 13%;
+  cursor: pointer;
+}
+
+.twitter_logo {
+  width: 13%;
+  height: 13%;
+  cursor: pointer;
+}
+
+.numbers_button_and_email {
+  margin-left: 2%;
+}
+
+.numbers {
+  font-size: 30px;
+  font-weight: 500;
+  color: #232325;
+  padding: 25px 0;
+  font-family: "Gilroy", Tahoma, Arial;
+  font-weight: 400;
+}
+
+.ship_phone {
+  background: #3b54e4;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 3px;
+  margin-bottom: 3%;
+  margin-top: 1%;
+}
+
+.email {
+  font-size: 20px;
+}
+
+.map {
+  margin-top: 6%;
+  border: 0;
+}
