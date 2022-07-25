@@ -1,4 +1,4 @@
-import react from 'react';
+  import react from 'react';
 import { Container } from 'react-bootstrap';
 import backgroundImage from "../../icon/backgroundImg.jpeg";
 import Navibar from "./Navibar/Navibar";
