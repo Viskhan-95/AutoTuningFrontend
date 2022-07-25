@@ -6,6 +6,7 @@ import {
   showModalSignUp,
 } from "../../../features/users/usersSlice";
 import { Form, Modal, Button, Spinner } from "react-bootstrap";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const SignUpPage = () => {
   const [login, setLogin] = useState("");
@@ -41,7 +42,14 @@ const SignUpPage = () => {
     dispatch(errorNull());
   };
 
-  const colorTextError = error ? "red" : "black";
+  const handleOpenEye = () => {
+    setShowPassword(false);
+  };
+  const handleClouseEye = () => {
+    setShowPassword(true);
+  };
+
+  const colorTextError = error ? "red" : "white";
 
   return (
     <>
@@ -51,52 +59,78 @@ const SignUpPage = () => {
         keyboard={true}
         backdrop="static"
       >
-        <Modal.Header closeButton>
-          <Modal.Title className="mx-auto me-5">РЕГИСТРАЦИЯ</Modal.Title>
+        <Modal.Header>
+          <Modal.Title style={{ paddingLeft: "25%" }}>РЕГИСТРАЦИЯ</Modal.Title>
+          <Button
+            onClick={handleClose}
+            style={{ color: "white", background: "black", border: "none" }}
+          >
+            X
+          </Button>
         </Modal.Header>
 
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicLogin">
-              <Form.Label>
-                Login{" "}
-                <span style={{ color: colorTextError, fontSize: 14 }}>
-                  {" "}
-                  {error === "логин уже занят"
-                    ? "(логин уже занят)"
-                    : "(обязательное поле)"}
-                </span>
-              </Form.Label>
+              <Form.Label>Login </Form.Label>
               <Form.Control
                 type="login"
                 placeholder="Enter login"
                 onChange={handleChangeLogin}
                 value={login}
               />
+              <span style={{ color: colorTextError, fontSize: 14 }}>
+                {" "}
+                {error === "логин уже занят"
+                  ? "(логин уже занят)"
+                  : "(обязательное поле)"}
+              </span>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>
-                Password{" "}
-                <span style={{ color: colorTextError, fontSize: 14 }}>
-                  {" "}
-                  (больше 4 и меньше 10 символов){" "}
-                </span>
-              </Form.Label>
+              <Form.Label>Password </Form.Label>
               <Form.Control
                 type={showPassword ? "Text" : "Password"}
                 placeholder="Password"
                 onChange={handleChangePassword}
                 value={password}
               />
+              {showPassword ? (
+                <div onClick={handleOpenEye}>
+                  <AiOutlineEye
+                    onClick={handleChecked}
+                    style={{
+                      position: "absolute",
+                      bottom: "115",
+                      color: "black",
+                      cursor: "pointer",
+                      left: "445",
+                      fontSize: "25px",
+                    }}
+                  />
+                </div>
+              ) : (
+                <div onClick={handleClouseEye}>
+                  <AiOutlineEyeInvisible
+                    style={{
+                      position: "absolute",
+                      bottom: "115",
+                      color: "black",
+                      cursor: "pointer",
+                      left: "445",
+                      fontSize: "25px",
+                    }}
+                  />
+                </div>
+              )}
+
+              <span style={{ color: colorTextError, fontSize: 14 }}>
+                {" "}
+                (больше 4 и меньше 10 символов){" "}
+              </span>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check
-                type="checkbox"
-                label="Show password"
-                onChange={handleChecked}
-              />
               <span style={{ color: colorTextError, fontSize: 16 }}>
                 {error !== "логин уже занят" && error}{" "}
               </span>
