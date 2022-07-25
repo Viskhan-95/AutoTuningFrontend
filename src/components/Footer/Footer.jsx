@@ -15,7 +15,7 @@ const Footer = () => {
                         <div className={styles.logoText}>Brooklin Detailing</div>
                     </div>
                     <div className={styles.rightFlang}>
-                        <h2>Наши контакты</h2>
+                        <h2>Наши контакты:</h2>
                         <div className={styles.phone}>+7 505 420-14-88</div>
                         <div className={styles.adress}>Грозный ул. Трошева 7</div>
                         <div className={styles.map}>Показать на карте</div>
