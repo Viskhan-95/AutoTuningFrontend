@@ -3,6 +3,7 @@ import HomePage from "./components/pages/HomePage";
 import About from "./components/pages/About/About";
 import Contacts from "./components/pages/Contacts/Contacts";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
