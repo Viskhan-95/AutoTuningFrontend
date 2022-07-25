@@ -5,9 +5,20 @@ import "./styles.css";
 const Constacts = () => {
   const [call, setCall] = useState(false);
   const [text, setText] = useState("");
+  const [text_number, setTextNumber] = useState('')
 
   function handleText(e) {
     setText(e.target.value);
+  }
+
+  function handleTextNumber(e) {
+    setTextNumber(e.target.value)
+  }
+
+  function handleSubmitCall(e) {
+    e.preventDefault()
+    setText('')
+    setTextNumber('')
   }
 
   function handleOpenCall() {
@@ -84,17 +95,28 @@ const Constacts = () => {
                     Представьтесь<span> *</span>
                   </label>
                   <br />
-                  <input onChange={handleText} value={text} type="text" />
+                  <input
+                    required
+                    minLength={4}
+                    maxLength={16}
+                    onChange={handleText}
+                    value={text}
+                    type="text"
+                  />
                   <br />
                   <label className="label" htmlFor="">
                     Номер телефона<span> *</span>
                   </label>
                   <br />
                   <input
-                    onChange={handleText}
-                    value={text}
+                    required
+                    onChange={handleTextNumber}
+                    value={text_number}
+                    minLength={10}
                     maxLength={15}
-                    type="text"
+                    type="tel"
+                    placeholder="7(999)999-99-99"
+                    pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
                   />
                   <br />
                   <br />
@@ -102,7 +124,7 @@ const Constacts = () => {
                   <br />
                   <input type="email" />
                   <br />
-                  <button className="ship_button">Заказать звонок</button>
+                  <button onClick={(e) => handleSubmitCall(e)} className="ship_button">Заказать звонок</button>
                 </div>
               </div>
             </form>
