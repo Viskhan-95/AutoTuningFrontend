@@ -2,6 +2,7 @@ import react from 'react';
 import { Container } from 'react-bootstrap';
 import backgroundImage from "../../icon/backgroundImg.jpeg";
 import Navibar from "./Navibar/Navibar";
+import Footer from "../Footer/Footer"
 
 const HomePage = () => {
    return (
@@ -15,6 +16,7 @@ const HomePage = () => {
          }}>
          <Navibar />
          </Container>
+         <Footer />
       </>
    )
 };
