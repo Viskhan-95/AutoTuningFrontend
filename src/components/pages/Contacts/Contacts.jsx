@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Navibar from "../Navibar/Navibar";
 import "./styles.css";
-import { Container } from 'react-bootstrap';
-import backgroundImage from "../../../icon/backgroundImg.jpeg";
 
 
 const Constacts = () => {

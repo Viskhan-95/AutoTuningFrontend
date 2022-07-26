@@ -1,4 +1,3 @@
-import react from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from './Footer/Footer';
 import Navibar from '../pages/Navibar/Navibar';
@@ -6,7 +5,7 @@ import Navibar from '../pages/Navibar/Navibar';
 const Layout = () => {
    return (
       <>
-         <Navibar />
+         {Navibar(20)}
          <div className="outlet">
             <Outlet />
          </div>

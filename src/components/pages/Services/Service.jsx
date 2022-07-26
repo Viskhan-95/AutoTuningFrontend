@@ -6,7 +6,8 @@ function Service({ item }) {
   return (
     <div
       style={{
-        backgroundImage: `url(${`http://localhost:4000${item.img}`})`,
+
+        backgroundImage: `url(${`http://localhost:4000${item.img[0]}`})`,
       }}
       className={styles.services_content}
     >
