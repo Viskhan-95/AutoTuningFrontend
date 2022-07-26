@@ -5,7 +5,6 @@ import Contacts from "./components/pages/Contacts/Contacts";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Services from './components/pages/Services/Services';
 import Layout from "./components/Layout/Layout";
-import Footer from "./components/Layout/Footer/Footer";
 
 
 function App() {
