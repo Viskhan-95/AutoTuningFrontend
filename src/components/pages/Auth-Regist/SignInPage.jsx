@@ -60,7 +60,7 @@ const SignInPage = () => {
         <Modal.Title style={{ paddingLeft: "25%" }}>АВТОРИЗАЦИЯ</Modal.Title>
         <Button
           onClick={handleClose}
-          style={{ color: "white", background: "black", border: "none", fontSize: "26px", }}
+          style={{ color: "white", background: "black", border: "none", fontSize: "28px", }}
         >
           &times;
         </Button>

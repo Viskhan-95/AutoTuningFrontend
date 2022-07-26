@@ -63,7 +63,7 @@ const SignUpPage = () => {
           <Modal.Title style={{ paddingLeft: "25%" }}>РЕГИСТРАЦИЯ</Modal.Title>
           <Button
             onClick={handleClose}
-            style={{ color: "white", background: "black", border: "none", fontSize: "26px", }}
+            style={{ color: "white", background: "black", border: "none", fontSize: "28px", }}
           >
             &times;
           </Button>
