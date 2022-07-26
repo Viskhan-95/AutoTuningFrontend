@@ -17,13 +17,6 @@
 }
 
 .services_content {
-<<<<<<< HEAD
-   width: 400px;
-   height: 400px;
-   background-repeat: no-repeat;
-   background-size: contain;
-   background-color: grey;
-=======
   margin: 1px;
   width: 400px;
   height: 350px;
@@ -44,22 +37,20 @@
   font-family: Gilroy, Tahoma, Arial;
   width: 85%;
 }
->>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee
 
 .btn a {
   text-decoration: none;
   color: white;
 }
 
-<<<<<<< HEAD
+
 .element_title {
    color: white;
    font-size: 30px;
    font-family: Gilroy, Tahoma, Arial;
 }
 
-.element_button {}
-=======
+
 .btn {
   background-color: rgb(219, 51, 51);
   border: none;
@@ -80,4 +71,3 @@
   padding-left: 5%;
   padding-top: 5%;
 }
->>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee

@@ -16,33 +16,17 @@ function Services() {
       dispatch(getServices());
    }, [dispatch]);
 
-<<<<<<< HEAD
    return (
-      <>
-         <Navibar />
-         <div className={styles.services_container}>
-            <h1 className={styles.pagetitle}>Услуги</h1>
-            <div className={styles.services_content_parent}>
-               {services.map((item) => (
-                  <Service item={item} />
-               ))}
-            </div>
+
+      <div className={styles.services_container}>
+         <h1 className={styles.pagetitle}>Услуги</h1>
+         <div className={styles.services_content_parent}>
+            {services.map((item) => (
+               <Service item={item} />
+            ))}
          </div>
-      </>
-   );
-=======
-  return (
-    
-    <div className={styles.services_container}>
-      <h1 className={styles.pagetitle}>Услуги</h1>
-      <div className={styles.services_content_parent}>
-      {services.map((item) => (
-        <Service item={item} />
-      ))}
       </div>
-    </div>
-  );
->>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee
+   );
 }
 
 export default Services;
