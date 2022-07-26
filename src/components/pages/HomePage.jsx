@@ -1,10 +1,18 @@
-import Navibar from "./Navibar/Navibar";
-import Footer from "../Footer/Footer"
+import React from 'react';
+import Footer from "../Footer/Footer";
+import LearnMore from './Learn-More/LearnMore';
+import { Container } from "react-bootstrap";
+import backgroundImage from "../../../icon/backgroundImg.jpeg";
+// import "./style.css";
 
 const HomePage = () => {
    return (
       <>
-         <Navibar />
+         <Container fluid className="main_content" style={{ color: "white", textAlign: "center" }}>
+            <h1>АВТОТЮНИНГ</h1>
+      
+         </Container>
+         <LearnMore />
          <Footer />
       </>
    )

@@ -8,26 +8,25 @@ import backgroundImage from "../../../icon/backgroundImg.jpeg";
 const Constacts = () => {
   const [call, setCall] = useState(false);
   const [text, setText] = useState("");
-  const [text_number, setTextNumber] = useState('')
+  const [text_number, setTextNumber] = useState("");
 
   function handleText(e) {
     setText(e.target.value);
   }
 
   function handleTextNumber(e) {
-    setTextNumber(e.target.value)
-  }
-
-  function handleSubmitCall(e) {
-    e.preventDefault()
-    setText('')
-    setTextNumber('')
+    setTextNumber(e.target.value);
   }
 
   function handleOpenCall() {
-    if (!text) {
-      setCall(!call);
-    }
+    setCall(!call);
+    setText("");
+    setTextNumber("");
+  }
+  function handleBtn(e) {
+    e.preventDefault();
+    setText("");
+    setTextNumber("");
   }
 
   return (
@@ -84,7 +83,11 @@ const Constacts = () => {
       {call && (
         <div className="set_call_block">
           <div className="call_block">
-            <form className="call_form" action="">
+            <form
+              onSubmit={(e) => handleBtn(e)}
+              className="call_form"
+              action=""
+            >
               <div className="form_head">
                 <div className="form_head_title">Обратный звонок</div>
                 <div className="form_head_text">
@@ -113,10 +116,10 @@ const Constacts = () => {
                   <br />
                   <input
                     required
-                    onChange={handleTextNumber}
                     value={text_number}
+                    onChange={handleTextNumber}
                     minLength={10}
-                    maxLength={15}
+                    maxLength={12}
                     type="tel"
                     placeholder="7(999)999-99-99"
                     pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
@@ -127,7 +130,7 @@ const Constacts = () => {
                   <br />
                   <input type="email" />
                   <br />
-                  <button onClick={(e) => handleSubmitCall(e)} className="ship_button">Заказать звонок</button>
+                  <button className="ship_button">Заказать звонок</button>
                 </div>
               </div>
             </form>
