@@ -1,3 +1,13 @@
+.car_service{
+    width: 1290px;
+    height: 770px;
+    border: 1px solid yellow;
+    margin-left: 6%;
+    margin-top: 6%;
+    background: url('../../icon/car.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 .car{
-    
+    border: 1px solid red;
 }
