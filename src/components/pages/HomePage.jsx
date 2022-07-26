@@ -1,9 +1,10 @@
-import React from 'react';
-import Footer from "../Footer/Footer";
+import react from 'react';
+import { Container } from 'react-bootstrap';
+import backgroundImage from "../../icon/backgroundImg.jpeg";
+import Navibar from "./Navibar/Navibar";
+import Footer from "../Footer/Footer"
+import Car from '../Car/Car';
 import LearnMore from './Learn-More/LearnMore';
-import { Container } from "react-bootstrap";
-import backgroundImage from "../../../icon/backgroundImg.jpeg";
-// import "./style.css";
 
 const HomePage = () => {
    return (
