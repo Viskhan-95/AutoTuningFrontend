@@ -65,7 +65,7 @@ const SignUpPage = () => {
             onClick={handleClose}
             style={{ color: "white", background: "black", border: "none" }}
           >
-            X
+            &times;
           </Button>
         </Modal.Header>
 

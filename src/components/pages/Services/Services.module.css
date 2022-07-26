@@ -1,0 +1,31 @@
+.services_container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+.services_container h1 {
+  font-size: 48px;
+  font-family: Gilroy, Tahoma, Arial;
+}
+.services_content_parent {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+}
+.services_content {
+  width: 400px;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: grey;
+  
+}
+.element_title {
+  color: white;
+  font-size: 30px;
+  font-family: Gilroy, Tahoma, Arial;
+}
+.element_button {
+
+}
