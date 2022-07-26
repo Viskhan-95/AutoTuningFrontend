@@ -37,7 +37,7 @@ const HomePage = () => {
                </Link>
             </Container>
          </Container>
-
+         <Car />
          <LearnMore />
          <Footer />
       </>
