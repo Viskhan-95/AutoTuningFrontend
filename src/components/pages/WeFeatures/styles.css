@@ -1,0 +1,37 @@
+.features {
+  width: 1210px;
+  margin: 0 auto;
+  margin-bottom: 3%;
+  margin-top: 2%;
+}
+
+.features_element {
+  float: left;
+  width: 370px;
+  height: 230px;
+  margin-left: 30px;
+  padding-bottom: 55px;
+}
+
+.element_image img{
+  height: 45px;
+  width: 45px;
+}
+
+.element_title {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 20px 0;
+}
+
+.element_description {
+  font-size: 16px;
+  color: #7e7e7e;
+}
+
+.element_string {
+  width: 70px;
+  height: 7px;
+  background: #db3333;
+  margin-top: 20px;
+}

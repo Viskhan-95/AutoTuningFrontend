@@ -5,7 +5,6 @@ import Contacts from "./components/pages/Contacts/Contacts";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Services from './components/pages/Services/Services';
 import Layout from "./components/Layout/Layout";
-import Footer from "./components/Layout/Footer/Footer";
 
 
 function App() {
@@ -13,13 +12,12 @@ function App() {
 		<>
 			<BrowserRouter>
 				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/about" element={<About />} />
+
 					<Route path="/*" element={<Layout />} >
-
-						<Route index element={<HomePage />} />
-						<Route path="about" element={<About />} />
-						<Route path="contacts" element={<Contacts />} />
 						<Route path="services" element={<Services />} />
-
+						<Route path="contacts" element={<Contacts />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
