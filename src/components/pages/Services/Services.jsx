@@ -9,7 +9,6 @@ function Services() {
   const services = useSelector((state) => state.services.services);
   const dispatch = useDispatch();
 
-  console.log(services)
 
   useEffect(() => {
     dispatch(getServices());
