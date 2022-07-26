@@ -1,7 +1,22 @@
-body {
-    background-image: url("./icon/backgroundImg.jpeg");
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
+.modal-content {
+   color: white !important;
+   background-image: url('./image/bmw.jpg');
+   background-size: cover;
+}
+
+.primary {
+   color: white !important;
+}
+
+.close {
+   color: white;
+}
+
+.btn-close {
+   background: #000000;
+   color: #ffffff;
+}
+
+.outlet {
+   min-height: 80vh;
 }

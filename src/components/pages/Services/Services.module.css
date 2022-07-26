@@ -1,19 +1,29 @@
 .services_container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 100px 0;
+   width: 80%;
+   margin: 0 auto;
+   padding: 100px 0;
 }
+
 .services_container h1 {
-  font-size: 48px;
-  font-family: Gilroy, Tahoma, Arial;
+   font-size: 48px;
+   font-family: Gilroy, Tahoma, Arial;
 }
+
 .services_content_parent {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: 0 auto;
+   display: flex;
+   flex-wrap: wrap;
+   width: 100%;
+   margin: 0 auto;
 }
+
 .services_content {
+<<<<<<< HEAD
+   width: 400px;
+   height: 400px;
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-color: grey;
+=======
   margin: 1px;
   width: 400px;
   height: 350px;
@@ -34,12 +44,22 @@
   font-family: Gilroy, Tahoma, Arial;
   width: 85%;
 }
+>>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee
 
 .btn a {
   text-decoration: none;
   color: white;
 }
 
+<<<<<<< HEAD
+.element_title {
+   color: white;
+   font-size: 30px;
+   font-family: Gilroy, Tahoma, Arial;
+}
+
+.element_button {}
+=======
 .btn {
   background-color: rgb(219, 51, 51);
   border: none;
@@ -60,3 +80,4 @@
   padding-left: 5%;
   padding-top: 5%;
 }
+>>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee
