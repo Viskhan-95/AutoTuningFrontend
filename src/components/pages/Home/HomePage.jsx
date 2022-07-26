@@ -3,6 +3,7 @@ import LearnMore from "../Learn-More/LearnMore";
 import Navibar from "../Navibar/Navibar";
 import Footer from "../../Layout/Footer/Footer";
 import { Link } from "react-router-dom";
+import Features from "../WeFeatures/Features";
 
 const HomePage = () => {
    return (
