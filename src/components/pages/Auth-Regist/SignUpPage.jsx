@@ -87,6 +87,7 @@ const SignUpPage = () => {
                      </span>
                   </Form.Group>
 
+<<<<<<< HEAD
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                      <Form.Label>Password </Form.Label>
                      <Form.Control
@@ -123,6 +124,25 @@ const SignUpPage = () => {
                            />
                         </div>
                      )}
+=======
+  return (
+    <>
+      <Modal
+        show={showSignUp}
+        onHide={handleClose}
+        keyboard={true}
+        backdrop="static"
+      >
+        <Modal.Header>
+          <Modal.Title style={{ paddingLeft: "25%" }}>РЕГИСТРАЦИЯ</Modal.Title>
+          <Button
+            onClick={handleClose}
+            style={{ color: "white", background: "black", border: "none", fontSize: "28px", }}
+          >
+            &times;
+          </Button>
+        </Modal.Header>
+>>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee
 
                      <span style={{ color: colorTextError, fontSize: 14 }}>
                         {" "}

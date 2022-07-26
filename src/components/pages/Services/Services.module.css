@@ -17,14 +17,41 @@
 }
 
 .services_content {
+<<<<<<< HEAD
    width: 400px;
    height: 400px;
    background-repeat: no-repeat;
    background-size: contain;
    background-color: grey;
-
+=======
+  margin: 1px;
+  width: 400px;
+  height: 350px;
+  background: center center no-repeat;
+  background-size: cover;
+  background-color: white;
+  box-shadow: 0 0 0 180px rgb(0 0 0 / 50%) inset;
 }
 
+.services_content:hover {
+  transition: 0.4s;
+  box-shadow: none;
+}
+
+.element_title {
+  color: white;
+  font-size: 30px;
+  font-family: Gilroy, Tahoma, Arial;
+  width: 85%;
+}
+>>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee
+
+.btn a {
+  text-decoration: none;
+  color: white;
+}
+
+<<<<<<< HEAD
 .element_title {
    color: white;
    font-size: 30px;
@@ -32,3 +59,25 @@
 }
 
 .element_button {}
+=======
+.btn {
+  background-color: rgb(219, 51, 51);
+  border: none;
+  padding: 4px;
+  border-radius: 5px;
+  top: 5;
+}
+
+.element_button {
+  position: absolute;
+  top: 285px;
+  
+}
+
+.title_and_btn {
+  position: relative;
+  width: 80%;
+  padding-left: 5%;
+  padding-top: 5%;
+}
+>>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee

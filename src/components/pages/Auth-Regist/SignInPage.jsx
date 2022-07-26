@@ -66,6 +66,7 @@ const SignInPage = () => {
             </Button>
          </Modal.Header>
 
+<<<<<<< HEAD
          <Modal.Body>
             <Form>
                <Form.Group className="mb-3" controlId="formBasicLogin">
@@ -80,6 +81,24 @@ const SignInPage = () => {
                      (обязательное поле){" "}
                   </span>
                </Form.Group>
+=======
+  return (
+    <Modal
+      show={showSignIn}
+      onHide={handleClose}
+      keyboard={true}
+      backdrop="static"
+    >
+      <Modal.Header>
+        <Modal.Title style={{ paddingLeft: "25%" }}>АВТОРИЗАЦИЯ</Modal.Title>
+        <Button
+          onClick={handleClose}
+          style={{ color: "white", background: "black", border: "none", fontSize: "28px", }}
+        >
+          &times;
+        </Button>
+      </Modal.Header>
+>>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee
 
                <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
