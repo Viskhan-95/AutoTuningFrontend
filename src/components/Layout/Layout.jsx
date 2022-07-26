@@ -6,7 +6,7 @@ import Navibar from '../pages/Navibar/Navibar';
 const Layout = () => {
    return (
       <>
-         <Navibar />
+         {Navibar(20)}
          <div className="outlet">
             <Outlet />
          </div>
