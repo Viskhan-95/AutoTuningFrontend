@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-
 const Constacts = () => {
    const [call, setCall] = useState(false);
    const [text, setText] = useState("");
