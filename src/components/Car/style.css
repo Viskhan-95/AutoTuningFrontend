@@ -52,10 +52,11 @@
     left: 30%;
 }
 .card{
-    border: 1px solid black;
     width: 370px;
     height: 250px;
     padding: 0 20px;
+    box-shadow: 0 5px 25px rgb(149 149 149 / 73%);
+    position: absolute;
 }
 .title{
     font-family: 'Gilroy', Arial, Helvetica, sans-serif;
