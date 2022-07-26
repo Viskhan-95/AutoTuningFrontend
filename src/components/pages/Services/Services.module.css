@@ -5,7 +5,9 @@
 }
 .services_container h1 {
   font-size: 48px;
+  font-weight: bold;
   font-family: Gilroy, Tahoma, Arial;
+  margin-bottom: 60px;
 }
 .services_content_parent {
   display: flex;
@@ -39,19 +41,27 @@
   text-decoration: none;
   color: white;
 }
+.btn a:hover {
+  color: rgb(219, 51, 51);
+}
 
 .btn {
   background-color: rgb(219, 51, 51);
-  border: none;
-  padding: 4px;
+  border: 1px solid rgb(219, 51, 51);
+  padding: 4px 16px;
   border-radius: 5px;
   top: 5;
+  transition: 0.4s;
+  outline: none;
+  
+}
+.btn:hover {
+  background-color: white;
 }
 
 .element_button {
   position: absolute;
   top: 285px;
-  
 }
 
 .title_and_btn {
