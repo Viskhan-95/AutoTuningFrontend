@@ -53,7 +53,6 @@
   top: 5;
   transition: 0.4s;
   outline: none;
-  
 }
 .btn:hover {
   background-color: white;
@@ -69,4 +68,32 @@
   width: 80%;
   padding-left: 5%;
   padding-top: 5%;
+}
+.back_to_services {
+  margin-bottom: 30px;
+}
+.back_to_services a {
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+.images_block {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.images_block img {
+  width: 400px;
+  height: 350px;
+  margin: 1px;
+}
+.image_container {
+  background: center center no-repeat;
+  background-size: cover;
+  background-color: white;
+  
+}
+.iconArrow {
+  margin-right: 10px;
 }
