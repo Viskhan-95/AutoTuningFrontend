@@ -12,7 +12,7 @@ import logo from "../../../icon/iconAutoTuning.png"
 import { Link } from "react-router-dom";
 import backgroundImage from "../../../icon/backgroundImg.jpeg"
 
-const Navibar = () => {
+const Navibar = (heightHeader) => {
    const token = useSelector((state) => state.usersReducer.token);
 
    const dispatch = useDispatch();
@@ -42,14 +42,14 @@ const Navibar = () => {
       marginRight: "20px",
    };
    return (
-      <Container fluid className="header d-flex align-items-baseline"
+      <Container fluid className="header d-flex align-items-baseline p-4"
          style={{
             backgroundImage: `url(${backgroundImage}`,
-            height: "100vh",
+            height:`${heightHeader}vh`,
             width: "100%",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            padding: 0,
+            backgroundPosition: "center",
          }}
       >
          <div className="header_logo">
