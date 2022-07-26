@@ -8,17 +8,7 @@ import car from '../../icon/car.png'
 
 
 const Car = () => {
-<<<<<<< HEAD
-   return (
-      <div className='car'>
-         <div className='car_service'>
-            <div className='service-info'></div>
-
-         </div>
-      </div>
-   );
-=======
-    const dispatch = useDispatch()
+       const dispatch = useDispatch()
     const services = useSelector((state)=>state.services.services)
     
     useEffect(() => {
@@ -37,7 +27,6 @@ const Car = () => {
             </div>
         </div>
     );
->>>>>>> 90187483cdf2742b4a002d4024efbd04197c84ee
 };
 
 export default Car;
