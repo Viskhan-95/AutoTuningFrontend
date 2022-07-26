@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './footer.module.css'
-import logo from '../../icon/iconAutoTuning.png'
-import tg from '../../icon/tg.png'
-import inst from '../../icon/inst.png'
-import vk from '../../icon/vk.png'
+import logo from '../../../icon/iconAutoTuning.png'
+import tg from '../../../icon/tg.png'
+import inst from '../../../icon/inst.png'
+import vk from '../../../icon/vk.png'
 
 const Footer = () => {
     return (

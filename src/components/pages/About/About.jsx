@@ -1,5 +1,6 @@
 import React from 'react';
 import "./styles.css"
+import Footer from "../Footer/Footer";
 
 const About = () => {
     return (
@@ -12,6 +13,7 @@ const About = () => {
             <div className="benefits_block">
                 <h2 className="benefits_text">Преимущества работы с нами</h2>
             </div>
+            <Footer />
         </div>
     );
 };
