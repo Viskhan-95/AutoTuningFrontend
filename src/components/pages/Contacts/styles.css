@@ -1,5 +1,6 @@
 .contacts {
   background: white;
+  margin-top: 3%;
 }
 
 .street_and_we_contacts {
@@ -110,8 +111,7 @@
 }
 
 .map {
-  margin-top: 6%;
-  border: 0;
+  margin-top: 3%;
 }
 
 .set_call_block {
@@ -214,7 +214,7 @@
   color: blue;
 }
 
-.form_close img{
+.form_close img {
   display: block;
   width: 23px;
   height: 23px;
