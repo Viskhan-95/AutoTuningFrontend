@@ -1,7 +1,8 @@
 import { Button, Container } from "react-bootstrap";
 import LearnMore from "../Learn-More/LearnMore";
 import Navibar from "../Navibar/Navibar";
-import Footer from "../../Layout/Footer/Footer";
+import Footer from "../../Layout/Footer/Footer"
+import Car from '../../Car/Car';
 import { Link } from "react-router-dom";
 import Features from "../WeFeatures/Features";
 
