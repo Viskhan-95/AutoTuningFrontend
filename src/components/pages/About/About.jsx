@@ -2,12 +2,10 @@ import React from 'react';
 import Footer from '../../Footer/Footer';
 import Navibar from '../Navibar/Navibar';
 import "./styles.css"
-import Footer from "../Footer/Footer";
 
 const About = () => {
     return (
         <div className="about">
-            <Navibar />
             <div className="site_title">
                 <h1 className="title_text_1">Качественный стайлинг</h1>
                 <div className="title_text_2">для Вашего автомобиля в Москве</div>
