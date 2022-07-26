@@ -64,16 +64,14 @@
 }
 
 .head-title {
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 600;
   color: #eaeced;
-  padding: 30px 0 20px 0;
+  padding: 25px 0 10px;
 }
 
 .head-text {
-  font-size: 13px;
-  padding-bottom: 25px;
-  border-bottom: 5px solid #db3333;
+  font-size: 16px;
   color: #fff;
 }
 
