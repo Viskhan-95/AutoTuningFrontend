@@ -1,13 +1,11 @@
-import { Container } from 'react-bootstrap';
-import backgroundImage from "../../../icon/backgroundImg.jpeg";
-import Navibar from "../Navibar/Navibar";
-import Footer from "../../Layout/Footer/Footer"
 import LearnMore from "../Learn-More/LearnMore"
+import Features from "../WeFeatures/Features";
 
 const HomePage = () => {
    return (
       <>
          <LearnMore />
+         <Features />
       </>
    )
 };

@@ -72,7 +72,7 @@ const SignUpPage = () => {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicLogin">
-              <Form.Label>Login </Form.Label>
+              <Form.Label>Логин </Form.Label>
               <Form.Control
                 type="login"
                 placeholder="Enter login"
@@ -88,7 +88,7 @@ const SignUpPage = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password </Form.Label>
+              <Form.Label>Пароль </Form.Label>
               <Form.Control
                 type={showPassword ? "Text" : "Password"}
                 placeholder="Password"
