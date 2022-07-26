@@ -13,6 +13,7 @@ const HomePage = () => {
             <h1>АВТОТЮНИНГ</h1>
       
          </Container>
+         <Car />
          <LearnMore />
          <Footer />
       </>
