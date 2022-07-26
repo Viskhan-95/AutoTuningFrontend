@@ -75,6 +75,7 @@ const HomePage = () => {
             })}
          </Container>
 
+         <Car />
          <Features />
          <LearnMore />
          <Footer />

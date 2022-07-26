@@ -8,20 +8,90 @@
     background-size: contain;
 }
 .service-info{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Gilroy', Arial, Helvetica, sans-serif;
     position: absolute;
     top: 106%;
 }
 .link{
     text-decoration: none;
 }
-.blue_circle{
-    border: 1px solid blue;
+.service{
+    border: 10px solid blue;
     border-radius: 100%;
     width: 30px;
     height: 30px;
+    background-color: white;
 }
 .antiGraviy{
     position: absolute;
-    left: 10%;
+    left: 19%;
+    top: 170% ;
+}
+.Tonirovka{
+    position:absolute;
+    left: 65%;
+    top: 120%;
+}
+.Polirovka{
+    position: absolute;
+    left: 26%;
+    top: 155% ;
+}
+.led{
+    position: absolute;
+    left: 35%;
+    top: 152% ; 
+}
+.Ptf{
+    position: absolute;
+    left: 29%;
+    top: 170% ;
+}
+.Detailing{
+    position: absolute;
+    left: 30%;
+}
+.card{
+    border: 1px solid black;
+    width: 370px;
+    height: 250px;
+    padding: 0 20px;
+}
+.title{
+    font-family: 'Gilroy', Arial, Helvetica, sans-serif;
+}
+.text{
+    font-family: 'Gilroy', Arial, Helvetica, sans-serif;
+    color: gray;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 38%;
+}
+.more{
+    background-color: blue;
+    transition: all 0.2s ease-in 0s;
+    color: white;
+    border: 1px solid blue;
+    cursor: pointer;
+    font-size: 16px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 3px; 
+}
+.get_form{
+    background-color: red;
+    transition: all 0.2s ease-in 0s;
+    color: white;
+    border: 1px solid red;
+    cursor: pointer;
+    font-size: 16px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 3px;  
 }
