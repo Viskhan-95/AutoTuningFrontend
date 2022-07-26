@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../../Footer/Footer';
 import Navibar from '../Navibar/Navibar';
 import "./styles.css"
+import Footer from "../Footer/Footer";
 
 const About = () => {
     return (
