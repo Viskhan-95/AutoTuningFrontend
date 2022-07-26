@@ -6,7 +6,7 @@ import serviceReducer from "../features/services/servicesSlice";
 export const store = configureStore({
     reducer: {
         usersReducer: usersReducer, 
-        review: reviewSlice
+        review: reviewSlice,
         services: serviceReducer,
     }
 });
