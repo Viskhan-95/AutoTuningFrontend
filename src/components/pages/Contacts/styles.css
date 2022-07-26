@@ -1,3 +1,7 @@
+.contacts {
+  background: white;
+}
+
 .street_and_we_contacts {
   margin-left: 2%;
 }
@@ -17,7 +21,7 @@
 }
 
 .share_block {
-  width: 310px;
+  width: 330px;
   float: right;
   margin-right: 2%;
 }
