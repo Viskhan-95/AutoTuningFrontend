@@ -16,8 +16,7 @@ img {
 
 .mainFooter {
    display: flex;
-   height: 270px;
-   margin-top: 270px;
+   margin: 30px 0;
 }
 
 .content {
