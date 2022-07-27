@@ -7,7 +7,9 @@ import Navibar from "../Navibar/Navibar";
 import Footer from "../../Layout/Footer/Footer"
 import { Link } from "react-router-dom";
 import Car from "../../Car/Car";
-import Features from '../WeFeatures/Features'
+import Features from "../WeFeatures/Features";
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 
 const HomePage = () => {
@@ -17,6 +19,38 @@ const HomePage = () => {
    useEffect(() => {
       dispatch(getServices());
    }, [dispatch]);
+
+   const responsive = {
+      0: { items: 1 },
+      568: { items: 2 },
+      1024: { items: 3 },
+   };
+
+   const styleCard1 = "0px 5px 10px 2px rgba(34, 60, 80, 0.2)"
+
+   const itemsServices = services.map((service, index) => {
+      const styleCard = index % 2 === 0 && styleCard1
+      return (
+         <Container className="item" date-value={index} style={{
+            marginTop: "25px"
+         }}>
+            <Card style={{
+               border: "none",
+               padding: "10px",
+               margin: 0,
+               boxShadow: styleCard
+            }}
+               variant="top" >
+               <Card.Body >
+                  <Card.Title>{service.title}</Card.Title>
+                  <Card.Text>
+                     {service.text}
+                  </Card.Text>
+               </Card.Body>
+            </Card>
+         </Container>
+      )
+   })
 
    return (
       <>
@@ -60,22 +94,27 @@ const HomePage = () => {
                   </Button>
                </Link>
             </Container>
-
-            {services.map((service) => {
-               <Container>
-                  <Card style={{ borderRadius: "15px", cursor: "pointer" }} className="h-100 b-radius-3"
-                     variant="top" >
-                     <Card.Body >
-                        <Card.Title>{service.title}</Card.Title>
-                        <Card.Text>
-                           {service.text}
-                        </Card.Text>
-                     </Card.Body>
-                  </Card>
-               </Container>
-            })}
          </Container>
-
+         <Container style={{
+            boxShadow: "0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset",
+            width: "80%",
+            backgroundColor: "white",
+            marginTop: "-150px",
+         }}>
+            <AliceCarousel
+               mouseTracking
+               items = {itemsServices}
+               responsive = {responsive}
+               controlsStrategy = "alternate"
+               autoPlay = "true"
+               autoPlayInterval = "4000"
+               autoPlayStrategy = "default"
+               disableDotsControls = "false"
+               infinite = "true"
+               animationType="fadeout"
+               activeIndex = "1"
+            />
+         </Container>
          <Car />
          <Features />
          <LearnMore />
