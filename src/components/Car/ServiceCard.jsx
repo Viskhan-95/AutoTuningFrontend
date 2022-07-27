@@ -37,7 +37,7 @@ function Card({ el }) {
     return (
       <div className={`service ${el.class}`}> 
               <div className="card">
-                <div className="title"><h3>{el.title}</h3></div>
+                <div className="title"><h4>{el.title}</h4></div>
                 <div className="text">{el.text}</div>
                 <div className="buttons">
                   <Link to={`service/${el._id}`}><button className="more">Подробнее</button></Link>

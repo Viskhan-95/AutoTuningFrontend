@@ -36,12 +36,11 @@
    float: left;
    height: 49px;
    color: #282828;
+   width: 50%;
+   text-decoration: none;
 }
 
 .tag:hover {
-   width: 330px;
-   float: left;
-   height: 49px;
    color: #ca2626;
 }
 

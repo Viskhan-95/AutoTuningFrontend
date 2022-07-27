@@ -27,22 +27,31 @@
   background-color: white;
   position: relative;
   display: inline-block;
-  /* z-index: 1; */
+  
+  
 }
 .service:hover .card {
   visibility: visible;
   opacity: 1;
-  transition: all 220ms ease-in-out;
+  transition: all 350ms ease-in-out;
+  transform: translateX(-250%);
+  
 }
+
 .card {
+  transition: 0.55s opacity, 0.55s visibility;
+  transition: all 350ms ease-in-out;
   width: 370px;
   max-height: 350px;
-  padding: 0 20px;
+  padding: 20px 20px;
   box-shadow: 0 5px 25px rgb(149 149 149 / 73%);
   position: absolute;
   visibility: hidden;
   opacity: 0;
   z-index: 2;
+  left: 100vh;
+  top: 20px;
+  
 }
 .antiGraviy {
   position: absolute;
@@ -71,7 +80,8 @@
 }
 .detailing {
   position: absolute;
-  left: 30%;
+  left: 40%;
+  top: 12%;
 }
 .dopOb{
   position: absolute;
@@ -113,8 +123,7 @@
 .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 38%;
-  margin-bottom: 3%;
+  margin-top: 20%;
 }
 .more {
   background-color: blue;
