@@ -6,8 +6,10 @@ import LearnMore from "../Learn-More/LearnMore";
 import Navibar from "../Navibar/Navibar";
 import Footer from "../../Layout/Footer/Footer"
 import { Link } from "react-router-dom";
-import Car from "../../Car/Car"
-import Features from "../WeFeatures/Features"
+import Car from "../../Car/Car";
+import Features from '../WeFeatures/Features'
+
+
 const HomePage = () => {
    const services = useSelector((state) => state.services.services);
    const dispatch = useDispatch();
