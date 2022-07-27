@@ -7,8 +7,6 @@ import Car from "../../Car/Car"
 import Features from "../WeFeatures/Features"
 import Navibar from "../Navibar/Navibar";
 import Footer from "../../Layout/Footer/Footer"
-import Car from "../../Car/Car"
-import Features from "../WeFeatures/Features"
 import { Link } from "react-router-dom";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -27,29 +25,15 @@ const HomePage = () => {
       1024: { items: 3 },
    };
 
-   const styleCard1 = "0px 5px 10px 2px rgba(34, 60, 80, 0.2)"
-
    const itemsServices = services.map((service, index) => {
-      const styleCard = index % 2 === 0 && styleCard1
       return (
-         <Container className="item" date-value={index} style={{
-            marginTop: "25px"
-         }}>
-            <Card style={{
-               border: "none",
-               padding: "10px",
-               margin: 0,
-               boxShadow: styleCard,
-            }}
-               variant="top" >
-               <Card.Body >
-                  <Card.Title>{service.title}</Card.Title>
-                  <Card.Text>
-                     {service.text}
-                  </Card.Text>
-               </Card.Body>
-            </Card>
-         </Container>
+         <div className="item carusel" date-value={index} >
+            <div >
+            {service.title} 
+            {service.text}
+
+            </div>
+         </div>
       )
    })
 
@@ -104,16 +88,15 @@ const HomePage = () => {
          }}>
             <AliceCarousel
                mouseTracking
-               items = {itemsServices}
-               responsive = {responsive}
-               controlsStrategy = "alternate"
-               autoPlay = "true"
-               autoPlayInterval = "4000"
-               autoPlayStrategy = "default"
-               disableDotsControls = "false"
-               infinite = "true"
+               items={itemsServices}
+               responsive={responsive}
+               controlsStrategy="alternate"
+               autoPlay="true"
+               autoPlayInterval="4000"
+               autoPlayStrategy="default"
+               disableDotsControls="false"
+               infinite="true"
                animationType="fadeout"
-               activeIndex = "1"
             />
          </Container>
          <Car />
