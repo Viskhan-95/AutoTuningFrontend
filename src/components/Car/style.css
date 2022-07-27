@@ -1,3 +1,7 @@
+.car{
+    position: relative;
+    margin-top: 350px;
+}
 .car_service {
   width: 1290px;
   height: 770px;
@@ -10,7 +14,7 @@
 .service-info {
   font-family: "Gilroy", Arial, Helvetica, sans-serif;
   position: absolute;
-  top: 106%;
+  top: -7%;
 }
 .link {
   text-decoration: none;
@@ -41,27 +45,27 @@
 .antiGraviy {
   position: absolute;
   left: 19%;
-  top: 170%;
+  top: 55%;
 }
 .Tonirovka {
   position: absolute;
   left: 65%;
-  top: 120%;
+  top: 8%;
 }
 .Polirovka {
   position: absolute;
   left: 26%;
-  top: 155%;
+  top: 44%;
 }
 .led {
   position: absolute;
   left: 35%;
-  top: 152%;
+  top: 38%;
 }
 .Ptf {
   position: absolute;
   left: 29%;
-  top: 170%;
+  top: 57%;
 }
 .Detailing {
   position: absolute;
