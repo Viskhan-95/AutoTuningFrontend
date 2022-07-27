@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getServices } from "../../../features/services/servicesSlice";
 import LearnMore from "../Learn-More/LearnMore";
+import Car from "../../Car/Car"
+import Features from "../WeFeatures/Features"
 import Navibar from "../Navibar/Navibar";
 import Footer from "../../Layout/Footer/Footer"
 import { Link } from "react-router-dom";

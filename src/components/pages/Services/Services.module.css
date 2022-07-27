@@ -7,7 +7,6 @@
   font-size: 48px;
   font-weight: bold;
   font-family: Gilroy, Tahoma, Arial;
-  margin-bottom: 60px;
 }
 .services_content_parent {
   display: flex;
@@ -92,8 +91,17 @@
   background: center center no-repeat;
   background-size: cover;
   background-color: white;
-  
 }
 .iconArrow {
   margin-right: 10px;
 }
+
+.zapicNaUslugu {
+  display: flex;
+  justify-content: space-between;
+  width: 99.5%;
+  align-items: center;
+  margin-bottom: 60px;
+
+}
+
