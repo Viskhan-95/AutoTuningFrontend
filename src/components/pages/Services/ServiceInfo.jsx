@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getServices } from "../../../features/services/servicesSlice";
 import { HiOutlineArrowLeft } from "react-icons/hi";
+import Reviews from "../Reviews/Reviews";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Button from "react-bootstrap/Button";
@@ -148,6 +149,8 @@ function ServiceInfo() {
                   );
                 })}
               </div>
+              <hr style={{ width: "99%", border: "1px solid", marginTop: "5%" }} />
+              <Reviews />
             </div>
           );
         }

@@ -7,6 +7,8 @@ import Car from "../../Car/Car"
 import Features from "../WeFeatures/Features"
 import Navibar from "../Navibar/Navibar";
 import Footer from "../../Layout/Footer/Footer"
+import Car from "../../Car/Car"
+import Features from "../WeFeatures/Features"
 import { Link } from "react-router-dom";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
