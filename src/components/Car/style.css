@@ -1,6 +1,6 @@
 .car{
     position: relative;
-    margin-top: 350px;
+    margin-top: 400px;
 }
 .car_service {
   width: 1290px;
@@ -14,7 +14,7 @@
 .service-info {
   font-family: "Gilroy", Arial, Helvetica, sans-serif;
   position: absolute;
-  top: -7%;
+  top: -2%;
 }
 .link {
   text-decoration: none;
@@ -35,7 +35,7 @@
 }
 .card {
   width: 370px;
-  height: 250px;
+  max-height: 350px;
   padding: 0 20px;
   box-shadow: 0 5px 25px rgb(149 149 149 / 73%);
   position: absolute;
@@ -47,12 +47,12 @@
   left: 19%;
   top: 55%;
 }
-.Tonirovka {
+.tonirovka {
   position: absolute;
   left: 65%;
   top: 8%;
 }
-.Polirovka {
+.polirovka {
   position: absolute;
   left: 26%;
   top: 44%;
@@ -62,14 +62,44 @@
   left: 35%;
   top: 38%;
 }
-.Ptf {
+.ptf {
   position: absolute;
   left: 29%;
   top: 57%;
 }
-.Detailing {
+.detailing {
   position: absolute;
   left: 30%;
+}
+.dopOb{
+  position: absolute;
+  left: 75%;
+  top: 20%;
+}
+.chehli{
+  position: absolute;
+  left: 58%;
+  top: 12%;
+}
+.noiseless{
+  position: absolute;
+  left: 58%;
+  top: 30%;
+}
+.kuzov{
+    position: absolute;
+    left: 20%;
+    top: 22%;
+}
+.prot{
+  position: absolute;
+  left: 47%;
+  top: 16%;
+}
+.weels{
+    position: absolute;
+    left: 41%;
+    top: 57%; 
 }
 .title {
   font-family: "Gilroy", Arial, Helvetica, sans-serif;
@@ -82,6 +112,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 38%;
+  margin-bottom: 3%;
 }
 .more {
   background-color: blue;
