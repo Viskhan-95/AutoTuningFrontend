@@ -1,30 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReviews, postReview } from "../../../features/reviews/reviewsSlice";
-import { showModalSignIn } from "../../../features/users/usersSlice";
+import { getUsers, showModalSignIn } from "../../../features/users/usersSlice";
 import "./styles.css";
 
 const Reviews = () => {
   const reviews = useSelector((state) => state.review.reviews);
+  const users = useSelector((state) => state.usersReducer.users);
+  console.log(users);
   const token = useSelector((state) => state.usersReducer.token);
 
-  const [sortNew, setSortNew] = useState(true);
+  const [sortNew, setSortNew] = useState(false);
   const [plusText, setPlusText] = useState("");
   const [minusText, setMinusText] = useState("");
   const [rating, setRating] = useState(1);
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getReviews());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
+
   function handleSortNew() {
     setSortNew(!sortNew);
   }
 
-  function handlePlusText(e) {
-    setPlusText(e);
+  function handlePlusText(value) {
+    setPlusText(value);
   }
 
-  function handleMinusText(e) {
-    setMinusText(e);
+  function handleMinusText(value) {
+    setMinusText(value);
   }
 
   function handleRating(value) {
@@ -32,16 +42,15 @@ const Reviews = () => {
   }
 
   function handleOpen() {
-    dispatch(showModalSignIn(true))
+    dispatch(showModalSignIn(true));
   }
 
   function handleSubmitReview() {
     dispatch(postReview({ rating, plusText, minusText }));
+    setMinusText("");
+    setPlusText("");
+    setRating(1)
   }
-
-  // useEffect(() => {
-  //   dispatch(getReviews());
-  // }, [dispatch]);
 
   return (
     <div style={{ marginTop: "2%" }}>
@@ -137,30 +146,56 @@ const Reviews = () => {
         </div>
       ) : (
         <div className="token_error">
-          <span style={{cursor: "pointer", color: "blue"}} onClick={handleOpen}>Войдите</span> в аккаунт, чтобы оставлять отзывы
+          <span
+            style={{ cursor: "pointer", color: "blue" }}
+            onClick={handleOpen}
+          >
+            Войдите
+          </span>{" "}
+          в аккаунт, чтобы оставлять отзывы
         </div>
       )}
-      <div className="reviews_list">
+      <hr style={{ marginTop: "3%", border: "1px solid" }} />
+      <div className={sortNew ? "reviews_list_true" : "reviews_list_false"}>
         {reviews &&
           reviews.map((item) => {
             return (
-              <div className="review">
-                <div className="user_img_login">
-                  <img
-                    className="user_img"
-                    src="https://otzovik.com/static/img/2018/icons/default_photo.svg"
-                    alt=""
-                  />
-                  <div className="user_name">{item.user.login}</div>
-                </div>
-                <div className="review_block">
-                  <div className="user_name_2">{item.user.login}</div>
-                  <div className="data">{item.data}</div>
-                  <div className="rating">{item.rating}</div>
-                  <div className="plus">{item.plus}</div>
-                  <div className="minus">{item.minus}</div>
-                </div>
-              </div>
+              users &&
+              users.map((user) => {
+                if (user._id === item.user) {
+                  let star = "";
+                  for (let index = 0; index < item.rating; index++) {
+                    star += "★";
+                  }
+                  return (
+                    <>
+                      <hr />
+                      <div className="review">
+                        <div className="user_img_login">
+                          <img
+                            className="user_img"
+                            src="https://otzovik.com/static/img/2018/icons/default_photo.svg"
+                            alt=""
+                          />
+                          <div className="user_name">{user.login}</div>
+                        </div>
+                        <div className="review_block">
+                          <div className="user_name_2">{user.login}</div>
+                          <div className="data">
+                            {item.data.slice(0, 10)} {item.data.slice(11, 16)}
+                          </div>
+                          <div className="rating">{star}</div>
+                          <div style={{ marginBottom: "0.5%" }}>Достоинства:</div>
+                          <div className="plus">{item.plus}</div>
+                          <div style={{ marginBottom: "0.5%" }}>Недостатки:</div>
+                          <div className="minus">{item.minus}</div>
+                        </div>
+                      </div>
+                      <hr />
+                    </>
+                  );
+                }
+              })
             );
           })}
       </div>
