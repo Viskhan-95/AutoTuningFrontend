@@ -35,7 +35,7 @@
 }
 .card {
   width: 370px;
-  height: 250px;
+  max-height: 350px;
   padding: 0 20px;
   box-shadow: 0 5px 25px rgb(149 149 149 / 73%);
   position: absolute;
@@ -96,6 +96,11 @@
   left: 47%;
   top: 16%;
 }
+.weels{
+    position: absolute;
+    left: 41%;
+    top: 57%; 
+}
 .title {
   font-family: "Gilroy", Arial, Helvetica, sans-serif;
 }
@@ -107,6 +112,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 38%;
+  margin-bottom: 3%;
 }
 .more {
   background-color: blue;
