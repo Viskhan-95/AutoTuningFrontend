@@ -10,8 +10,6 @@ const Car = () => {
   const dispatch = useDispatch();
   const services = useSelector((state) => state.services.services);
 
-  const [opened, setOpened] = useState(false);
-
   useEffect(() => {
     dispatch(getServices());
   }, [dispatch]);
