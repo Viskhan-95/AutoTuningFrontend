@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
-import { useEffect} from "react";
-import { useDispatch,} from "react-redux";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { getServices } from "../../features/services/servicesSlice";
+import { Link } from "react-router-dom";
 
 function Card({ el }) {
   const [call, setCall] = useState(false);
