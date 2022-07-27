@@ -7,6 +7,7 @@ import Services from "./components/pages/Services/Services";
 import Layout from "./components/Layout/Layout";
 import ServiceInfo from "./components/pages/Services/ServiceInfo";
 import ScrollToTop from "./components/ScrollToTop";
+import Calendar from "react-calendar";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
 
           <Route path="/*" element={<Layout />}>
             <Route path="services" element={<Services />} />
+            <Route path="calendar" element={<Calendar/>}/>
             <Route path="service/:id" element={<ServiceInfo />} />
           </Route>
 
