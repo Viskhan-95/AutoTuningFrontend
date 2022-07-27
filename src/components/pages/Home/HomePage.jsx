@@ -37,7 +37,7 @@ const HomePage = () => {
                border: "none",
                padding: "10px",
                margin: 0,
-               boxShadow: styleCard
+               boxShadow: styleCard,
             }}
                variant="top" >
                <Card.Body >
