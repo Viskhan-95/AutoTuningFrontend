@@ -140,7 +140,7 @@ const SignInPage = () => {
                 <Spinner size={14} />
               </div>
             ) : (
-              "Log In"
+              "Войти"
             )}
           </Button>
         </Form>
