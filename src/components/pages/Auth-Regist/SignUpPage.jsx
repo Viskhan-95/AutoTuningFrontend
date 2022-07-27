@@ -75,7 +75,7 @@ const SignUpPage = () => {
               <Form.Label>Логин </Form.Label>
               <Form.Control
                 type="login"
-                placeholder="Enter login"
+                placeholder="Введите логин"
                 onChange={handleChangeLogin}
                 value={login}
               />
@@ -91,7 +91,7 @@ const SignUpPage = () => {
               <Form.Label>Пароль </Form.Label>
               <Form.Control
                 type={showPassword ? "Text" : "Password"}
-                placeholder="Password"
+                placeholder="Введите пароль"
                 onChange={handleChangePassword}
                 value={password}
               />
@@ -148,7 +148,7 @@ const SignUpPage = () => {
                   <Spinner size={14} />
                 </div>
               ) : (
-                "Log Up"
+                "Регистрация"
               )}
             </Button>
           </Form>

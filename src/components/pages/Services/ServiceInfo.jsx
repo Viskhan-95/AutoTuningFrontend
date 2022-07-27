@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React from "react";
 import styles from "./Services.module.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -5,6 +6,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getServices } from "../../../features/services/servicesSlice";
 import { HiOutlineArrowLeft } from "react-icons/hi";
+import Reviews from "../Reviews/Reviews";
 
 function ServiceInfo() {
   const { id } = useParams();
@@ -40,6 +42,8 @@ function ServiceInfo() {
                   );
                 })}
               </div>
+              <hr style={{ width: "99%", border: "1px solid", marginTop: "5%" }} />
+              <Reviews />
             </div>
           );
         }

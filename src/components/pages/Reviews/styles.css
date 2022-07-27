@@ -1,0 +1,111 @@
+.tab {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.sort_block {
+  margin-top: 1.5%;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  width: 24%;
+}
+
+.sort_new {
+  cursor: pointer;
+}
+
+.sort_new:hover {
+  cursor: pointer;
+  color: rgb(123, 123, 123);
+}
+
+.get_review_block {
+  margin-top: 2%;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-area {
+  overflow: hidden;
+  width: 230px;
+  float: left;
+  margin-left: -1.7%;
+  margin-top: 1%;
+}
+.rating-area:not(:checked) > input {
+  display: none;
+}
+.rating-area:not(:checked) > label {
+  float: right;
+  width: 42px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 32px;
+  color: lightgrey;
+  text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+  content: "★";
+}
+.rating-area > input:checked ~ label {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+  color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+  color: gold;
+  text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+  position: relative;
+}
+
+.plus_text {
+  height: 75px;
+  width: 45%;
+}
+
+.minus_text {
+  height: 75px;
+  width: 45%;
+}
+
+.review_button {
+  border: 1px solid blue;
+  background-color: blue;
+  transition: 0.3s;
+  color: white;
+  border-radius: 3px;
+  width: 20%;
+  height: 45px;
+  margin-top: 1.5%;
+}
+
+.review_button:hover {
+  border: 1px solid blue;
+  background-color: transparent;
+  transition: 0.3s;
+  color: blue;
+  border-radius: 3px;
+  width: 20%;
+  height: 45px;
+  margin-top: 1.5%;
+}
+
+.token_error {
+  color: red;
+  font-size: 22px;
+  margin-top: 2%;
+}
