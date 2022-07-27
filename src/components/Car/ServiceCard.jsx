@@ -36,14 +36,14 @@ function Card({ el }) {
   }
     return (
       <div className={`service ${el.class}`}> 
-              <span className="card">
+              <div className="card">
                 <div className="title"><h3>{el.title}</h3></div>
                 <div className="text">{el.text}</div>
                 <div className="buttons">
                   <Link to={`service/${el._id}`}><button className="more">Подробнее</button></Link>
                   <button onClick={handleOpenCall} className="get_form">Узнать цену</button>
                 </div>
-              </span>
+              </div>
               {call && (
           <div className="set_call_block1">
             <div className="call_block1">

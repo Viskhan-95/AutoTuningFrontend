@@ -27,11 +27,12 @@
   background-color: white;
   position: relative;
   display: inline-block;
+  /* z-index: 1; */
 }
 .service:hover .card {
   visibility: visible;
   opacity: 1;
-  transition: all 220ms ease-in-out
+  transition: all 220ms ease-in-out;
 }
 .card {
   width: 370px;
@@ -41,6 +42,7 @@
   position: absolute;
   visibility: hidden;
   opacity: 0;
+  z-index: 2;
 }
 .antiGraviy {
   position: absolute;
