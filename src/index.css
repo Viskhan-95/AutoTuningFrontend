@@ -1,22 +1,25 @@
 .modal-content {
-   color: white !important;
-   background-image: url('./image/bmw.jpg');
-   background-size: cover;
+  color: white !important;
+  background-image: url("./image/bmw.jpg");
+  background-size: cover;
 }
 
 .primary {
-   color: white !important;
+  color: white !important;
 }
 
 .close {
-   color: white;
+  color: white;
 }
 
 .btn-close {
-   background: #000000;
-   color: #ffffff;
+  background: #000000;
+  color: #ffffff;
 }
 
 .outlet {
-   min-height: 80vh;
+  min-height: 80vh;
+}
+.react-calendar {
+   filter: invert(100%)
 }
