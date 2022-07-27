@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
 const LearnMore = () => {
    const [text, setText] = useState("");
    const [text_number, setTextNumber] = useState("");
+   const dispatch = useDispatch();
+   const services = useSelector((state) => state.services.services);
 
    function handleText(e) {
       setText(e.target.value);
@@ -36,17 +39,11 @@ const LearnMore = () => {
                покраски.
             </div>
             <div className="learn-tags">
-               <Link to="#" className="tag">Оклейка автомобиля</Link>
-               <Link to="#" className="tag">Тонировка стекол</Link>
-               <Link to="#" className="tag">Защита от угона</Link>
-               <Link to="#" className="tag">Полировка кузова</Link>
-               <Link to="#" className="tag">Установка доп. оборудования</Link>
-               <Link to="#" className="tag">Пошив чехлов, переобтяжка салона</Link>
-               <Link to="#" className="tag">Шумоизоляция</Link>
-               <Link to="#" className="tag">Установка led и ксенона</Link>
-               <Link to="#" className="tag">Покраска дисков и суппортов</Link>
-               <Link to="#" className="tag">Тюнинг и восстановление фар</Link>
-               <Link to="#" className="tag">Антигравийная защита</Link>
+              {services.map((el)=>{
+               return(
+                  <Link key={el._id} to={`service/${el._id}`} className='tag'>{el.title}</Link>
+               )
+              })}
             </div>
          </div>
          <div className="learn-form">
