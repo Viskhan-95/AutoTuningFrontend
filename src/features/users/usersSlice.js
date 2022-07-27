@@ -8,6 +8,7 @@ const initialState = {
   error: null,
   token: localStorage.getItem("token"),
   role: localStorage.getItem("role"),
+   user:localStorage.getItem('user'),
   users: [],
 };
 
@@ -54,6 +55,7 @@ export const auth = createAsyncThunk(
       } else {
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
+        localStorage.setItem('user', data.login)
         console.log(data);
         return thunkAPI.fulfillWithValue(data);
       }
