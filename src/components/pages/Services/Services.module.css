@@ -45,7 +45,7 @@
 }
 
 .btn {
-  background-color: rgb(219, 51, 51);
+  background-color: #a80757;
   border: none;
   border-radius: 2%;
   padding: 4px 16px;
@@ -54,7 +54,7 @@
   outline: none;
 }
 .btn:hover {
-  background-color: rgb(164, 27, 27);
+  background-color: #520a38;
 }
 
 .element_button {

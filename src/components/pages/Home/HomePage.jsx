@@ -10,7 +10,7 @@ import Footer from "../../Layout/Footer/Footer";
 import { Link } from "react-router-dom";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import styles from "./Slider.module.css";
+import styles from "./Home.module.css";
 
 const HomePage = () => {
   const services = useSelector((state) => state.services.services);
@@ -50,14 +50,14 @@ const HomePage = () => {
           color: "white",
           fontSize: "30px",
           width: "50%",
-          marginTop: "-550px",
-          marginLeft: "370px",
-          textAlign: "center",
+          marginTop: "-540px",
+          marginLeft: "152px",
         }}
       >
-        <div style={{ marginBottom: "70px" }}>
+        <div className={styles.welcome_title}>
+          
           <h1>
-            ДОБРО ПОЖАЛОВАТЬ В <br /> BROOKLYN CAR TUNING
+            BROOKLYN <br></br>CAR TUNING
           </h1>
         </div>
         <Container className="d-flex justify-content-center">
@@ -88,6 +88,7 @@ const HomePage = () => {
             </Button>
           </Link>
         </Container>
+          
       </Container>
       <Container
         style={{
