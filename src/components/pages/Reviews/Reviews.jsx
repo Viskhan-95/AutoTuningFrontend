@@ -1,6 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import {
   delReview,
   getReviews,
@@ -19,11 +20,13 @@ const Reviews = () => {
   const [minusText, setMinusText] = useState("");
   const [rating, setRating] = useState(1);
 
+  const { id }= useParams()
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getReviews());
-  }, [dispatch]);
+    dispatch(getReviews({ id }));
+  }, [dispatch, id]);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -54,7 +57,7 @@ const Reviews = () => {
   }
 
   function handleSubmitReview() {
-    dispatch(postReview({ rating, plusText, minusText }));
+    dispatch(postReview({ id, rating, plusText, minusText }));
     setMinusText("");
     setPlusText("");
   }
@@ -185,7 +188,6 @@ const Reviews = () => {
                             alt=""
                           />
                           <div className="user_name">{user.login}</div>
-                          {console.log(userId === item.user)}
                           {userId === item.user && (
                               <div
                               onClick={() => handleDeleteReview(item._id)}
