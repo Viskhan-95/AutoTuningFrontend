@@ -185,6 +185,7 @@ const Reviews = () => {
                             alt=""
                           />
                           <div className="user_name">{user.login}</div>
+                          {console.log(userId === item.user)}
                           {userId === item.user && (
                             <div
                               onClick={() => handleDeleteReview(item._id)}
