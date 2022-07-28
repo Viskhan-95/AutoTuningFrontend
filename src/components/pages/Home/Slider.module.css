@@ -1,0 +1,46 @@
+.slider {
+  height: 300px;
+}
+
+.slider_content {
+  height: 80%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.slider_title {
+  font-family: Gilroy, Tahoma, Arial;
+  font-size: 28px;
+  position: absolute;
+  top: 25px;
+}
+
+.slider_text {
+  position: absolute;
+  top: 165px;
+}
+
+.slider_btn {
+  background-color: rgb(219, 51, 51);
+  border: none;
+  border-radius: 2%;
+  padding: 4px 16px;
+  top: 5;
+  transition: 0.4s;
+  outline: none;
+  position: absolute;
+  top: 225px;
+}
+.slider_btn:hover {
+  background-color: rgb(164, 27, 27);
+}
+
+.slider_btn a {
+  text-decoration: none;
+  color: white;
+  font-family: Gilroy, Tahoma, Arial;
+  font-size: 14px;
+  font-weight: 400;
+}

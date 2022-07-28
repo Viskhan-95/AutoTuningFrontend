@@ -19,7 +19,7 @@ export const getReviews = createAsyncThunk(
    }
 );
 export const postReview = createAsyncThunk(
-   "review/get",
+   "reviews/add",
    async ({ rating, plusText, minusText }, thunkAPI) => {
       const state = thunkAPI.getState();
       try {
@@ -29,7 +29,7 @@ export const postReview = createAsyncThunk(
                "Content-Type": "application/json",
                Authorization: `Bearer ${state.usersReducer.token}`,
             },
-            body: JSON.stringify({ rating, plusText, minusText }),
+            body: JSON.stringify({ rating, plus: plusText, minus: minusText }),
          });
          return res.json();
       } catch (error) {
@@ -38,7 +38,7 @@ export const postReview = createAsyncThunk(
    }
 );
 export const delReview = createAsyncThunk(
-   "review/del",
+   "reviews/del",
    async (el, thunkAPI) => {
       const state = thunkAPI.getState();
       try {

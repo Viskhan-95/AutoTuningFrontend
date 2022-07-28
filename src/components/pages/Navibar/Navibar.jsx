@@ -50,6 +50,7 @@ const Navibar = (heightHeader) => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
+            position: "relative",
          }}
       >
          <div className="header_logo">
