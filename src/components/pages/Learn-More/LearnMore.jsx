@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
 const LearnMore = () => {
    const [text, setText] = useState("");
    const [text_number, setTextNumber] = useState("");
-   const dispatch = useDispatch();
    const services = useSelector((state) => state.services.services);
 
    function handleText(e) {
