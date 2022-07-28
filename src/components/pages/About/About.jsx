@@ -9,9 +9,9 @@ const About = () => {
         <div className="about">
             {Navibar(100)}
             <div className="site_title">
-                <h1 className="title_text_1">Качественный стайлинг</h1>
-                <div className="title_text_2">для Вашего автомобиля в Москве</div>
-                <div className="title_text_3">с гарантией на все виды работ и оборудование</div>
+                <h1 className="title_text_1">Качественный <br></br> стайлинг</h1>
+                <div className="title_text_2">для Вашего автомобиля в Грозном</div>
+                
             </div>
             <div className='benefits_block_parent'> 
                 <div className="benefits_block">

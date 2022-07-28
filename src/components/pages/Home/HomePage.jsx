@@ -33,7 +33,7 @@ const HomePage = () => {
           <div className={styles.slider_title}>{service.title}</div>
           <div className={styles.slider_text}>{service.text}</div>
           <Link to={`/service/${service._id}`}>
-            <button className={styles.slider_btn}>подробнее</button>
+            <button className={styles.slider_btn}>Подробнее</button>
           </Link>
         </div>
       </div>
@@ -57,7 +57,7 @@ const HomePage = () => {
         <div className={styles.welcome_title}>
           
           <h1>
-            BROOKLYN <br></br>CAR TUNING
+            BROOKLYN <br></br>AUTHOMOBILE <br></br> STUDIO
           </h1>
         </div>
         <Container className="d-flex justify-content-center"></Container>
