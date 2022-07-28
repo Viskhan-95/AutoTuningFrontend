@@ -24,130 +24,131 @@ export const getUsers = createAsyncThunk("users/get", async (_, thunkAPI) => {
 });
 
 export const addUser = createAsyncThunk(
-   "user/add",
-   async ({ login, password }, thunkAPI) => {
-      try {
-         const res = await fetch("http://localhost:4000/user", {
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ login, password }),
-         });
-         const data = await res.json();
+  "user/add",
+  async ({ login, password }, thunkAPI) => {
+    try {
+      const res = await fetch("http://localhost:4000/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ login, password }),
+      });
+      const data = await res.json();
 
-         if (data.error) {
-            return thunkAPI.rejectWithValue(data.error);
-         } else {
-            localStorage.setItem("token", data.token);
-            return thunkAPI.fulfillWithValue(data);
-         }
-      } catch (err) {
-         return thunkAPI.rejectWithValue(err);
+      if (data.error) {
+        return thunkAPI.rejectWithValue(data.error);
+      } else {
+        localStorage.setItem("token", data.token);
+        return thunkAPI.fulfillWithValue(data);
       }
-   }
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err);
+    }
+  }
 );
 
 export const auth = createAsyncThunk(
-   "login",
-   async ({ login, password }, thunkAPI) => {
-      try {
-         const res = await fetch("http://localhost:4000/login", {
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ login, password }),
-         });
-         const data = await res.json();
+  "login",
+  async ({ login, password }, thunkAPI) => {
+    try {
+      const res = await fetch("http://localhost:4000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ login, password }),
+      });
+      const data = await res.json();
 
-         if (data.error) {
-            return thunkAPI.rejectWithValue(data.error);
-         } else {
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("role", data.role);
-            localStorage.setItem("user", data.user)
-            localStorage.setItem("userId", data.userId)
-            return thunkAPI.fulfillWithValue(data);
-         }
-      } catch (err) {
-         return thunkAPI.rejectWithValue(err);
+      if (data.error) {
+        return thunkAPI.rejectWithValue(data.error);
+      } else {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("role", data.role);
+        localStorage.setItem("user", data.user);
+        localStorage.setItem("userId", data.userId);
+        return thunkAPI.fulfillWithValue(data);
       }
-   }
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err);
+    }
+  }
 );
 
 export const updateUser = createAsyncThunk(
-   "user/update",
-   async ({ firstName, lastName, email, login, password, role }, thunkAPI) => {
-      const state = thunkAPI.getState();
-      try {
-         const res = await fetch(
-            `http://localhost:4000/user/update/:${state.usersReducer.id}`,
-            {
-               method: "UPDATE",
-               headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${state.usersReducer.token}`,
-               },
-               body: JSON.stringify({
-                  firstName,
-                  lastName,
-                  email,
-                  login,
-                  password,
-                  role,
-               }),
-            }
-         );
-         const data = await res.json();
+  "user/update",
+  async ({ firstName, lastName, email, login, password, role }, thunkAPI) => {
+    const state = thunkAPI.getState();
+    try {
+      const res = await fetch(
+        `http://localhost:4000/user/update/:${state.usersReducer.id}`,
+        {
+          method: "UPDATE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${state.usersReducer.token}`,
+          },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            login,
+            password,
+            role,
+          }),
+        }
+      );
+      const data = await res.json();
 
-         if (data.error) {
-            return thunkAPI.rejectWithValue(data.error);
-         } else {
-            localStorage.setItem("token", data.token);
-            return thunkAPI.fulfillWithValue(data);
-         }
-      } catch (err) {
-         return thunkAPI.rejectWithValue(err);
+      if (data.error) {
+        return thunkAPI.rejectWithValue(data.error);
+      } else {
+        localStorage.setItem("token", data.token);
+        return thunkAPI.fulfillWithValue(data);
       }
-   }
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err);
+    }
+  }
 );
 
 export const deleteUser = createAsyncThunk(
-   "user/delete",
-   async (_, thunkAPI) => {
-      const state = thunkAPI.getState();
-      try {
-         const res = await fetch(
-            `http://localhost:4000/user/delete/:${state.usersReducer.id}`,
-            {
-               method: "DELETE",
-               headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${state.usersReducer.token}`,
-               },
-            }
-         );
-         const data = await res.json();
+  "user/delete",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    try {
+      const res = await fetch(
+        `http://localhost:4000/user/delete/:${state.usersReducer.id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${state.usersReducer.token}`,
+          },
+        }
+      );
+      const data = await res.json();
 
-         if (data.error) {
-            return thunkAPI.rejectWithValue(data.error);
-         } else {
-            localStorage.setItem("token", data.token);
-            return thunkAPI.fulfillWithValue(data);
-         }
-      } catch (err) {
-         return thunkAPI.rejectWithValue(err);
+      if (data.error) {
+        return thunkAPI.rejectWithValue(data.error);
+      } else {
+        localStorage.setItem("token", data.token);
+        return thunkAPI.fulfillWithValue(data);
       }
-   }
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err);
+    }
+  }
 );
 
 export const clearToken = createAsyncThunk("token/delete", async (thunkAPI) => {
-   localStorage.removeItem("token");
-   localStorage.removeItem("role");
+  localStorage.removeItem("token");
+  localStorage.removeItem("role");
 });
 
 export const usersSlice = createSlice({
+
    name: "users",
    initialState,
    reducers: {
@@ -233,5 +234,5 @@ export const usersSlice = createSlice({
 });
 
 export const { errorNull, showModalSignIn, showModalSignUp } =
-   usersSlice.actions;
+  usersSlice.actions;
 export default usersSlice.reducer;

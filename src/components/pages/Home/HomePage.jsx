@@ -1,4 +1,4 @@
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getServices } from "../../../features/services/servicesSlice";
