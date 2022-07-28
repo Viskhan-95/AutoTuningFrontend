@@ -1,6 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import {
   delReview,
   getReviews,
@@ -13,17 +14,20 @@ const Reviews = () => {
   const reviews = useSelector((state) => state.review.reviews);
   const users = useSelector((state) => state.usersReducer.users);
   const token = useSelector((state) => state.usersReducer.token);
+  const loading = useSelector((state) => state.review.loading);
   const userId = localStorage.getItem("userId");
   const [sortNew, setSortNew] = useState(false);
   const [plusText, setPlusText] = useState("");
   const [minusText, setMinusText] = useState("");
   const [rating, setRating] = useState(1);
 
+  const { id } = useParams();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getReviews());
-  }, [dispatch]);
+    dispatch(getReviews({ id }));
+  }, [dispatch, id]);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -54,7 +58,7 @@ const Reviews = () => {
   }
 
   function handleSubmitReview() {
-    dispatch(postReview({ rating, plusText, minusText }));
+    dispatch(postReview({ id, rating, plusText, minusText }));
     setMinusText("");
     setPlusText("");
   }
@@ -186,7 +190,7 @@ const Reviews = () => {
                           />
                           <div className="user_name">{user.login}</div>
                           {userId === item.user && (
-                              <div
+                            <div
                               onClick={() => handleDeleteReview(item._id)}
                               className="delete_review"
                             >
@@ -194,6 +198,28 @@ const Reviews = () => {
                             </div>
                           )}
                         </div>
+                        {loading && (
+                            <div class="loading-window">
+                              <div class="carr">
+                                <div class="strike"></div>
+                                <div class="strike strike2"></div>
+                                <div class="strike strike3"></div>
+                                <div class="strike strike4"></div>
+                                <div class="strike strike5"></div>
+                                <div class="car-detail spoiler"></div>
+                                <div class="car-detail back"></div>
+                                <div class="car-detail center"></div>
+                                <div class="car-detail center1"></div>
+                                <div class="car-detail front"></div>
+                                <div class="car-detail wheel"></div>
+                                <div class="car-detail wheel wheel2"></div>
+                              </div>
+                              <div class="text">
+                                <span>Loading</span>
+                                <span class="dots">...</span>
+                              </div>
+                            </div>
+                          )}
                         <div className="review_block">
                           <div className="user_name_2">{user.login}</div>
                           <div className="data">

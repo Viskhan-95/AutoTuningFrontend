@@ -1,3 +1,17 @@
+.welcome_title {
+  margin-bottom: 70px;
+}
+.welcome_title h1 {
+  font-size: 60px;
+  color: white;
+}
+.welcome_title h2 {
+  font-size: 26px;
+}
+
+
+
+
 .slider {
   height: 320px;
   margin: 10px 8px;
@@ -28,7 +42,7 @@
 }
 
 .slider_btn {
-  background-color: rgb(219, 51, 51);
+  background-color: #a80757;
   border: none;
   border-radius: 2%;
   padding: 12px 36px;
@@ -40,7 +54,7 @@
   color: white;
 }
 .slider_btn:hover {
-  background-color: rgb(164, 27, 27);
+  background-color: #520a38;
 }
 
 .slider_btn a {
