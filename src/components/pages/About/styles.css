@@ -26,17 +26,19 @@
    margin-top: 3.5%;
    color: white;
 }
-
+.benefits_block_parent {
+   position: relative;
+   margin-bottom: 80px;
+}
 .benefits_block {
-   width: 93%;
+   width: 80%;
    margin: 0 auto;
    background-color: white;
-   z-index: 2;
-   margin-top: -8%;
+   margin-top: -12%;
    box-shadow: 0px 5px 29px 2px rgba(34, 60, 80, 0.2);
    height: 84vh;
 }
 
 .benefits_title {
-   padding: 25px 25px 15px 0px;
+   padding: 25px 25px 15px 25px;
 }

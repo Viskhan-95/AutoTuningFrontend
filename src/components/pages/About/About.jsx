@@ -13,11 +13,14 @@ const About = () => {
                 <div className="title_text_2">для Вашего автомобиля в Москве</div>
                 <div className="title_text_3">с гарантией на все виды работ и оборудование</div>
             </div>
-            <div className="benefits_block">
-                <h2 className="benefits_title">⠀⠀⠀⠀⠀⠀Преимущества работы с нами
+            <div className='benefits_block_parent'> 
+                <div className="benefits_block">
+                <h2 className="benefits_title">Преимущества работы с нами
                 <br /><br /><WeFeatures />
                 </h2>
+                </div>
             </div>
+           
             <Footer />
         </div>
     );
