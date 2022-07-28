@@ -9,18 +9,18 @@ const initialState = {
    token: localStorage.getItem("token"),
    role: localStorage.getItem("role"),
    user: localStorage.getItem("user"),
-   userId:localStorage.getItem("userId"),
+   userId: localStorage.getItem("userId"),
    users: [],
 };
 
 export const getUsers = createAsyncThunk("users/get", async (_, thunkAPI) => {
-  try {
-    const res = await fetch("http://localhost:4000/user");
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error);
-  }
+   try {
+      const res = await fetch("http://localhost:4000/user");
+      const data = await res.json();
+      return data;
+   } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+   }
 });
 
 export const addUser = createAsyncThunk(
@@ -163,19 +163,19 @@ export const usersSlice = createSlice({
    },
    extraReducers: (builder) => {
       builder
-      .addCase(getUsers.fulfilled, (state, action) => {
-        state.users = action.payload;
-        state.loading = false;
-        state.error = null;
-      })
-      .addCase(getUsers.rejected, (state, action) => {
-        state.error = action.payload;
-        state.loading = false;
-      })
-      .addCase(getUsers.pending, (state, action) => {
-        state.loading = true;
-        state.error = null;
-      })
+         .addCase(getUsers.fulfilled, (state, action) => {
+            state.users = action.payload;
+            state.loading = false;
+            state.error = null;
+         })
+         .addCase(getUsers.rejected, (state, action) => {
+            state.error = action.payload;
+            state.loading = false;
+         })
+         .addCase(getUsers.pending, (state, action) => {
+            state.loading = true;
+            state.error = null;
+         })
          .addCase(addUser.fulfilled, (state, action) => {
             state.users = action.payload;
             state.error = null;

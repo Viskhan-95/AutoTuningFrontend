@@ -12,7 +12,7 @@ const Reviews = () => {
   const reviews = useSelector((state) => state.review.reviews);
   const users = useSelector((state) => state.usersReducer.users);
   const token = useSelector((state) => state.usersReducer.token);
-  const userId = localStorage.getItem("user");
+  const userId = localStorage.getItem("userId");
   const [sortNew, setSortNew] = useState(false);
   const [plusText, setPlusText] = useState("");
   const [minusText, setMinusText] = useState("");
@@ -186,7 +186,7 @@ const Reviews = () => {
                           />
                           <div className="user_name">{user.login}</div>
                           {userId === item.user && (
-                            <div
+                              <div
                               onClick={() => handleDeleteReview(item._id)}
                               className="delete_review"
                             >
