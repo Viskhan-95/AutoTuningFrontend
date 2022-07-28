@@ -1,4 +1,4 @@
-import { Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getServices } from "../../../features/services/servicesSlice";
@@ -55,16 +55,13 @@ const HomePage = () => {
         }}
       >
         <div className={styles.welcome_title}>
-          
           <h1>
             BROOKLYN <br></br>AUTHOMOBILE <br></br> STUDIO
           </h1>
-        </div>
-        <Container className="d-flex justify-content-center"></Container>
+        </div>          
       </Container>
       <Container
         style={{
-          //boxShadow: "0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset",
           width: "80%",
           backgroundColor: "transparent",
           marginTop: "-150px",

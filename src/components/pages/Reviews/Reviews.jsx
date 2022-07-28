@@ -14,13 +14,14 @@ const Reviews = () => {
   const reviews = useSelector((state) => state.review.reviews);
   const users = useSelector((state) => state.usersReducer.users);
   const token = useSelector((state) => state.usersReducer.token);
+  const loading = useSelector((state) => state.review.loading);
   const userId = localStorage.getItem("userId");
   const [sortNew, setSortNew] = useState(false);
   const [plusText, setPlusText] = useState("");
   const [minusText, setMinusText] = useState("");
   const [rating, setRating] = useState(1);
 
-  const { id }= useParams()
+  const { id } = useParams();
 
   const dispatch = useDispatch();
 
@@ -80,7 +81,7 @@ const Reviews = () => {
               type="radio"
               id="star-5"
               name="rating"
-              value="5"
+              value={rating}
             />
             <label htmlFor="star-5" title="Оценка «5»"></label>
             <input
@@ -88,7 +89,7 @@ const Reviews = () => {
               type="radio"
               id="star-4"
               name="rating"
-              value="4"
+              value={rating}
             />
             <label htmlFor="star-4" title="Оценка «4»"></label>
             <input
@@ -96,7 +97,7 @@ const Reviews = () => {
               type="radio"
               id="star-3"
               name="rating"
-              value="3"
+              value={rating}
             />
             <label htmlFor="star-3" title="Оценка «3»"></label>
             <input
@@ -104,7 +105,7 @@ const Reviews = () => {
               type="radio"
               id="star-2"
               name="rating"
-              value="2"
+              value={rating}
             />
             <label htmlFor="star-2" title="Оценка «2»"></label>
             <input
@@ -112,7 +113,7 @@ const Reviews = () => {
               defaultChecked={true}
               id="star-1"
               name="rating"
-              value="1"
+              value={rating}
             />
             <label htmlFor="star-1" title="Оценка «1»"></label>
           </div>
@@ -181,6 +182,28 @@ const Reviews = () => {
                     <>
                       <hr />
                       <div className="review">
+                        {loading && (
+                          <div class="loading-window">
+                            <div class="carr">
+                              <div class="strike"></div>
+                              <div class="strike strike2"></div>
+                              <div class="strike strike3"></div>
+                              <div class="strike strike4"></div>
+                              <div class="strike strike5"></div>
+                              <div class="car-detail spoiler"></div>
+                              <div class="car-detail back"></div>
+                              <div class="car-detail center"></div>
+                              <div class="car-detail center1"></div>
+                              <div class="car-detail front"></div>
+                              <div class="car-detail wheel"></div>
+                              <div class="car-detail wheel wheel2"></div>
+                            </div>
+                            <div class="text">
+                              <span>Loading</span>
+                              <span class="dots">...</span>
+                            </div>
+                          </div>
+                        )}
                         <div className="user_img_login">
                           <img
                             className="user_img"
@@ -189,7 +212,7 @@ const Reviews = () => {
                           />
                           <div className="user_name">{user.login}</div>
                           {userId === item.user && (
-                              <div
+                            <div
                               onClick={() => handleDeleteReview(item._id)}
                               className="delete_review"
                             >
@@ -197,6 +220,28 @@ const Reviews = () => {
                             </div>
                           )}
                         </div>
+                        {loading && (
+                            <div class="loading-window">
+                              <div class="carr">
+                                <div class="strike"></div>
+                                <div class="strike strike2"></div>
+                                <div class="strike strike3"></div>
+                                <div class="strike strike4"></div>
+                                <div class="strike strike5"></div>
+                                <div class="car-detail spoiler"></div>
+                                <div class="car-detail back"></div>
+                                <div class="car-detail center"></div>
+                                <div class="car-detail center1"></div>
+                                <div class="car-detail front"></div>
+                                <div class="car-detail wheel"></div>
+                                <div class="car-detail wheel wheel2"></div>
+                              </div>
+                              <div class="text">
+                                <span>Loading</span>
+                                <span class="dots">...</span>
+                              </div>
+                            </div>
+                          )}
                         <div className="review_block">
                           <div className="user_name_2">{user.login}</div>
                           <div className="data">

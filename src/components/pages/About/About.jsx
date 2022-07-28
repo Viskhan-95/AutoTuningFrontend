@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./styles.css";
 import Navibar from '../../Layout/Navibar/Navibar';
 import Footer from '../../Layout/Footer/Footer';
@@ -15,7 +15,7 @@ const About = () => {
             </div>
             <div className='benefits_block_parent'> 
                 <div className="benefits_block">
-                <h2 className="benefits_title">Преимущества работы с нами
+                <h2 className="benefits_title">⠀Преимущества работы с нами
                 <br /><br /><WeFeatures />
                 </h2>
                 </div>
@@ -23,7 +23,7 @@ const About = () => {
            
             <Footer />
         </div>
-    );
+  );
 };
 
 export default About;
