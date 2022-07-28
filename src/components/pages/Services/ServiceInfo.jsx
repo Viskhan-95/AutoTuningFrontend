@@ -66,6 +66,9 @@ function ServiceInfo() {
     setContact(e.target.value);
   };
 
+  useEffect(() => {
+    dispatch(getServices());
+  }, [dispatch]);
   return (
     <div className={styles.services_container}>
       {services.map((item, index) => {
