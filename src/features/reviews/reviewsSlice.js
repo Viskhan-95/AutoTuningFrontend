@@ -39,17 +39,17 @@ export const postReview = createAsyncThunk(
 );
 export const delReview = createAsyncThunk(
    "reviews/del",
-   async (el, thunkAPI) => {
+   async (id, thunkAPI) => {
       const state = thunkAPI.getState();
       try {
-         await fetch(`http://localhost:4000/reviews/${el._id}`, {
+         await fetch(`http://localhost:4000/reviews/${id}`, {
             method: "DELETE",
             headers: {
                "Content-Type": "application/json",
                Authorization: `Bearer ${state.usersReducer.token}`,
             },
          });
-         return el._id;
+         return id;
       } catch (error) {
          return thunkAPI.rejectWithValue(error);
       }
@@ -89,7 +89,7 @@ export const reviewSlice = createSlice({
             state.error = null
          })
          .addCase(delReview.fulfilled, (state, action) => {
-            state.reviews = state.reviews.filter((i) => i._id !== action.payload)
+            state.reviews = state.reviews.filter((id) => id._id !== action.payload)
             state.error = null
             state.loading = false
          })
