@@ -77,7 +77,7 @@ const Reviews = () => {
               type="radio"
               id="star-5"
               name="rating"
-              value="5"
+              value={rating}
             />
             <label htmlFor="star-5" title="Оценка «5»"></label>
             <input
@@ -85,7 +85,7 @@ const Reviews = () => {
               type="radio"
               id="star-4"
               name="rating"
-              value="4"
+              value={rating}
             />
             <label htmlFor="star-4" title="Оценка «4»"></label>
             <input
@@ -93,7 +93,7 @@ const Reviews = () => {
               type="radio"
               id="star-3"
               name="rating"
-              value="3"
+              value={rating}
             />
             <label htmlFor="star-3" title="Оценка «3»"></label>
             <input
@@ -101,7 +101,7 @@ const Reviews = () => {
               type="radio"
               id="star-2"
               name="rating"
-              value="2"
+              value={rating}
             />
             <label htmlFor="star-2" title="Оценка «2»"></label>
             <input
@@ -109,7 +109,7 @@ const Reviews = () => {
               defaultChecked={true}
               id="star-1"
               name="rating"
-              value="1"
+              value={rating}
             />
             <label htmlFor="star-1" title="Оценка «1»"></label>
           </div>
@@ -185,7 +185,6 @@ const Reviews = () => {
                             alt=""
                           />
                           <div className="user_name">{user.login}</div>
-                          {console.log(userId === item.user)}
                           {userId === item.user && (
                               <div
                               onClick={() => handleDeleteReview(item._id)}
