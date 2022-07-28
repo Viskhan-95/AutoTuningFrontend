@@ -1,42 +1,44 @@
 .site_title {
-   text-align: center;
-   color: white;
-   position: absolute;
-   bottom: 40%;
-   left: 22%;
+  text-align: center;
+  color: white;
+  position: absolute;
+  bottom: 40%;
+  left: 22%;
 }
 
 .title_text_1 {
-   font-family: 'Gilroy', Tahoma, Arial;
-   font-weight: 600;
-   font-size: 47px;
-   color: white;
+  font-family: "Gilroy", Tahoma, Arial;
+  font-weight: 600;
+  font-size: 47px;
+  color: white;
 }
 
 .title_text_2 {
-   font-family: 'Gilroy', Tahoma, Arial;
-   font-size: 50px;
-   color: white;
+  font-family: "Gilroy", Tahoma, Arial;
+  font-size: 50px;
+  color: white;
 }
 
 .title_text_3 {
-   font-family: 'Gilroy', Tahoma, Arial;
-   font-weight: 600;
-   font-size: 24px;
-   margin-top: 3.5%;
-   color: white;
+  font-family: "Gilroy", Tahoma, Arial;
+  font-weight: 600;
+  font-size: 24px;
+  margin-top: 3.5%;
+  color: white;
 }
-
+.benefits_block_parent {
+   position: relative;
+   margin-bottom: 80px;
+}
 .benefits_block {
-   width: 93%;
+   width: 80%;
    margin: 0 auto;
    background-color: white;
-   z-index: 2;
-   margin-top: -8%;
+   margin-top: -12%;
    box-shadow: 0px 5px 29px 2px rgba(34, 60, 80, 0.2);
    height: 84vh;
 }
 
 .benefits_title {
-   padding: 25px 25px 15px 0px;
+   padding: 25px 25px 15px 25px;
 }

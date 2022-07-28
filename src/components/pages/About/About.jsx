@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import "./styles.css";
-import Navibar from '../Navibar/Navibar';
-import Footer from '../../Layout/Footer/Footer';
-import WeFeatures from "../WeFeatures/Features"
+import Navibar from "../Navibar/Navibar";
+import Footer from "../../Layout/Footer/Footer";
+import WeFeatures from "../WeFeatures/Features";
 
 const About = () => {
     return (
@@ -13,14 +13,27 @@ const About = () => {
                 <div className="title_text_2">для Вашего автомобиля в Москве</div>
                 <div className="title_text_3">с гарантией на все виды работ и оборудование</div>
             </div>
-            <div className="benefits_block">
-                <h2 className="benefits_title">⠀⠀⠀⠀⠀⠀Преимущества работы с нами
+            <div className='benefits_block_parent'> 
+                <div className="benefits_block">
+                <h2 className="benefits_title">Преимущества работы с нами
                 <br /><br /><WeFeatures />
                 </h2>
+                </div>
             </div>
+           
             <Footer />
         </div>
-    );
+        <div className="benefits_block">
+          <h2 className="benefits_title">
+            ⠀⠀⠀⠀⠀⠀Преимущества работы с нами
+            <br />
+            <br />
+            <WeFeatures />
+          </h2>
+        </div>
+        <Footer />
+      </div>
+  );
 };
 
 export default About;
