@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import "./styles.css";
-import Navibar from '../Navibar/Navibar';
-import Footer from '../../Layout/Footer/Footer';
-import WeFeatures from "../WeFeatures/Features"
+import Navibar from "../Navibar/Navibar";
+import Footer from "../../Layout/Footer/Footer";
+import WeFeatures from "../WeFeatures/Features";
 
 const About = () => {
     return (
@@ -23,7 +23,17 @@ const About = () => {
            
             <Footer />
         </div>
-    );
+        <div className="benefits_block">
+          <h2 className="benefits_title">
+            ⠀⠀⠀⠀⠀⠀Преимущества работы с нами
+            <br />
+            <br />
+            <WeFeatures />
+          </h2>
+        </div>
+        <Footer />
+      </div>
+  );
 };
 
 export default About;

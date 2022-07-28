@@ -45,9 +45,6 @@ function ServiceInfo() {
     setContact(e.target.value);
   };
 
-  
-
-
   useEffect(() => {
     dispatch(getServices());
   }, [dispatch]);
