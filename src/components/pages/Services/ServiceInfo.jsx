@@ -12,11 +12,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Container } from "react-bootstrap";
-import { addTurns } from "../../../features/turns/turnsSlice";
+import { addTurns, getTurn } from "../../../features/turns/turnsSlice";
 
 function ServiceInfo() {
   const user = localStorage.getItem("user");
   const userId = localStorage.getItem("userId");
+  const turn = useSelector((state) => state.turn.turns);
+
   const services = useSelector((state) => state.services.services);
   const [show, setShow] = useState(false);
   const [contact, setContact] = useState("");
@@ -26,9 +28,28 @@ function ServiceInfo() {
   const handleShow = () => setShow(true);
   const handleCloseCalendar = () => setCalendarShoww(false);
   const handleShowCalendar = () => setCalendarShoww(true);
+
   const { id } = useParams();
   const dispatch = useDispatch();
-  
+
+  useEffect(() => {
+    dispatch(getTurn());
+    dispatch(getServices());
+  }, [dispatch]);
+
+  const reserved = turn.find((item) => {
+    if (item.user === userId) {
+      if (item.service === id) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  });
+  console.log(reserved);
+
   const checkInMonth = calendarValue.getUTCMonth() + 1;
   const checkInDay = calendarValue.getUTCDate() + 1;
   const checkInYear = calendarValue.getUTCFullYear();
@@ -45,13 +66,6 @@ function ServiceInfo() {
     setContact(e.target.value);
   };
 
-  
-
-
-  useEffect(() => {
-    dispatch(getServices());
-  }, [dispatch]);
-
   return (
     <div className={styles.services_container}>
       {services.map((item, index) => {
@@ -63,7 +77,7 @@ function ServiceInfo() {
                 <div>
                   <>
                     <Button variant="primary" onClick={handleShow}>
-                      записаться на услугу
+                      {reserved ? "записан" : "записаться на услугу"}
                     </Button>
 
                     <Modal show={show} onHide={handleClose}>
