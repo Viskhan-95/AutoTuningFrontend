@@ -78,10 +78,6 @@ const Navibar = (heightHeader) => {
                         </NavLink>
 
                         <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
-                           to="/reviews"> ОТЗЫВЫ
-                        </NavLink>
-
-                        <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
                            to="/contacts"> КОНТАКТЫ
                         </NavLink>
                      </div>
