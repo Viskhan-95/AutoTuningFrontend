@@ -19,7 +19,7 @@ export const getReviews = createAsyncThunk(
    }
 );
 export const postReview = createAsyncThunk(
-   "review/get",
+   "reviews/add",
    async ({ rating, plusText, minusText }, thunkAPI) => {
       const state = thunkAPI.getState();
       try {
@@ -29,7 +29,7 @@ export const postReview = createAsyncThunk(
                "Content-Type": "application/json",
                Authorization: `Bearer ${state.usersReducer.token}`,
             },
-            body: JSON.stringify({ rating, plusText, minusText }),
+            body: JSON.stringify({ rating, plus: plusText, minus: minusText }),
          });
          return res.json();
       } catch (error) {
@@ -38,18 +38,18 @@ export const postReview = createAsyncThunk(
    }
 );
 export const delReview = createAsyncThunk(
-   "review/del",
-   async (el, thunkAPI) => {
+   "reviews/del",
+   async (id, thunkAPI) => {
       const state = thunkAPI.getState();
       try {
-         await fetch(`http://localhost:4000/reviews/${el._id}`, {
+         await fetch(`http://localhost:4000/reviews/${id}`, {
             method: "DELETE",
             headers: {
                "Content-Type": "application/json",
                Authorization: `Bearer ${state.usersReducer.token}`,
             },
          });
-         return el._id;
+         return id;
       } catch (error) {
          return thunkAPI.rejectWithValue(error);
       }
@@ -89,7 +89,7 @@ export const reviewSlice = createSlice({
             state.error = null
          })
          .addCase(delReview.fulfilled, (state, action) => {
-            state.reviews = state.reviews.filter((i) => i._id !== action.payload)
+            state.reviews = state.reviews.filter((id) => id._id !== action.payload)
             state.error = null
             state.loading = false
          })

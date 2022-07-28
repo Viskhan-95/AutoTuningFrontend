@@ -1,6 +1,7 @@
 .car{
     position: relative;
-    margin-top: 400px;
+    margin-top: 200px;
+    overflow: hidden
 }
 .car_service {
   width: 1290px;
@@ -14,7 +15,7 @@
 .service-info {
   font-family: "Gilroy", Arial, Helvetica, sans-serif;
   position: absolute;
-  top: -2%;
+  top: 2%;
 }
 .link {
   text-decoration: none;
@@ -27,79 +28,91 @@
   background-color: white;
   position: relative;
   display: inline-block;
+  
+  
 }
 .service:hover .card {
   visibility: visible;
   opacity: 1;
-  transition: all 220ms ease-in-out
+  transition: all 350ms ease-in-out;
+  transform: translateX(-250%);
+  
 }
+
 .card {
+  transition: 0.55s opacity, 0.55s visibility;
+  transition: all 350ms ease-in-out;
   width: 370px;
   max-height: 350px;
-  padding: 0 20px;
+  padding: 20px 20px;
   box-shadow: 0 5px 25px rgb(149 149 149 / 73%);
   position: absolute;
   visibility: hidden;
   opacity: 0;
+  z-index: 2;
+  left: 100vh;
+  top: 20px;
+  
 }
 .antiGraviy {
   position: absolute;
   left: 19%;
-  top: 55%;
+  top: 60%;
 }
 .tonirovka {
   position: absolute;
-  left: 65%;
-  top: 8%;
+  left: 66%;
+  top: 17%;
 }
 .polirovka {
   position: absolute;
   left: 26%;
-  top: 44%;
+  top: 50%;
 }
 .led {
   position: absolute;
   left: 35%;
-  top: 38%;
+  top: 45%;
 }
 .ptf {
   position: absolute;
   left: 29%;
-  top: 57%;
+  top: 61%;
 }
 .detailing {
   position: absolute;
-  left: 30%;
+  left: 40%;
+  top: 22%;
 }
 .dopOb{
   position: absolute;
-  left: 75%;
-  top: 20%;
+  left: 78%;
+  top: 28%;
 }
 .chehli{
   position: absolute;
   left: 58%;
-  top: 12%;
+  top: 21%;
 }
 .noiseless{
   position: absolute;
   left: 58%;
-  top: 30%;
+  top: 40%;
 }
 .kuzov{
     position: absolute;
     left: 20%;
-    top: 22%;
+    top: 32%;
 }
 .prot{
   position: absolute;
   left: 47%;
-  top: 16%;
+  top: 24%;
 }
 .weels{
     position: absolute;
-    left: 41%;
-    top: 57%; 
+    left: 40%;
+    top: 61%; 
 }
 .title {
   font-family: "Gilroy", Arial, Helvetica, sans-serif;
@@ -111,8 +124,7 @@
 .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 38%;
-  margin-bottom: 3%;
+  margin-top: 20%;
 }
 .more {
   background-color: blue;

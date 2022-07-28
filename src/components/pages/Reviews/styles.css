@@ -36,6 +36,10 @@
   margin-left: -1.7%;
   margin-top: 1%;
 }
+.rating {
+  font-size: 20px;
+  color: gold;
+}
 .rating-area:not(:checked) > input {
   display: none;
 }
@@ -77,9 +81,19 @@
   width: 45%;
 }
 
+.plus {
+  margin-bottom: 0.5%;
+  word-break: break-all;
+}
+
 .minus_text {
   height: 75px;
   width: 45%;
+}
+
+.minus {
+  margin-bottom: 0.5%;
+  word-break: break-all;
 }
 
 .review_button {
@@ -109,3 +123,51 @@
   font-size: 22px;
   margin-top: 2%;
 }
+
+.reviews_list_true {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3%;
+}
+
+.reviews_list_false {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 3%;
+}
+
+.review {
+  display: flex;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+.user_img_login img {
+  width: 95px;
+  height: 95px;
+  border-radius: 6px;
+}
+
+.user_img_login {
+  margin-right: 2%;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.user_name {
+  text-align: center;
+  margin-top: 2%;
+}
+
+.user_name_2 {
+  font-size: 20px;
+  margin-top: -4.6%;
+}
+
+.delete_review {
+  color: red;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 8%;
+  font-size: 22px;
+}
+
