@@ -57,7 +57,6 @@ const Reviews = () => {
     dispatch(postReview({ rating, plusText, minusText }));
     setMinusText("");
     setPlusText("");
-    setRating(1);
   }
 
   return (
