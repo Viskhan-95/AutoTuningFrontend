@@ -14,7 +14,7 @@ const Footer = () => {
             <div className={styles.mainInfo}>
                <div className={styles.logoCnt}>
                   <img className={styles.logo} alt='logo' src={logo} />
-                  <div className={styles.logoText}>Brooklin Detailing</div>
+                  <div className={styles.logoText}>Brooklyn Car Tuning</div>
                </div>
                <div className={styles.rightFlang}>
                   <h2>Наши контакты:</h2>
