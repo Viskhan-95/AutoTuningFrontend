@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getReviews, postReview } from "../../../features/reviews/reviewsSlice";
+import {
+  delReview,
+  getReviews,
+  postReview,
+} from "../../../features/reviews/reviewsSlice";
 import { getUsers, showModalSignIn } from "../../../features/users/usersSlice";
 import "./styles.css";
 
 const Reviews = () => {
   const reviews = useSelector((state) => state.review.reviews);
   const users = useSelector((state) => state.usersReducer.users);
-  console.log(users);
   const token = useSelector((state) => state.usersReducer.token);
-
+  const userId = localStorage.getItem("user");
   const [sortNew, setSortNew] = useState(false);
   const [plusText, setPlusText] = useState("");
   const [minusText, setMinusText] = useState("");
@@ -45,11 +48,15 @@ const Reviews = () => {
     dispatch(showModalSignIn(true));
   }
 
+  function handleDeleteReview(i) {
+    dispatch(delReview(i));
+  }
+
   function handleSubmitReview() {
     dispatch(postReview({ rating, plusText, minusText }));
     setMinusText("");
     setPlusText("");
-    setRating(1)
+    setRating(1);
   }
 
   return (
@@ -178,6 +185,14 @@ const Reviews = () => {
                             alt=""
                           />
                           <div className="user_name">{user.login}</div>
+                          {userId === item.user && (
+                            <div
+                              onClick={() => handleDeleteReview(item._id)}
+                              className="delete_review"
+                            >
+                              ×
+                            </div>
+                          )}
                         </div>
                         <div className="review_block">
                           <div className="user_name_2">{user.login}</div>
@@ -185,9 +200,13 @@ const Reviews = () => {
                             {item.data.slice(0, 10)} {item.data.slice(11, 16)}
                           </div>
                           <div className="rating">{star}</div>
-                          <div style={{ marginBottom: "0.5%" }}>Достоинства:</div>
+                          <div style={{ marginBottom: "0.5%" }}>
+                            Достоинства:
+                          </div>
                           <div className="plus">{item.plus}</div>
-                          <div style={{ marginBottom: "0.5%" }}>Недостатки:</div>
+                          <div style={{ marginBottom: "0.5%" }}>
+                            Недостатки:
+                          </div>
                           <div className="minus">{item.minus}</div>
                         </div>
                       </div>

@@ -65,8 +65,7 @@ export const auth = createAsyncThunk(
       } else {
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
-        localStorage.setItem("user", data.login);
-        console.log(data);
+        localStorage.setItem("user", data.user);
         return thunkAPI.fulfillWithValue(data);
       }
     } catch (err) {
