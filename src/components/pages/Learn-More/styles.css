@@ -6,9 +6,9 @@
 }
 
 .learn {
-   width: 745px;
+   width: 860px;
    text-align: justify;
-   margin-left: 2%;
+   margin-left: 4%;
 }
 
 .learn-title {
@@ -49,7 +49,7 @@
    box-shadow: 0 0 1px 1px;
    background: #fff;
    top: 8%;
-   left: 65%;
+   left: 68.5%;
    float: right;
    position: absolute;
 }

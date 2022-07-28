@@ -6,6 +6,7 @@
 .services_container h1 {
   font-size: 48px;
   font-weight: bold;
+  margin-bottom: 3%;
   font-family: Gilroy, Tahoma, Arial;
 }
 .services_content_parent {

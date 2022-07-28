@@ -15,7 +15,7 @@ const About = () => {
             </div>
             <div className='benefits_block_parent'> 
                 <div className="benefits_block">
-                <h2 className="benefits_title">Преимущества работы с нами
+                <h2 className="benefits_title">⠀Преимущества работы с нами
                 <br /><br /><WeFeatures />
                 </h2>
                 </div>

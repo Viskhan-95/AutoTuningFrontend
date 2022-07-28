@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useState } from "react";
 import styles from "./Services.module.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,6 +14,7 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Container } from "react-bootstrap";
 import { addTurns, getTurn } from "../../../features/turns/turnsSlice";
+import { Link } from "react-router-dom";
 
 function ServiceInfo() {
   const user = localStorage.getItem("user");
@@ -171,10 +173,10 @@ function ServiceInfo() {
                 </div>
               </div>
               <div className={styles.back_to_services}>
-                <a href="/services">
+                <Link to="/services">
                   <HiOutlineArrowLeft className={styles.iconArrow} />В ОБЩИЙ
                   РАЗДЕЛ
-                </a>
+                </Link>
               </div>
               <div className={styles.text_description}>
                 <p>{item.text}</p>
