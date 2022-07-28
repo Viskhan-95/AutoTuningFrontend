@@ -48,13 +48,14 @@ function ServiceInfo() {
       return false;
     }
   });
-  console.log(reserved);
 
   const checkInMonth = calendarValue.getUTCMonth() + 1;
   const checkInDay = calendarValue.getUTCDate() + 1;
   const checkInYear = calendarValue.getUTCFullYear();
 
   const checkInValue = checkInYear + "-" + checkInMonth + "-" + checkInDay;
+
+  const allDate = Date.parse(calendarValue) - Date.parse(new Date()) > -120253000;
 
 
   const handleAddDate = (title) => {
@@ -141,18 +142,20 @@ function ServiceInfo() {
                                 </div>
                               </Modal.Body>
                               <Modal.Footer>
-                                <Button
-                                  variant="secondary"
-                                  onClick={handleCloseCalendar}
-                                >
-                                  Закрыть
-                                </Button>
+                                  <Button
+                                    variant="secondary"
+                                    onClick={handleCloseCalendar}
+                                  >
+                                    Закрыть
+                                  </Button>
+                                {(allDate || calendarValue === Date.parse(new Date())) &&  (
                                 <Button
                                   variant="primary"
                                   onClick={() => handleAddDate(item._id)}
                                 >
                                   Отправить
                                 </Button>
+                                )}
                               </Modal.Footer>
                             </Modal>
                           </>
