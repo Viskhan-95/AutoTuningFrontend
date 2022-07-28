@@ -2,17 +2,17 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, } from 'react-router-dom';
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
-import SignInPage from "../Auth-Regist/SignInPage";
-import SignUpPage from "../Auth-Regist/SignUpPage";
+import SignInPage from "../../pages/Auth-Regist/SignInPage";
+import SignUpPage from "../../pages/Auth-Regist/SignUpPage";
 import { clearToken, showModalSignIn, showModalSignUp } from "../../../features/users/usersSlice";
 import { ImUserPlus, ImEnter } from 'react-icons/im';
 import { GiExitDoor } from 'react-icons/gi';
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../../icon/iconAutoTuning.png"
 import { Link } from "react-router-dom";
-import backgroundImage from "../../../icon/backgroundImg.jpeg"
+import backgroundImage from "../../../icon/newBackgroundImg.jpg"
 
-const Navibar = () => {
+const Navibar = (heightHeader) => {
    const token = useSelector((state) => state.usersReducer.token);
 
    const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const Navibar = () => {
    }
 
    const activePageStyle = {
-      color: 'blue',
+      color: '#a80757',
       textDecoration: "none",
       marginRight: "20px",
       fontWeight: "500",
@@ -42,14 +42,15 @@ const Navibar = () => {
       marginRight: "20px",
    };
    return (
-      <Container fluid className="header d-flex align-items-baseline"
+      <Container fluid className="header d-flex align-items-baseline p-4"
          style={{
             backgroundImage: `url(${backgroundImage}`,
-            height: "100vh",
+            height:`${heightHeader}vh`,
             width: "100%",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            padding: 0,
+            backgroundPosition: "center",
+            position: "relative",
          }}
       >
          <div className="header_logo">
@@ -77,10 +78,6 @@ const Navibar = () => {
                         </NavLink>
 
                         <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
-                           to="/reviews"> ОТЗЫВЫ
-                        </NavLink>
-
-                        <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
                            to="/contacts"> КОНТАКТЫ
                         </NavLink>
                      </div>
@@ -91,7 +88,7 @@ const Navibar = () => {
                   <Nav>
                      <Button variant="link" onClick={handleExit}
                         className="mx-1">
-                        {<GiExitDoor color="white"/>}
+                        {<GiExitDoor size={30} />}
                      </Button>
                   </Nav>
                   :

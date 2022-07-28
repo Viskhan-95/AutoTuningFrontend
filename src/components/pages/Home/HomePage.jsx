@@ -5,7 +5,7 @@ import { getServices } from "../../../features/services/servicesSlice";
 import LearnMore from "../Learn-More/LearnMore";
 import Car from "../../Car/Car";
 import Features from "../WeFeatures/Features";
-import Navibar from "../Navibar/Navibar";
+import Navibar from "../../Layout/Navibar/Navibar"
 import Footer from "../../Layout/Footer/Footer";
 import { Link } from "react-router-dom";
 import AliceCarousel from "react-alice-carousel";
@@ -59,36 +59,7 @@ const HomePage = () => {
           <h1>
             BROOKLYN <br></br>CAR TUNING
           </h1>
-        </div>
-        <Container className="d-flex justify-content-center">
-          <Link to="/services">
-            <Button
-              className="ship_button"
-              style={{
-                width: "200px",
-                height: "70px",
-                margin: "0 20px",
-                fontSize: "20px",
-              }}
-            >
-              наши услуги
-            </Button>
-          </Link>
-          <Link to="/about">
-            <Button
-              className="ship_button"
-              style={{
-                width: "200px",
-                height: "70px",
-                margin: "0 20px",
-                fontSize: "20px",
-              }}
-            >
-              о нас
-            </Button>
-          </Link>
-        </Container>
-          
+        </div>          
       </Container>
       <Container
         style={{
