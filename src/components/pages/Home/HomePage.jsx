@@ -5,7 +5,7 @@ import { getServices } from "../../../features/services/servicesSlice";
 import LearnMore from "../Learn-More/LearnMore";
 import Car from "../../Car/Car";
 import Features from "../WeFeatures/Features";
-import Navibar from "../../Layout/Navibar/Navibar"
+import Navibar from "../../Layout/Navibar/Navibar";
 import Footer from "../../Layout/Footer/Footer";
 import { Link } from "react-router-dom";
 import AliceCarousel from "react-alice-carousel";
@@ -33,7 +33,7 @@ const HomePage = () => {
           <div className={styles.slider_title}>{service.title}</div>
           <div className={styles.slider_text}>{service.text}</div>
           <Link to={`/service/${service._id}`}>
-            <button className={styles.slider_btn}>подробнее</button>
+            <button className={styles.slider_btn}>Подробнее</button>
           </Link>
         </div>
       </div>
@@ -56,7 +56,7 @@ const HomePage = () => {
       >
         <div className={styles.welcome_title}>
           <h1>
-            BROOKLYN <br></br>CAR TUNING
+            BROOKLYN <br></br>AUTHOMOBILE <br></br> STUDIO
           </h1>
         </div>          
       </Container>
