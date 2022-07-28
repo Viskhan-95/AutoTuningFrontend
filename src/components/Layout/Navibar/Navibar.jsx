@@ -91,7 +91,7 @@ const Navibar = () => {
                   <Nav>
                      <Button variant="link" onClick={handleExit}
                         className="mx-1">
-                        {<GiExitDoor size={30} />}
+                        {<GiExitDoor color="white"/>}
                      </Button>
                   </Nav>
                   :
