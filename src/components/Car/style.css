@@ -44,7 +44,7 @@
 .card {
   transition: 0.55s opacity, 0.55s visibility;
   transition: all 350ms ease-in-out;
-  width: 370px;
+  width: 390px;
   max-height: 350px;
   padding: 20px 20px;
   box-shadow: 0 5px 25px rgb(149 149 149 / 73%);
