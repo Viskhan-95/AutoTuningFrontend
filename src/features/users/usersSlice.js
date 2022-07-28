@@ -143,8 +143,7 @@ export const deleteUser = createAsyncThunk(
 );
 
 export const clearToken = createAsyncThunk("token/delete", async (thunkAPI) => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("role");
+  localStorage.clear()
 });
 
 export const usersSlice = createSlice({
