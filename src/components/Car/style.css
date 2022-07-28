@@ -18,9 +18,13 @@
 }
 .link {
   text-decoration: none;
+  color: #a80757;
+}
+.link:hover {
+  color: #520a38;
 }
 .service {
-  border: 10px solid blue;
+  border: 10px solid #a80757;
   border-radius: 100%;
   width: 30px;
   height: 30px;
@@ -126,10 +130,10 @@
   margin-top: 20%;
 }
 .more {
-  background-color: blue;
+  background-color: #a80757;;
   transition: all 0.3s ease-in 0s;
   color: white;
-  border: 1px solid blue;
+  border: 1px solid #a80757;;
   cursor: pointer;
   font-size: 16px;
   padding-left: 30px;
@@ -140,14 +144,14 @@
 }
 .more:hover {
   background-color: white;
-  color: blue;
-  border: 1px solid blue;
+  color: #a80757;;
+  border: 1px solid #a80757;;
 }
 .get_form {
-  background-color: red;
+  background-color: #a80757;;
   transition: all 0.2s ease-in 0s;
   color: white;
-  border: 1px solid red;
+  border: 1px solid #a80757;;
   cursor: pointer;
   font-size: 16px;
   padding-left: 30px;
@@ -158,8 +162,8 @@
 }
 .get_form:hover {
   background-color: white;
-  color: red;
-  border: 1px solid red;
+  color: #a80757;;
+  border: 1px solid #a80757;;
 }
 
 .set_call_block1 {
@@ -238,8 +242,8 @@
 }
 
 .ship_button1 {
-  background: blue;
-  border: 1px solid blue;
+  background: #a80757;
+  border: 1px solid #a80757;
   transition: all 0.2s ease-in 0s;
   font-size: 16px;
   width: 100%;
@@ -252,7 +256,7 @@
 
 .ship_button1:hover {
   background: white;
-  border: 1px solid blue;
+  border: 1px solid #a80757;
   transition: all 0.2s ease-in 0s;
   font-size: 16px;
   width: 100%;
@@ -260,7 +264,7 @@
   margin: 20px 0;
   border-radius: 2%;
   cursor: pointer;
-  color: blue;
+  color: #a80757;
 }
 
 .form_close1 img {

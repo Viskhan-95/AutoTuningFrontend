@@ -10,7 +10,7 @@ import { GiExitDoor } from 'react-icons/gi';
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../../icon/iconAutoTuning.png"
 import { Link } from "react-router-dom";
-import backgroundImage from "../../../icon/backgroundImg.jpeg"
+import backgroundImage from "../../../icon/newBackgroundImg.jpg"
 
 const Navibar = (heightHeader) => {
    const token = useSelector((state) => state.usersReducer.token);
@@ -30,7 +30,7 @@ const Navibar = (heightHeader) => {
    }
 
    const activePageStyle = {
-      color: 'blue',
+      color: '#a80757',
       textDecoration: "none",
       marginRight: "20px",
       fontWeight: "500",
