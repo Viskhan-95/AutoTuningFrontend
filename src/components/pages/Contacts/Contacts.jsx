@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navibar from "../Navibar/Navibar";
+import Navibar from "../../Layout/Navibar/Navibar";
 import "./styles.css";
 
 const Constacts = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import "./styles.css";
-import Navibar from '../Navibar/Navibar';
+import Navibar from '../../Layout/Navibar/Navibar';
 import Footer from '../../Layout/Footer/Footer';
 import WeFeatures from "../WeFeatures/Features"
 
