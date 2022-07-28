@@ -13,8 +13,7 @@ const Footer = () => {
          <div className={styles.content}>
             <div className={styles.mainInfo}>
                <div className={styles.logoCnt}>
-                  <img className={styles.logo} alt='logo' src={logo} />
-                  <div className={styles.logoText}>Brooklyn Car Tuning</div>
+                  <div className={styles.logoText}>Brooklyn Authomobile Studio</div>
                </div>
                <div className={styles.rightFlang}>
                   <h2>Наши контакты:</h2>
