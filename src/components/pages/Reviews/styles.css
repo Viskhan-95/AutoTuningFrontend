@@ -273,9 +273,10 @@
 }
 
 .loading-window {
+  background: transparent;
   border-radius: 6px;
   border: none;
-  color: #4d4d4d;
+  color: #424242;
   height: 200px;
   left: 50%;
   margin-left: -150px;
@@ -306,15 +307,17 @@
   position: absolute;
   width: 117px;
   height: 42px;
-  left: 92px;
-  top: 100px;
+  left: 84px;
+  top: 90px;
+  color: #353535;
 }
 .carr .strike {
   position: absolute;
   width: 11px;
   height: 1px;
-  background: #444444;
+  background: #2e2e2e;
   animation: strikes 0.2s linear infinite;
+  color: #353535;
 }
 .carr .strike2 {
   top: 11px;
@@ -335,8 +338,9 @@
 .car-detail {
   position: absolute;
   display: block;
-  background: #3b3b3b;
+  background: #3f3f3f;
   animation: speed 0.5s linear infinite;
+  color: #3f3f3f;
 }
 .car-detail.spoiler {
   width: 0;
@@ -344,23 +348,25 @@
   top: 7px;
   background: none;
   border: 20px solid transparent;
-  border-bottom: 8px solid #3b3b3b;
-  border-left: 20px solid #474747;
+  border-bottom: 8px solid #3f3f3f;
+  border-left: 20px solid #3f3f3f;
+  color: #353535;
 }
 .car-detail.back {
   height: 20px;
   width: 92px;
   top: 15px;
   left: 0px;
+  color: #353535;
 }
 .car-detail.center {
   height: 35px;
   width: 75px;
   left: 12px;
+  color: #3f3f3f;
   border-top-left-radius: 30px;
   border-top-right-radius: 45px 40px;
-  border: 4px solid #464646;
-  color: #333;
+  border: 4px solid #3f3f3f;
   background: none;
   box-sizing: border-box;
 }
@@ -388,32 +394,32 @@
   background: linear-gradient(
       45deg,
       transparent 45%,
-      rgb(221, 221, 221) 46%,
-      rgb(221, 221, 221) 54%,
+      #ffffff 46%,
+      #ffffff 54%,
       transparent 55%
     ),
     linear-gradient(
       -45deg,
       transparent 45%,
-      rgb(221, 221, 221) 46%,
-      rgb(221, 221, 221) 54%,
+      #ffffff 46%,
+      #ffffff 54%,
       transparent 55%
     ),
     linear-gradient(
       90deg,
       transparent 45%,
-      rgb(221, 221, 221) 46%,
-      rgb(221, 221, 221) 54%,
+      #ffffff 46%,
+      #ffffff 54%,
       transparent 55%
     ),
     linear-gradient(
       0deg,
       transparent 45%,
-      #333 46%,
-      rgb(221, 221, 221) 54%,
+      #ffffff 46%,
+      #ffffff 54%,
       transparent 55%
     ),
-    radial-gradient(rgb(221, 221, 221) 29%, transparent 30%, transparent 50%, rgb(221, 221, 221) 51%),
+    radial-gradient(#2e2e2e 29%, transparent 30%, transparent 50%, #2e2e2e 51%),
     #333;
   animation-name: spin;
 }
