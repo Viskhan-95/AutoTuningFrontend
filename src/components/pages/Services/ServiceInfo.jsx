@@ -12,20 +12,41 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Container } from "react-bootstrap";
+import { addTurns } from "../../../features/turns/turnsSlice";
 
 function ServiceInfo() {
+  const user = localStorage.getItem("user");
+  const userId = localStorage.getItem("userId");
+  const services = useSelector((state) => state.services.services);
   const [show, setShow] = useState(false);
+  const [contact, setContact] = useState("");
+  const [calendarValue, onChangeCalendar] = useState(new Date());
+  const [calendarShow, setCalendarShoww] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [calendarShow, setCalendarShoww] = useState(false);
-  const user = localStorage.getItem("user");
   const handleCloseCalendar = () => setCalendarShoww(false);
   const handleShowCalendar = () => setCalendarShoww(true);
-
   const { id } = useParams();
-  const services = useSelector((state) => state.services.services);
   const dispatch = useDispatch();
-  const [calendarValue, onChangeCalendar] = useState(new Date());
+  
+  const checkInMonth = calendarValue.getUTCMonth() + 1;
+  const checkInDay = calendarValue.getUTCDate() + 1;
+  const checkInYear = calendarValue.getUTCFullYear();
+
+  const checkInValue = checkInYear + "-" + checkInMonth + "-" + checkInDay;
+
+
+  const handleAddDate = (title) => {
+    handleCloseCalendar();
+    dispatch(addTurns({ contact, checkInValue, title, userId }));
+  };
+
+  const handleContact = (e) => {
+    setContact(e.target.value);
+  };
+
+  
+
 
   useEffect(() => {
     dispatch(getServices());
@@ -63,14 +84,15 @@ function ServiceInfo() {
                             <Form.Control
                               type="text"
                               placeholder="введите номер телефона"
+                              onChange={handleContact}
+                              value={contact}
                               autoFocus
                             />
                           </Form.Group>
                           <Form.Group
                             className="mb-3"
                             controlId="exampleForm.ControlInput1"
-                          >
-                          </Form.Group>
+                          ></Form.Group>
                           <>
                             <Button
                               variant="primary"
@@ -78,13 +100,16 @@ function ServiceInfo() {
                             >
                               Выберите дату
                             </Button>
-                            <Container className="d-flex" style={{fontSize:"17px", marginTop:"3%"}}>
-                            <Container>
-                            <Form.Label >Выбранная услуга</Form.Label>
-                            </Container>
-                            <Container style={{ color:"orange"}}>
-                            {item.title}
-                            </Container>
+                            <Container
+                              className="d-flex"
+                              style={{ fontSize: "17px", marginTop: "3%" }}
+                            >
+                              <Container>
+                                <Form.Label>Выбранная услуга</Form.Label>
+                              </Container>
+                              <Container style={{ color: "orange" }}>
+                                {item.title}
+                              </Container>
                             </Container>
                             <Modal
                               show={calendarShow}
@@ -110,7 +135,7 @@ function ServiceInfo() {
                                 </Button>
                                 <Button
                                   variant="primary"
-                                  onClick={handleCloseCalendar}
+                                  onClick={() => handleAddDate(item._id)}
                                 >
                                   Отправить
                                 </Button>
@@ -149,7 +174,9 @@ function ServiceInfo() {
                   );
                 })}
               </div>
-              <hr style={{ width: "99%", border: "1px solid", marginTop: "5%" }} />
+              <hr
+                style={{ width: "99%", border: "1px solid", marginTop: "5%" }}
+              />
               <Reviews />
             </div>
           );
