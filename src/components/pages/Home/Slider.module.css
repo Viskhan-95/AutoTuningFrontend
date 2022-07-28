@@ -1,7 +1,7 @@
 .slider {
   height: 320px;
   margin: 10px 8px;
-  box-shadow: 0px 10px 8px 0px rgba(34, 60, 80, 0.17);
+  box-shadow: 1px 5px 10px 0px rgba(34, 60, 80, 0.18);
   border-radius: 4px;
   background-color: white;
 }
@@ -37,6 +37,7 @@
   outline: none;
   position: absolute;
   top: 255px;
+  color: white;
 }
 .slider_btn:hover {
   background-color: rgb(164, 27, 27);
@@ -44,7 +45,6 @@
 
 .slider_btn a {
   text-decoration: none;
-  color: white;
   font-family: Gilroy, Tahoma, Arial;
   font-size: 14px;
   font-weight: 400;

@@ -1,26 +1,26 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  signUp: false,
-  signIn: false,
-  showSignIn: false,
-  showSignUp: false,
-  error: null,
-  token: localStorage.getItem("token"),
-  role: localStorage.getItem("role"),
-  user: localStorage.getItem("user"),
-  userId: localStorage.getItem("userId"),
-  users: [],
+   signUp: false,
+   signIn: false,
+   showSignIn: false,
+   showSignUp: false,
+   error: null,
+   token: localStorage.getItem("token"),
+   role: localStorage.getItem("role"),
+   user: localStorage.getItem("user"),
+   userId: localStorage.getItem("userId"),
+   users: [],
 };
 
 export const getUsers = createAsyncThunk("users/get", async (_, thunkAPI) => {
-  try {
-    const res = await fetch("http://localhost:4000/user");
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error);
-  }
+   try {
+      const res = await fetch("http://localhost:4000/user");
+      const data = await res.json();
+      return data;
+   } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+   }
 });
 
 export const addUser = createAsyncThunk(
@@ -148,88 +148,89 @@ export const clearToken = createAsyncThunk("token/delete", async (thunkAPI) => {
 });
 
 export const usersSlice = createSlice({
-  name: "users",
-  initialState,
-  reducers: {
-    errorNull: (state) => {
-      state.error = null;
-    },
-    showModalSignIn: (state, action) => {
-      state.showSignIn = action.payload;
-    },
-    showModalSignUp: (state, action) => {
-      state.showSignUp = action.payload;
-    },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(getUsers.fulfilled, (state, action) => {
-        state.users = action.payload;
-        state.loading = false;
-        state.error = null;
-      })
-      .addCase(getUsers.rejected, (state, action) => {
-        state.error = action.payload;
-        state.loading = false;
-      })
-      .addCase(getUsers.pending, (state, action) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(addUser.fulfilled, (state, action) => {
-        state.users = action.payload;
-        state.error = null;
-        state.signUp = false;
-        state.showSignUp = false;
-      })
-      .addCase(addUser.pending, (state, action) => {
-        state.signUp = true;
-      })
-      .addCase(addUser.rejected, (state, action) => {
-        state.error = action.payload;
-        state.signUp = false;
-      })
-      .addCase(auth.fulfilled, (state, action) => {
-        state.token = action.payload.token;
-        state.error = null;
-        state.signIn = false;
-        state.showSignIn = false;
-      })
-      .addCase(auth.pending, (state, action) => {
-        state.signIn = true;
-      })
-      .addCase(auth.rejected, (state, action) => {
-        state.error = action.payload;
-        state.signIn = false;
-      })
-      .addCase(updateUser.fulfilled, (state, action) => {
-        state.signIn = false;
-        state.error = null;
-        state.token = action.payload.token;
-      })
-      .addCase(updateUser.pending, (state, action) => {
-        state.signIn = true;
-      })
-      .addCase(updateUser.rejected, (state, action) => {
-        state.error = action.payload;
-        state.signIn = false;
-      })
-      .addCase(deleteUser.fulfilled, (state, action) => {
-        state.signIn = false;
-        state.error = null;
-        state.token = null;
-      })
-      .addCase(deleteUser.pending, (state, action) => {
-        state.signingIn = true;
-      })
-      .addCase(deleteUser.rejected, (state, action) => {
-        state.error = action.payload;
-        state.signIn = false;
-      })
-      .addCase(clearToken.fulfilled, (state, action) => {
-        state.token = null;
-      });
-  },
+
+   name: "users",
+   initialState,
+   reducers: {
+      errorNull: (state) => {
+         state.error = null;
+      },
+      showModalSignIn: (state, action) => {
+         state.showSignIn = action.payload;
+      },
+      showModalSignUp: (state, action) => {
+         state.showSignUp = action.payload;
+      },
+   },
+   extraReducers: (builder) => {
+      builder
+         .addCase(getUsers.fulfilled, (state, action) => {
+            state.users = action.payload;
+            state.loading = false;
+            state.error = null;
+         })
+         .addCase(getUsers.rejected, (state, action) => {
+            state.error = action.payload;
+            state.loading = false;
+         })
+         .addCase(getUsers.pending, (state, action) => {
+            state.loading = true;
+            state.error = null;
+         })
+         .addCase(addUser.fulfilled, (state, action) => {
+            state.users = action.payload;
+            state.error = null;
+            state.signUp = false;
+            state.showSignUp = false;
+         })
+         .addCase(addUser.pending, (state, action) => {
+            state.signUp = true;
+         })
+         .addCase(addUser.rejected, (state, action) => {
+            state.error = action.payload;
+            state.signUp = false;
+         })
+         .addCase(auth.fulfilled, (state, action) => {
+            state.token = action.payload.token;
+            state.error = null;
+            state.signIn = false;
+            state.showSignIn = false;
+         })
+         .addCase(auth.pending, (state, action) => {
+            state.signIn = true;
+         })
+         .addCase(auth.rejected, (state, action) => {
+            state.error = action.payload;
+            state.signIn = false;
+         })
+         .addCase(updateUser.fulfilled, (state, action) => {
+            state.signIn = false;
+            state.error = null;
+            state.token = action.payload.token;
+         })
+         .addCase(updateUser.pending, (state, action) => {
+            state.signIn = true;
+         })
+         .addCase(updateUser.rejected, (state, action) => {
+            state.error = action.payload;
+            state.signIn = false;
+         })
+         .addCase(deleteUser.fulfilled, (state, action) => {
+            state.signIn = false;
+            state.error = null;
+            state.token = null;
+         })
+         .addCase(deleteUser.pending, (state, action) => {
+            state.signingIn = true;
+         })
+         .addCase(deleteUser.rejected, (state, action) => {
+            state.error = action.payload;
+            state.signIn = false;
+         })
+         .addCase(clearToken.fulfilled, (state, action) => {
+            state.token = null;
+         });
+   },
 });
 
 export const { errorNull, showModalSignIn, showModalSignUp } =
