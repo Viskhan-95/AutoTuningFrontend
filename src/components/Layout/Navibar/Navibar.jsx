@@ -78,6 +78,10 @@ const Navibar = (heightHeader) => {
                         </NavLink>
 
                         <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
+                           to="/reviews"> ОТЗЫВЫ
+                        </NavLink>
+
+                        <NavLink style={({ isActive }) => (isActive ? activePageStyle : inActivePageStyle)}
                            to="/contacts"> КОНТАКТЫ
                         </NavLink>
                      </div>
@@ -88,18 +92,18 @@ const Navibar = (heightHeader) => {
                   <Nav>
                      <Button variant="link" onClick={handleExit}
                         className="mx-1">
-                        {<GiExitDoor size={30} />}
+                        {<GiExitDoor size={40} color={"#a80757"}/>}
                      </Button>
                   </Nav>
                   :
                   <Nav>
                      <Button variant="link" onClick={handleShowSignin}
                         className="mx-1">
-                        {<ImEnter size={30} />}
+                        {<ImEnter size={30} color={"#a80757"} />}
                      </Button>
                      <Button variant="link" onClick={handleShowSignup}
                         className="mx-1">
-                        {<ImUserPlus size={30} />}
+                        {<ImUserPlus size={30} color={"#a80757"} />}
                      </Button>
                   </Nav>
                }
