@@ -28,11 +28,11 @@ const HomePage = () => {
    const itemsServices = services.map((service, index) => {
       return (
          <div className="item carusel" date-value={index} >
-            <div >
+            <Card >
             {service.title} 
             {service.text}
 
-            </div>
+            </Card>
          </div>
       )
    })
