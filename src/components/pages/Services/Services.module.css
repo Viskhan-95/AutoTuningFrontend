@@ -76,6 +76,7 @@
   font-size: 18px;
   display: flex;
   align-items: center;
+  font-family: Gilroy, Tahoma, Arial;
 }
 .images_block {
   width: 100%;
@@ -102,6 +103,4 @@
   width: 99.5%;
   align-items: center;
   margin-bottom: 60px;
-
 }
-

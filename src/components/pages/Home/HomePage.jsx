@@ -57,7 +57,7 @@ const HomePage = () => {
       >
         <div style={{ marginBottom: "70px" }}>
           <h1>
-            ДОБРО ПОЖАЛОВАТЬ В <br /> BROOKLYN-AUTOTUNING
+            ДОБРО ПОЖАЛОВАТЬ В <br /> BROOKLYN CAR TUNING
           </h1>
         </div>
         <Container className="d-flex justify-content-center">
@@ -91,9 +91,9 @@ const HomePage = () => {
       </Container>
       <Container
         style={{
-          boxShadow: "0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset",
+          //boxShadow: "0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset",
           width: "80%",
-          backgroundColor: "white",
+          backgroundColor: "transparent",
           marginTop: "-150px",
         }}
       >
