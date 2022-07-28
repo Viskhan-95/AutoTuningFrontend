@@ -23,16 +23,6 @@ const About = () => {
            
             <Footer />
         </div>
-        <div className="benefits_block">
-          <h2 className="benefits_title">
-            ⠀⠀⠀⠀⠀⠀Преимущества работы с нами
-            <br />
-            <br />
-            <WeFeatures />
-          </h2>
-        </div>
-        <Footer />
-      </div>
   );
 };
 
