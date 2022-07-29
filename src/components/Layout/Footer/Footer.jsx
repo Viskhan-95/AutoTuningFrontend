@@ -13,7 +13,7 @@ const Footer = () => {
          <div className={styles.content}>
             <div className={styles.mainInfo}>
                <div className={styles.logoCnt}>
-                  <div className={styles.logoText}>Brooklyn Automobile Studio</div>
+                  <div className={styles.logoText}>BROOKLYN<br></br>AUTOMOBILE<br></br>STUDIO</div>
                </div>
                <div className={styles.rightFlang}>
                   <h2>Наши контакты:</h2>
