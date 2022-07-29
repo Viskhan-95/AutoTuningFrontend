@@ -112,6 +112,7 @@
 
 .map {
   margin-top: 3%;
+  filter: invert(100%);
   width: 100%;
 }
 

@@ -185,7 +185,7 @@ function ServiceInfo() {
                 </Link>
               </div>
               <div className={styles.text_description}>
-                <p>{item.text}</p>
+                <p style={{ fontSize: "20px" }}>{item.text}</p>
               </div>
               <div className={styles.images_block}>
                 {item.img.map((itemImg) => {

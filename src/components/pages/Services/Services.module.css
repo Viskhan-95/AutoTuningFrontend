@@ -54,9 +54,12 @@
   transition: 0.4s;
   outline: none;
 }
+
 .btn:hover {
   background-color: #520a38;
+  width: 150%;
 }
+
 
 .element_button {
   position: absolute;
@@ -88,6 +91,7 @@
   width: 400px;
   height: 350px;
   margin: 1px;
+  border-radius: 2px;
 }
 .image_container {
   background: center center no-repeat;
