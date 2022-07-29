@@ -44,7 +44,6 @@ function ServiceInfo() {
     dispatch(delTurn(i));
   };
 
-
   const reserved = turn.find((item) => {
     if (item.user === userId) {
       if (item.service === id) {
@@ -90,11 +89,11 @@ function ServiceInfo() {
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
                   <>
-                    
                     {reserved ? (
                       turn.map((item) => {
                         return (
-                          userId === item.user && item.service === id && (
+                          userId === item.user &&
+                          item.service === id && (
                             <>
                               <div>Вы записаны на </div>
                               <div>{item.date}</div>
