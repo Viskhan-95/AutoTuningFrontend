@@ -46,10 +46,12 @@
   height: 680px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   top: 80%;
 }
 .trustUs_content {
-  padding: 60px;
+  padding-left: 60px;
+  padding-top: 60px;
   color: white;
   font-family: "Gilroy", Tahoma, Arial;
 }
