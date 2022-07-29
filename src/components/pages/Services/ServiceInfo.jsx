@@ -44,13 +44,6 @@ function ServiceInfo() {
     dispatch(delTurn(i));
   };
 
-  const filSer = turn.find((item) => {
-    if (item.service === id) {
-      return true;
-    }else {
-      return false
-    }
-  });
 
   const reserved = turn.find((item) => {
     if (item.user === userId) {
@@ -97,7 +90,7 @@ function ServiceInfo() {
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
                   <>
-                    {}
+                    
                     {reserved ? (
                       turn.map((item) => {
                         return (
