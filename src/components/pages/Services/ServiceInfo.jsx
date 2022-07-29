@@ -1,6 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { useState } from "react";
 import styles from "./Services.module.css";
+import "./Services.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -13,7 +14,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Container } from "react-bootstrap";
-import { addTurns, getTurn } from "../../../features/turns/turnsSlice";
+import { addTurns, delTurn, getTurn } from "../../../features/turns/turnsSlice";
 import { Link } from "react-router-dom";
 
 function ServiceInfo() {
@@ -39,6 +40,10 @@ function ServiceInfo() {
     dispatch(getServices());
   }, [dispatch]);
 
+  const handleRemove = (i) => {
+dispatch(delTurn(i))
+  }
+
   const reserved = turn.find((item) => {
     if (item.user === userId) {
       if (item.service === id) {
@@ -57,8 +62,10 @@ function ServiceInfo() {
 
   const checkInValue = checkInYear + "-" + checkInMonth + "-" + checkInDay;
 
-  const allDate = Date.parse(calendarValue) - Date.parse(new Date()) > -120253000;
+  const allDate =
+    Date.parse(calendarValue) - Date.parse(new Date()) > -120253000;
 
+  const qw = turn.map((item) => new Date(item.date));
 
   const handleAddDate = (title) => {
     handleCloseCalendar();
@@ -82,9 +89,20 @@ function ServiceInfo() {
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
                   <>
+                      {reserved ? (turn.map((item) => {
+                        return(
+                          <>
+                          <div>Вы записаны на </div>
+                          <div>{item.date}</div>
+                          <button onClick={() =>handleRemove(item._id)}>Отменить запись</button>
+                          </>
+                        )
+                      })) : (
+
                     <Button variant="primary" onClick={handleShow}>
-                      {reserved ? "записан" : "записаться на услугу"}
+                      Записаться
                     </Button>
+                      )}
 
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Header closeButton>
@@ -143,23 +161,34 @@ function ServiceInfo() {
                                   <Calendar
                                     onChange={onChangeCalendar}
                                     value={calendarValue}
+                                    // tileClassName="highlight"
+                                    tileDisabled={({ date, view }) =>
+                                      view === "month" &&
+                                      qw.some(
+                                        (qw) =>
+                                          date.getFullYear() === qw.getFullYear() &&
+                                          date.getMonth() === qw.getMonth() &&
+                                          date.getDate() === qw.getDate()
+                                      )
+                                    }
                                   />
                                 </div>
                               </Modal.Body>
                               <Modal.Footer>
-                                  <Button
-                                    variant="secondary"
-                                    onClick={handleCloseCalendar}
-                                  >
-                                    Закрыть
-                                  </Button>
-                                {(allDate || calendarValue === Date.parse(new Date())) &&  (
                                 <Button
-                                  variant="primary"
-                                  onClick={() => handleAddDate(item._id)}
+                                  variant="secondary"
+                                  onClick={handleCloseCalendar}
                                 >
-                                  Отправить
+                                  Закрыть
                                 </Button>
+                                {(allDate ||
+                                  calendarValue === Date.parse(new Date())) && (
+                                  <Button
+                                    variant="primary"
+                                    onClick={() => handleAddDate(item._id)}
+                                  >
+                                    Отправить
+                                  </Button>
                                 )}
                               </Modal.Footer>
                             </Modal>
