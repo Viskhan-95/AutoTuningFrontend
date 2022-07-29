@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-   addUser,
-   errorNull,
-   showModalSignUp,
-} from "../../../features/users/usersSlice";
-import { Form, Modal, Button, Spinner } from "react-bootstrap";
+import { addUser, errorNull, showModalSignUp, getKey } 
+   from "../../../features/users/usersSlice";
+import { Form, Modal, Button, Spinner, Container } from "react-bootstrap";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const SignUpPage = () => {
    const [login, setLogin] = useState("");
    const [password, setPassword] = useState("");
    const [email, setEmail] = useState("");
+   const [keyEmail, setKeyEmail] = useState("");
 
    const [showPassword, setShowPassword] = useState(false);
 
@@ -20,10 +18,12 @@ const SignUpPage = () => {
    const signUp = useSelector((state) => state.usersReducer.signUp);
    const showSignUp = useSelector((state) => state.usersReducer.showSignUp);
    const error = useSelector((state) => state.usersReducer.error);
+   const key = useSelector((state) => state.usersReducer.key);
 
    const handleChangeLogin = (e) => setLogin(e.target.value);
    const handleChangePassword = (e) => setPassword(e.target.value);
    const handleChangeEmail = (e) => setEmail(e.target.value);
+   const handleChangeKey = (e) => setKeyEmail(e.target.value);
 
    const handleSubmit = () => {
       dispatch(addUser({ login, password }));
@@ -47,9 +47,14 @@ const SignUpPage = () => {
    const handleOpenEye = () => {
       setShowPassword(false);
    };
+
    const handleClouseEye = () => {
       setShowPassword(true);
    };
+
+   const handleSendKeyEmail = () => {
+      dispatch(getKey(email));
+   }
 
    const colorTextError = error ? "red" : "white";
 
@@ -86,6 +91,20 @@ const SignUpPage = () => {
                         {error}
                      </span>
                   </Form.Group>
+
+                  <Container fluid className="d-flex justify-content-between p-0">
+                        <Button style={{width: "30%"}}
+                           onClick={handleSendKeyEmail}
+                        >
+                           Получить код
+                           </Button>
+                        <Form.Control style={{width: "65%"}}
+                        type="keyEmail"
+                        placeholder="Введите код"
+                        onChange={handleChangeKey}
+                        value={keyEmail}
+                     />
+                     </Container>
 
                   <Form.Group className="mb-3" controlId="formBasicLogin">
                      <Form.Label>Логин </Form.Label>
