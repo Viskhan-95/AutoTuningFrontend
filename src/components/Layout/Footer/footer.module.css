@@ -1,73 +1,69 @@
 .mainFooter {
-   background: white;
-   bottom: 0;
-   width: 100%;
+  background: white;
+  bottom: 0;
+  width: 100%;
 }
 
 img {
-   width: 50px;
-   height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .logo {
-   width: 100px;
-   height: 100px;
+  width: 100px;
+  height: 100px;
 }
-.logoText{
-   font-size: 20px;
-   margin-top: 1%;
+.logoText {
+  font-size: 20px;
+  margin-top: 1%;
 }
 
 .mainFooter {
-   display: flex;
-   margin: 30px 0;
+  display: flex;
+  margin: 30px 0;
 }
 
 .content {
-   margin-left: 2%;
-   width: 95%;
+  margin-left: 2%;
+  width: 95%;
 }
 
 .mainInfo {
-   display: flex;
-   justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .links {
-   display: flex;
-   width: 15%;
-   justify-content: space-between;
-   margin-left: 40%;
-   margin-top: 3%;
+  display: flex;
+  width: 15%;
+  justify-content: space-between;
+  margin-left: 40%;
+  margin-top: 3%;
 }
 
 .map {
-   color: gray;
-   cursor: pointer;
-   text-decoration: none;
-   margin-left: 1%;
+  color: gray;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 1%;
 }
 
 .map:hover {
-   color: lightgray;
+  color: lightgray;
 }
 
 .phone {
-   margin-left: 1%;
+  margin-left: 1%;
 }
 
 .adress {
-   margin-left: 1%;
+  margin-left: 1%;
 }
 
-.tg {
-   cursor: pointer;
+.icon {
+  cursor: pointer;
+  transition: 0.3s;
 }
-
-.inst {
-   cursor: pointer
-}
-
-.vk {
-   cursor: pointer
+.icon:hover {
+  transform: scale(1.1);
 }

@@ -41,8 +41,8 @@ function ServiceInfo() {
   }, [dispatch]);
 
   const handleRemove = (i) => {
-dispatch(delTurn(i))
-  }
+    dispatch(delTurn(i));
+  };
 
   const reserved = turn.find((item) => {
     if (item.user === userId) {
@@ -89,29 +89,38 @@ dispatch(delTurn(i))
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
                   <>
-                      {reserved ? (turn.map((item) => {
-                        return(
+                    {reserved ? (
+                      turn.map((item) => {
+                        return (
                           <>
-                          <div>Вы записаны на </div>
-                          <div>{item.date}</div>
-                          <button onClick={() =>handleRemove(item._id)}>Отменить запись</button>
+                            <div>Вы записаны на</div>
+                            <div style={{marginBottom: "10px"}}>{item.date}</div>
+                            <button
+                              className={styles.enroll_btn}
+                              onClick={() => handleRemove(item._id)}
+                            >
+                              Отменить запись
+                            </button>
                           </>
-                        )
-                      })) : (
-
-                    <Button variant="primary" onClick={handleShow}>
-                      Записаться
-                    </Button>
-                      )}
+                        );
+                      })
+                    ) : (
+                      <Button
+                        className={styles.enroll_btn}
+                        variant="primary"
+                        onClick={handleShow}
+                      >
+                        Записаться
+                      </Button>
+                    )}
 
                     <Modal show={show} onHide={handleClose}>
-                      <Modal.Header closeButton>
-                        <Container className="d-flex justify-content-between align-items-center">
-                          <Modal.Title>Услуга</Modal.Title>
+                      <Container className="d-flex justify-content-between align-items-center">
+                        <Modal.Title>Услуга</Modal.Title>
 
-                          {user}
-                        </Container>
-                      </Modal.Header>
+                        {user}
+                      </Container>
+
                       <Modal.Body>
                         <Form>
                           <Form.Group
@@ -133,19 +142,22 @@ dispatch(delTurn(i))
                           ></Form.Group>
                           <>
                             <Button
+                              className={styles.modal_btn}
                               variant="primary"
                               onClick={handleShowCalendar}
                             >
-                              Выберите дату
+                              Выбрать дату
                             </Button>
                             <Container
                               className="d-flex"
-                              style={{ fontSize: "17px", marginTop: "3%" }}
+                              style={{ fontSize: "17px", marginTop: "12%" }}
                             >
                               <Container>
                                 <Form.Label>Выбранная услуга</Form.Label>
                               </Container>
-                              <Container style={{ color: "orange" }}>
+                              <Container
+                                style={{ color: "#a80757", fontWeight: "bold" }}
+                              >
                                 {item.title}
                               </Container>
                             </Container>
@@ -153,9 +165,8 @@ dispatch(delTurn(i))
                               show={calendarShow}
                               onHide={handleCloseCalendar}
                             >
-                              <Modal.Header closeButton>
-                                <Modal.Title>Выберите дату</Modal.Title>
-                              </Modal.Header>
+                              <Modal.Title>Выберите дату</Modal.Title>
+
                               <Modal.Body className="d-flex justify-content-center">
                                 <div className="App">
                                   <Calendar
@@ -166,7 +177,8 @@ dispatch(delTurn(i))
                                       view === "month" &&
                                       qw.some(
                                         (qw) =>
-                                          date.getFullYear() === qw.getFullYear() &&
+                                          date.getFullYear() ===
+                                            qw.getFullYear() &&
                                           date.getMonth() === qw.getMonth() &&
                                           date.getDate() === qw.getDate()
                                       )
@@ -176,6 +188,11 @@ dispatch(delTurn(i))
                               </Modal.Body>
                               <Modal.Footer>
                                 <Button
+                                  style={{
+                                    border: "none",
+                                    borderRadius: "2%",
+                                    padding: "6px 18px",
+                                  }}
                                   variant="secondary"
                                   onClick={handleCloseCalendar}
                                 >
@@ -184,6 +201,7 @@ dispatch(delTurn(i))
                                 {(allDate ||
                                   calendarValue === Date.parse(new Date())) && (
                                   <Button
+                                    className={styles.modal_btn}
                                     variant="primary"
                                     onClick={() => handleAddDate(item._id)}
                                   >
@@ -196,10 +214,22 @@ dispatch(delTurn(i))
                         </Form>
                       </Modal.Body>
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button
+                          style={{
+                            border: "none",
+                            borderRadius: "2%",
+                            padding: "6px 18px",
+                          }}
+                          variant="secondary"
+                          onClick={handleClose}
+                        >
                           Закрыть
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button
+                          className={styles.modal_btn}
+                          variant="primary"
+                          onClick={handleClose}
+                        >
                           Отправить
                         </Button>
                       </Modal.Footer>
