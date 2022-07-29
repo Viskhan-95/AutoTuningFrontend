@@ -41,8 +41,9 @@ function ServiceInfo() {
   }, [dispatch]);
 
   const handleRemove = (i) => {
-dispatch(delTurn(i))
-  }
+    dispatch(delTurn(i));
+  };
+
 
   const reserved = turn.find((item) => {
     if (item.user === userId) {
@@ -89,20 +90,26 @@ dispatch(delTurn(i))
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
                   <>
-                      {reserved ? (turn.map((item) => {
-                        return(
-                          <>
-                          <div>Вы записаны на </div>
-                          <div>{item.date}</div>
-                          <button onClick={() =>handleRemove(item._id)}>Отменить запись</button>
-                          </>
-                        )
-                      })) : (
-
-                    <Button variant="primary" onClick={handleShow}>
-                      Записаться
-                    </Button>
-                      )}
+                    
+                    {reserved ? (
+                      turn.map((item) => {
+                        return (
+                          userId === item.user && item.service === id && (
+                            <>
+                              <div>Вы записаны на </div>
+                              <div>{item.date}</div>
+                              <button onClick={() => handleRemove(item._id)}>
+                                Отменить запись
+                              </button>
+                            </>
+                          )
+                        );
+                      })
+                    ) : (
+                      <Button variant="primary" onClick={handleShow}>
+                        Записаться
+                      </Button>
+                    )}
 
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Header closeButton>
@@ -161,12 +168,12 @@ dispatch(delTurn(i))
                                   <Calendar
                                     onChange={onChangeCalendar}
                                     value={calendarValue}
-                                    // tileClassName="highlight"
                                     tileDisabled={({ date, view }) =>
                                       view === "month" &&
                                       qw.some(
                                         (qw) =>
-                                          date.getFullYear() === qw.getFullYear() &&
+                                          date.getFullYear() ===
+                                            qw.getFullYear() &&
                                           date.getMonth() === qw.getMonth() &&
                                           date.getDate() === qw.getDate()
                                       )
