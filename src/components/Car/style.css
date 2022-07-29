@@ -32,7 +32,6 @@
   position: relative;
   display: inline-block;
   
-  
 }
 .service:hover .card {
   visibility: visible;
