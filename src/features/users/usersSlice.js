@@ -6,6 +6,7 @@ const initialState = {
   showSignIn: false,
   showSignUp: false,
   error: null,
+  key: "",
   token: localStorage.getItem("token"),
   role: localStorage.getItem("role"),
   user: localStorage.getItem("user"),
@@ -75,6 +76,29 @@ export const auth = createAsyncThunk(
     }
   }
 );
+
+export const getKey = createAsyncThunk("email", async (email, thunkAPI) => {
+  try {
+    const res = await fetch("http://localhost:4000/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await res.json();
+
+    if (data.error) {
+      return thunkAPI.rejectWithValue(data.error);
+    } 
+
+      return thunkAPI.fulfillWithValue(data);
+
+  } catch (err) {
+    return thunkAPI.rejectWithValue(err.toString());
+  }
+})
 
 export const updateUser = createAsyncThunk(
   "user/update",
@@ -198,6 +222,18 @@ export const usersSlice = createSlice({
         state.signIn = true;
       })
       .addCase(auth.rejected, (state, action) => {
+        state.error = action.payload;
+        state.signIn = false;
+      })
+      .addCase(getKey.fulfilled, (state, action) => {
+        state.key = action.payload;
+        state.error = null;
+        state.signIn = false;
+      })
+      .addCase(getKey.pending, (state, action) => {
+        state.signIn = true;
+      })
+      .addCase(getKey.rejected, (state, action) => {
         state.error = action.payload;
         state.signIn = false;
       })
