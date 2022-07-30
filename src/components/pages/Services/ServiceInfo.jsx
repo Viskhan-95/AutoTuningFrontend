@@ -44,6 +44,7 @@ function ServiceInfo() {
     dispatch(delTurn(i));
   };
 
+
   const reserved = turn.find((item) => {
     if (item.user === userId) {
       if (item.service === id) {
@@ -88,28 +89,26 @@ function ServiceInfo() {
               <div className={styles.zapicNaUslugu}>
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
-                  <>
+
+
+                  <>                    
                     {reserved ? (
                       turn.map((item) => {
                         return (
-                          <>
-                            <div>Вы записаны на</div>
-                            <div style={{marginBottom: "10px"}}>{item.date}</div>
-                            <button
-                              className={styles.enroll_btn}
-                              onClick={() => handleRemove(item._id)}
-                            >
-                              Отменить запись
-                            </button>
-                          </>
+                          userId === item.user && item.service === id && (
+                            <>
+                              <div>Вы записаны на </div>
+                              <div>{item.date}</div>
+                              <button onClick={() => handleRemove(item._id)}>
+                                Отменить запись
+                              </button>
+                            </>
+                          )
                         );
                       })
                     ) : (
-                      <Button
-                        className={styles.enroll_btn}
-                        variant="primary"
-                        onClick={handleShow}
-                      >
+                      <Button variant="primary" onClick={handleShow}>
+
                         Записаться
                       </Button>
                     )}
@@ -172,13 +171,19 @@ function ServiceInfo() {
                                   <Calendar
                                     onChange={onChangeCalendar}
                                     value={calendarValue}
+                                    
                                     // tileClassName="highlight"
+
                                     tileDisabled={({ date, view }) =>
                                       view === "month" &&
                                       qw.some(
                                         (qw) =>
+
+                                          date.getFullYear() === qw.getFullYear() &&
+
                                           date.getFullYear() ===
                                             qw.getFullYear() &&
+
                                           date.getMonth() === qw.getMonth() &&
                                           date.getDate() === qw.getDate()
                                       )

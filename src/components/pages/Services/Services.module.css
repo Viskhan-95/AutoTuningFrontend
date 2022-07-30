@@ -53,6 +53,7 @@
   top: 5;
   transition: 0.4s;
   outline: none;
+  color: white;
 }
 .btn:hover {
   background-color: #520a38;
