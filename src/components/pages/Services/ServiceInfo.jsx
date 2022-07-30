@@ -89,6 +89,7 @@ function ServiceInfo() {
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
                   <>
+                    
                     {reserved ? (
                       turn.map((item) => {
                         return (
@@ -109,7 +110,6 @@ function ServiceInfo() {
                         Записаться
                       </Button>
                     )}
-
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Header closeButton>
                         <Container className="d-flex justify-content-between align-items-center">
@@ -167,10 +167,14 @@ function ServiceInfo() {
                                   <Calendar
                                     onChange={onChangeCalendar}
                                     value={calendarValue}
+                                    // tileClassName="highlight"
+
                                     tileDisabled={({ date, view }) =>
                                       view === "month" &&
                                       qw.some(
                                         (qw) =>
+                                          date.getFullYear() ===
+                                            qw.getFullYear() &&
                                           date.getFullYear() ===
                                             qw.getFullYear() &&
                                           date.getMonth() === qw.getMonth() &&

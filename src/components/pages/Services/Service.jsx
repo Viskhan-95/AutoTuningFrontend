@@ -16,9 +16,9 @@ function Service({ item }) {
       <div className={styles.title_and_btn}>
         <div className={styles.element_title}>{item.title}</div>
         <div className={styles.element_button}>
-          <button className={styles.btn}>
-            <Link to={`/service/${item._id}`}>Подробнее</Link>
-          </button>
+        <Link to={`/service/${item._id}`}><button className={styles.btn}>
+            Подробнее
+          </button></Link>
         </div>
       </div>
     </div>

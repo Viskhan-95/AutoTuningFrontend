@@ -53,6 +53,7 @@
   top: 5;
   transition: 0.4s;
   outline: none;
+  color: white;
 }
 .btn:hover {
   background-color: #520a38;
@@ -73,11 +74,16 @@
   margin-bottom: 30px;
 }
 .back_to_services a {
+  width: 200px;
   text-decoration: none;
   font-size: 18px;
   display: flex;
   align-items: center;
   font-family: Gilroy, Tahoma, Arial;
+  color: #a80757;
+}
+.back_to_services a:hover {
+  color: #520a38;
 }
 .images_block {
   width: 100%;

@@ -56,7 +56,7 @@ const HomePage = () => {
       >
         <div className={styles.welcome_title}>
           <h1>
-            BROOKLYN <br></br>AUTHOMOBILE <br></br> STUDIO
+            BROOKLYN <br></br>AUTOMOBILE <br></br> STUDIO
           </h1>
         </div>          
       </Container>
