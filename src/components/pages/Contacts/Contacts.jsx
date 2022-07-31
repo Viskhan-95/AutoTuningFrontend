@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Navibar from "../../Layout/Navibar/Navibar";
 import "./styles.css";
+import { useDispatch } from "react-redux";
+import { postCallReqs } from "../../../features/callReqs/callReqsSlice";
 import facebook from "../../../icon/facebook.png";
 import instagram from "../../../icon/instagram.png";
 import whatsapp from "../../../icon/whatsapp.png";
@@ -9,6 +11,8 @@ const Constacts = () => {
   const [call, setCall] = useState(false);
   const [text, setText] = useState("");
   const [text_number, setTextNumber] = useState("");
+  const [email, setEmail] = useState("")
+  const dispatch = useDispatch();
 
   function handleText(e) {
     setText(e.target.value);
@@ -24,10 +28,16 @@ const Constacts = () => {
     setTextNumber("");
   }
   function handleBtn(e) {
-    e.preventDefault();
+    dispatch(postCallReqs({text, text_number, email}))
     setText("");
     setTextNumber("");
+    setEmail("")
+    
   }
+  function handleEmail(e) {
+    setEmail(e.target.value);
+  }
+
 
   return (
     <>
@@ -87,43 +97,43 @@ const Constacts = () => {
                   Заполните форму и наш менеджер свяжется с <br /> Вами в
                   ближайщее время
                 </div>
-              </div>
-              <div className="form_body">
-                <div className="form_body_data">
-                  <label className="label" htmlFor="">
-                    Представьтесь<span> *</span>
-                  </label>
-                  <br />
-                  <input
-                    required
-                    minLength={4}
-                    maxLength={16}
-                    onChange={handleText}
-                    value={text}
-                    type="text"
-                  />
-                  <br />
-                  <label className="label" htmlFor="">
-                    Номер телефона<span> *</span>
-                  </label>
-                  <br />
-                  <input
-                    required
-                    value={text_number}
-                    onChange={handleTextNumber}
-                    minLength={10}
-                    maxLength={12}
-                    type="tel"
-                    placeholder="7(999)999-99-99"
-                    pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
-                  />
-                  <br />
-                  <br />
-                  <label htmlFor="">Email (не обязательно)</label>
-                  <br />
-                  <input type="email" />
-                  <br />
-                  <button className="ship_button">Заказать звонок</button>
+                <div className="form_body">
+                  <div className="form_body_data">
+                    <label className="label" htmlFor="">
+                      Представьтесь<span> *</span>
+                    </label>
+                    <br />
+                    <input
+                      required
+                      minLength={4}
+                      maxLength={16}
+                      onChange={handleText}
+                      value={text}
+                      type="text"
+                    />
+                    <br />
+                    <label className="label" htmlFor="">
+                      Номер телефона<span> *</span>
+                    </label>
+                    <br />
+                    <input
+                      required
+                      value={text_number}
+                      onChange={handleTextNumber}
+                      minLength={10}
+                      maxLength={12}
+                      type="tel"
+                      placeholder="7(999)999-99-99"
+                    />
+                    <br />
+                    <br />
+                    <label value={email} onChange={handleEmail} htmlFor="">Email (не обязательно)</label>
+                    <br />
+                    <input type="email" />
+                    <br />
+                    <button className="ship_button">Заказать звонок</button>
+                  </div>
+
                 </div>
               </div>
             </form>
