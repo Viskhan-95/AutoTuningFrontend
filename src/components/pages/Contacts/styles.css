@@ -1,6 +1,7 @@
 .contacts {
   background: white;
-  margin-top: 3%;
+  margin: 6% auto;
+  width: 80%;
 }
 
 .street_and_we_contacts {
@@ -24,41 +25,29 @@
 .share_block {
   width: 330px;
   float: right;
-  margin-right: 2%;
+
+  text-align: left;
 }
 
 .share_text {
   font-size: 20px;
+  margin-bottom: 28px;
 }
 
 .logo_block {
+  width: 14%;
+  height: 14%;
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
   margin-top: 3.5%;
 }
 
-.vk_logo {
-  width: 14%;
-  height: 14%;
+.social_logo {
   cursor: pointer;
+  transition: 0.3s;
 }
-
-.facebook_logo {
-  width: 13%;
-  height: 13%;
-  cursor: pointer;
-}
-
-.instagram_logo {
-  width: 13%;
-  height: 13%;
-  cursor: pointer;
-}
-
-.twitter_logo {
-  width: 13%;
-  height: 13%;
-  cursor: pointer;
+.social_logo:hover {
+  transform: scale(1.1);
 }
 
 .numbers_button_and_email {
@@ -113,6 +102,7 @@
 .map {
   margin-top: 3%;
   width: 100%;
+  filter: invert(100%);
 }
 
 .set_call_block {

@@ -89,6 +89,8 @@ function ServiceInfo() {
               <div className={styles.zapicNaUslugu}>
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
+
+
                   <>                    
                     {reserved ? (
                       turn.map((item) => {
@@ -106,18 +108,18 @@ function ServiceInfo() {
                       })
                     ) : (
                       <Button variant="primary" onClick={handleShow}>
+
                         Записаться
                       </Button>
                     )}
 
                     <Modal show={show} onHide={handleClose}>
-                      <Modal.Header closeButton>
-                        <Container className="d-flex justify-content-between align-items-center">
-                          <Modal.Title>Услуга</Modal.Title>
+                      <Container className="d-flex justify-content-between align-items-center">
+                        <Modal.Title>Услуга</Modal.Title>
 
-                          {user}
-                        </Container>
-                      </Modal.Header>
+                        {user}
+                      </Container>
+
                       <Modal.Body>
                         <Form>
                           <Form.Group
@@ -139,19 +141,22 @@ function ServiceInfo() {
                           ></Form.Group>
                           <>
                             <Button
+                              className={styles.modal_btn}
                               variant="primary"
                               onClick={handleShowCalendar}
                             >
-                              Выберите дату
+                              Выбрать дату
                             </Button>
                             <Container
                               className="d-flex"
-                              style={{ fontSize: "17px", marginTop: "3%" }}
+                              style={{ fontSize: "17px", marginTop: "12%" }}
                             >
                               <Container>
                                 <Form.Label>Выбранная услуга</Form.Label>
                               </Container>
-                              <Container style={{ color: "orange" }}>
+                              <Container
+                                style={{ color: "#a80757", fontWeight: "bold" }}
+                              >
                                 {item.title}
                               </Container>
                             </Container>
@@ -159,9 +164,8 @@ function ServiceInfo() {
                               show={calendarShow}
                               onHide={handleCloseCalendar}
                             >
-                              <Modal.Header closeButton>
-                                <Modal.Title>Выберите дату</Modal.Title>
-                              </Modal.Header>
+                              <Modal.Title>Выберите дату</Modal.Title>
+
                               <Modal.Body className="d-flex justify-content-center">
                                 <div className="App">
                                   <Calendar
@@ -189,6 +193,11 @@ function ServiceInfo() {
                               </Modal.Body>
                               <Modal.Footer>
                                 <Button
+                                  style={{
+                                    border: "none",
+                                    borderRadius: "2%",
+                                    padding: "6px 18px",
+                                  }}
                                   variant="secondary"
                                   onClick={handleCloseCalendar}
                                 >
@@ -197,6 +206,7 @@ function ServiceInfo() {
                                 {(allDate ||
                                   calendarValue === Date.parse(new Date())) && (
                                   <Button
+                                    className={styles.modal_btn}
                                     variant="primary"
                                     onClick={() => handleAddDate(item._id)}
                                   >
@@ -209,10 +219,22 @@ function ServiceInfo() {
                         </Form>
                       </Modal.Body>
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button
+                          style={{
+                            border: "none",
+                            borderRadius: "2%",
+                            padding: "6px 18px",
+                          }}
+                          variant="secondary"
+                          onClick={handleClose}
+                        >
                           Закрыть
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button
+                          className={styles.modal_btn}
+                          variant="primary"
+                          onClick={handleClose}
+                        >
                           Отправить
                         </Button>
                       </Modal.Footer>

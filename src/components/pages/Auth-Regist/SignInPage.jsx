@@ -135,6 +135,12 @@ const SignInPage = () => {
           </Form.Group>
 
           <Button
+            style={{
+              backgroundColor: "#a80757",
+              border: "none",
+              borderRadius: "2%",
+              padding: "6px 18px",
+            }}
             variant="primary"
             type="submit"
             disabled={!login || password.length < 4}
