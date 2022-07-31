@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { postCallReqs } from "../../../features/callReqs/callReqsSlice";
+import { useDispatch } from "react-redux";
 import "./styles.css";
 
 const LearnMore = () => {
    const [text, setText] = useState("");
    const [text_number, setTextNumber] = useState("");
+   const [email, setEmail] = useState("")
    const services = useSelector((state) => state.services.services);
+   const dispatch = useDispatch()
 
    function handleText(e) {
       setText(e.target.value);
@@ -16,11 +20,18 @@ const LearnMore = () => {
       setTextNumber(e.target.value);
    }
 
-   function handleBtn(e) {
-      e.preventDefault();
+   function handleEmail(e) {
+      setEmail(e.target.value);
+    }
+
+    function handleBtn(e) {
+      dispatch(postCallReqs({text, text_number, email}))
       setText("");
       setTextNumber("");
-   }
+      setEmail("")
+      
+    }
+   
 
    return (
       <div className="learn-container">
@@ -80,13 +91,12 @@ const LearnMore = () => {
                         maxLength={12}
                         type="tel"
                         placeholder="7(999)999-99-99"
-                        pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
                      />
                      <br />
                      <br />
                      <label htmlFor="">Email (не обязательно)</label>
                      <br />
-                     <input type="email" />
+                     <input value={email} onChange={handleEmail} type="email" />
                      <br />
                      <button className="ship_button">Получить консультацию</button>
                      <br />

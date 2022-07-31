@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Navibar from "../../Layout/Navibar/Navibar";
 import "./styles.css";
+import { useDispatch } from "react-redux";
+import { postCallReqs } from "../../../features/callReqs/callReqsSlice";
 
 const Constacts = () => {
   const [call, setCall] = useState(false);
   const [text, setText] = useState("");
   const [text_number, setTextNumber] = useState("");
+  const [email, setEmail] = useState("")
+  const dispatch = useDispatch();
 
   function handleText(e) {
     setText(e.target.value);
@@ -21,10 +25,16 @@ const Constacts = () => {
     setTextNumber("");
   }
   function handleBtn(e) {
-    e.preventDefault();
+    dispatch(postCallReqs({text, text_number, email}))
     setText("");
     setTextNumber("");
+    setEmail("")
+    
   }
+  function handleEmail(e) {
+    setEmail(e.target.value);
+  }
+
 
   return (
     <>
@@ -120,11 +130,10 @@ const Constacts = () => {
                       maxLength={12}
                       type="tel"
                       placeholder="7(999)999-99-99"
-                      pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
                     />
                     <br />
                     <br />
-                    <label htmlFor="">Email (не обязательно)</label>
+                    <label value={email} onChange={handleEmail} htmlFor="">Email (не обязательно)</label>
                     <br />
                     <input type="email" />
                     <br />
