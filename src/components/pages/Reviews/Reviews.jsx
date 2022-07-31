@@ -64,7 +64,7 @@ const Reviews = () => {
   }
 
   return (
-    <div style={{ marginTop: "2%" }}>
+    <div className="review_block" style={{ marginTop: "2%" }}>
       <div className="tab">Отзывы({reviews.length})</div>
       <div className="sort_block">
         <div className="sort_text">Сортировать по:</div>
