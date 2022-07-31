@@ -8,7 +8,6 @@
   padding-left: 60px;
   padding-top: 60px;
   color: white;
-  font-family: "Gilroy", Tahoma, Arial;
 }
 .countup_number_and_text {
   display: flex;
@@ -56,7 +55,6 @@
   padding-left: 60px;
   padding-top: 60px;
   color: white;
-  font-family: "Gilroy", Tahoma, Arial;
 }
 .trustUs_title {
   font-weight: 600;
