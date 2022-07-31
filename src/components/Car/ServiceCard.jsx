@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getServices } from "../../features/services/servicesSlice";
 import { Link } from "react-router-dom";
+import { postCallReqs } from "../../features/callReqs/callReqsSlice";
 
 function Card({ el }) {
   const [call, setCall] = useState(false);
   const [text, setText] = useState("");
   const [text_number, setTextNumber] = useState("");
+  const [email, setEmail] = useState("")
 
   const dispatch = useDispatch();
 
@@ -23,6 +25,10 @@ function Card({ el }) {
   function handleTextNumber(e) {
     setTextNumber(e.target.value);
   }
+  function handleEmail(e) {
+    setEmail(e.target.value);
+  }
+
 
   function handleOpenCall() {
     setCall(!call);
@@ -30,9 +36,11 @@ function Card({ el }) {
     setTextNumber("");
   }
   function handleBtn(e) {
-    e.preventDefault();
+    dispatch(postCallReqs({text, text_number, email}))
     setText("");
     setTextNumber("");
+    setEmail("")
+    
   }
     return (
       <div className={`service ${el.class}`}> 
@@ -83,18 +91,17 @@ function Card({ el }) {
                       value={text_number}
                       onChange={handleTextNumber}
                       minLength={10}
-                      maxLength={12}
+                      maxLength={15}
                       type="tel"
                       placeholder="7(999)999-99-99"
-                      pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
                     />
                     <br />
                     <br />
                     <label htmlFor="">Email (не обязательно)</label>
                     <br />
-                    <input type="email" />
+                    <input type="email" value={email} onChange={handleEmail}/>
                     <br />
-                    <button className="ship_button1">Заказать звонок</button>
+                    <button onClick={handleBtn} className="ship_button1">Заказать звонок</button>
                   </div>
                 </div>
               </form>
