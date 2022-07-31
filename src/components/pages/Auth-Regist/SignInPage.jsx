@@ -47,7 +47,7 @@ const SignInPage = () => {
     dispatch(showModalSignIn(false));
     dispatch(errorNull());
   };
-  const colorTextError = error ? "red" : "white";
+  const colorTextError = error ? "red" : "black";
 
   return (
     <Modal
@@ -55,16 +55,24 @@ const SignInPage = () => {
       onHide={handleClose}
       keyboard={true}
       backdrop="static"
+      style={{ fontFamily: "Roboto Condensed, sans-serif" }}
     >
       <Modal.Header>
-        <Modal.Title style={{ paddingLeft: "25%" }}>АВТОРИЗАЦИЯ</Modal.Title>
+        <Modal.Title
+          style={{
+            margin: "0 auto",
+            color: "black",
+          }}
+        >
+          АВТОРИЗАЦИЯ
+        </Modal.Title>
         <Button
           onClick={handleClose}
           style={{
-            color: "white",
-            background: "black",
+            color: "#a80757",
+            background: "transparent",
             border: "none",
-            fontSize: "28px",
+            fontSize: "36px",
           }}
         >
           &times;
@@ -74,7 +82,7 @@ const SignInPage = () => {
       <Modal.Body>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicLogin">
-            <Form.Label>Логин</Form.Label>
+            <Form.Label style={{ color: "black" }}>Логин</Form.Label>
             <Form.Control
               type="login"
               onChange={handleChangeLogin}
@@ -87,7 +95,7 @@ const SignInPage = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Пароль</Form.Label>
+            <Form.Label style={{ color: "black" }}>Пароль</Form.Label>
             <Form.Control
               type={showPassword ? "Text" : "Password"}
               onChange={handleChangePassword}

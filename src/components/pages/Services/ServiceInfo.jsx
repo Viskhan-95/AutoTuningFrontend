@@ -44,7 +44,6 @@ function ServiceInfo() {
     dispatch(delTurn(i));
   };
 
-
   const reserved = turn.find((item) => {
     if (item.user === userId) {
       if (item.service === id) {
@@ -89,17 +88,19 @@ function ServiceInfo() {
               <div className={styles.zapicNaUslugu}>
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
-
-
-                  <>                    
+                  <>
                     {reserved ? (
                       turn.map((item) => {
                         return (
-                          userId === item.user && item.service === id && (
+                          userId === item.user &&
+                          item.service === id && (
                             <>
                               <div>Вы записаны на </div>
                               <div>{item.date}</div>
-                              <button onClick={() => handleRemove(item._id)}>
+                              <button
+                                className={styles.enroll_btn}
+                                onClick={() => handleRemove(item._id)}
+                              >
                                 Отменить запись
                               </button>
                             </>
@@ -107,15 +108,29 @@ function ServiceInfo() {
                         );
                       })
                     ) : (
-                      <Button variant="primary" onClick={handleShow}>
-
+                      <Button
+                        className={styles.enroll_btn}
+                        variant="primary"
+                        onClick={handleShow}
+                      >
                         Записаться
                       </Button>
                     )}
 
-                    <Modal show={show} onHide={handleClose}>
+                    <Modal
+                      show={show}
+                      onHide={handleClose}
+                      style={{ fontFamily: "Roboto Condensed, sans-serif" }}
+                    >
                       <Container className="d-flex justify-content-between align-items-center">
-                        <Modal.Title>Услуга</Modal.Title>
+                        <Modal.Title
+                          style={{
+                            margin: "10px auto",
+                            color: "black",
+                          }}
+                        >
+                          Запись на услугу
+                        </Modal.Title>
 
                         {user}
                       </Container>
@@ -126,10 +141,12 @@ function ServiceInfo() {
                             className="mb-3"
                             controlId="exampleForm.ControlInput1"
                           >
-                            <Form.Label>Номер телефона</Form.Label>
+                            <Form.Label style={{ color: "black" }}>
+                              Номер телефона
+                            </Form.Label>
                             <Form.Control
                               type="text"
-                              placeholder="введите номер телефона"
+                              placeholder="Введите номер телефона"
                               onChange={handleContact}
                               value={contact}
                               autoFocus
@@ -149,41 +166,51 @@ function ServiceInfo() {
                             </Button>
                             <Container
                               className="d-flex"
-                              style={{ fontSize: "17px", marginTop: "12%" }}
+                              style={{
+                                width: "60%",
+                                fontSize: "17px",
+                                marginTop: "30px",
+                                marginLeft: "-20px"
+                              }}
                             >
-                              <Container>
-                                <Form.Label>Выбранная услуга</Form.Label>
-                              </Container>
                               <Container
                                 style={{ color: "#a80757", fontWeight: "bold" }}
                               >
+                                <span style={{ color: "black" }}>
+                                  Выбранная услуга
+                                </span>
+                                <br></br>
                                 {item.title}
                               </Container>
                             </Container>
                             <Modal
                               show={calendarShow}
                               onHide={handleCloseCalendar}
+                              style={{
+                                fontFamily: "Roboto Condensed, sans-serif",
+                              }}
                             >
-                              <Modal.Title>Выберите дату</Modal.Title>
+                              <Modal.Title
+                                style={{ color: "black", margin: "10px auto" }}
+                              >
+                                Выберите дату
+                              </Modal.Title>
 
                               <Modal.Body className="d-flex justify-content-center">
                                 <div className="App">
                                   <Calendar
                                     onChange={onChangeCalendar}
                                     value={calendarValue}
-                                    
                                     // tileClassName="highlight"
 
                                     tileDisabled={({ date, view }) =>
                                       view === "month" &&
                                       qw.some(
                                         (qw) =>
-
-                                          date.getFullYear() === qw.getFullYear() &&
-
                                           date.getFullYear() ===
                                             qw.getFullYear() &&
-
+                                          date.getFullYear() ===
+                                            qw.getFullYear() &&
                                           date.getMonth() === qw.getMonth() &&
                                           date.getDate() === qw.getDate()
                                       )

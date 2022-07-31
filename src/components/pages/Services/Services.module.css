@@ -7,7 +7,6 @@
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 3%;
-  font-family: Gilroy, Tahoma, Arial;
 }
 .services_content_parent {
   display: flex;
@@ -33,14 +32,12 @@
 .element_title {
   color: white;
   font-size: 30px;
-  font-family: Gilroy, Tahoma, Arial;
   width: 85%;
 }
 
 .btn a {
   text-decoration: none;
   color: white;
-  font-family: Gilroy, Tahoma, Arial;
   font-size: 14px;
   font-weight: 400;
 }
@@ -79,7 +76,6 @@
   font-size: 18px;
   display: flex;
   align-items: center;
-  font-family: Gilroy, Tahoma, Arial;
   color: #a80757;
 }
 .back_to_services a:hover {

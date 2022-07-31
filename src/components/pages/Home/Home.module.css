@@ -9,9 +9,6 @@
   font-size: 26px;
 }
 
-
-
-
 .slider {
   height: 320px;
   margin: 10px 8px;
@@ -30,7 +27,6 @@
 
 .slider_title {
   width: 60%;
-  font-family: Gilroy, Tahoma, Arial;
   font-size: 28px;
   position: absolute;
   top: 25px;
@@ -39,6 +35,7 @@
 .slider_text {
   position: absolute;
   top: 145px;
+  width: 85%;
 }
 
 .slider_btn {
@@ -59,7 +56,6 @@
 
 .slider_btn a {
   text-decoration: none;
-  font-family: Gilroy, Tahoma, Arial;
   font-size: 14px;
   font-weight: 400;
 }

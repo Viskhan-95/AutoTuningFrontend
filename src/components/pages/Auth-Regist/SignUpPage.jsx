@@ -60,7 +60,7 @@ const SignUpPage = () => {
     dispatch(getKey(email));
   };
 
-  const colorTextError = error ? "red" : "white";
+  const colorTextError = error ? "red" : "black";
 
   return (
     <>
@@ -69,16 +69,19 @@ const SignUpPage = () => {
         onHide={handleClose}
         keyboard={true}
         backdrop="static"
+        style={{ fontFamily: "Roboto Condensed, sans-serif" }}
       >
         <Modal.Header>
-          <Modal.Title style={{ paddingLeft: "25%" }}>РЕГИСТРАЦИЯ</Modal.Title>
+          <Modal.Title style={{ margin: "0 auto", color: "black" }}>
+            РЕГИСТРАЦИЯ
+          </Modal.Title>
           <Button
             onClick={handleClose}
             style={{
-              color: "white",
-              background: "black",
+              color: "#a80757",
+              background: "transparent",
               border: "none",
-              fontSize: "28px",
+              fontSize: "36px",
             }}
           >
             &times;
@@ -88,7 +91,7 @@ const SignUpPage = () => {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email </Form.Label>
+              <Form.Label style={{ color: "black" }}>Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Введите email"
@@ -101,14 +104,17 @@ const SignUpPage = () => {
               </span>
             </Form.Group>
 
-            <Container fluid className="d-flex justify-content-between p-0" style={{marginBottom: "22px"}}>
+            <Container
+              fluid
+              className="d-flex justify-content-between p-0"
+              style={{ marginBottom: "22px" }}
+            >
               <Button
                 style={{
                   backgroundColor: "#a80757",
                   border: "none",
                   borderRadius: "2%",
                   padding: "6px 18px",
-                  
                 }}
                 onClick={handleSendKeyEmail}
               >
@@ -124,7 +130,7 @@ const SignUpPage = () => {
             </Container>
 
             <Form.Group className="mb-3" controlId="formBasicLogin">
-              <Form.Label>Логин</Form.Label>
+              <Form.Label style={{ color: "black" }}>Логин</Form.Label>
               <Form.Control
                 type="login"
                 placeholder="Введите логин"
@@ -140,7 +146,7 @@ const SignUpPage = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Пароль </Form.Label>
+              <Form.Label style={{ color: "black" }}>Пароль</Form.Label>
               <Form.Control
                 type={showPassword ? "Text" : "Password"}
                 placeholder="Введите пароль"
