@@ -183,6 +183,9 @@ export const usersSlice = createSlice({
     showModalSignUp: (state, action) => {
       state.showSignUp = action.payload;
     },
+    errorKey: (state, action) => {
+      state.key = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -267,6 +270,6 @@ export const usersSlice = createSlice({
   },
 });
 
-export const { errorNull, showModalSignIn, showModalSignUp } =
+export const { errorNull, showModalSignIn, showModalSignUp, errorKey } =
   usersSlice.actions;
 export default usersSlice.reducer;
