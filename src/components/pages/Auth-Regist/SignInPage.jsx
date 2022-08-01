@@ -47,7 +47,7 @@ const SignInPage = () => {
     dispatch(showModalSignIn(false));
     dispatch(errorNull());
   };
-  const colorTextError = error ? "red" : "white";
+  const colorTextError = error ? "red" : "black";
 
   return (
     <Modal
@@ -55,16 +55,24 @@ const SignInPage = () => {
       onHide={handleClose}
       keyboard={true}
       backdrop="static"
+      style={{ fontFamily: "Roboto Condensed, sans-serif" }}
     >
       <Modal.Header>
-        <Modal.Title style={{ paddingLeft: "25%" }}>АВТОРИЗАЦИЯ</Modal.Title>
+        <Modal.Title
+          style={{
+            margin: "0 auto",
+            color: "black",
+          }}
+        >
+          АВТОРИЗАЦИЯ
+        </Modal.Title>
         <Button
           onClick={handleClose}
           style={{
-            color: "white",
-            background: "black",
+            color: "#a80757",
+            background: "transparent",
             border: "none",
-            fontSize: "28px",
+            fontSize: "36px",
           }}
         >
           &times;
@@ -74,11 +82,13 @@ const SignInPage = () => {
       <Modal.Body>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicLogin">
-            <Form.Label>Логин</Form.Label>
+            <Form.Label style={{ color: "black" }}>Логин</Form.Label>
             <Form.Control
               type="login"
+              placeholder="Введите логин"
               onChange={handleChangeLogin}
               value={login}
+              style={{borderRadius: "0%"}}
             />
             <span style={{ color: colorTextError, fontSize: 14 }}>
               {" "}
@@ -87,11 +97,13 @@ const SignInPage = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Пароль</Form.Label>
+            <Form.Label style={{ color: "black" }}>Пароль</Form.Label>
             <Form.Control
               type={showPassword ? "Text" : "Password"}
+              placeholder="Введите пароль"
               onChange={handleChangePassword}
               value={password}
+              style={{borderRadius: "0%"}}
             />
             {showPassword ? (
               <div onClick={handleOpenEye}>
@@ -135,6 +147,12 @@ const SignInPage = () => {
           </Form.Group>
 
           <Button
+            style={{
+              backgroundColor: "#a80757",
+              border: "none",
+              borderRadius: "2%",
+              padding: "6px 18px",
+            }}
             variant="primary"
             type="submit"
             disabled={!login || password.length < 4}

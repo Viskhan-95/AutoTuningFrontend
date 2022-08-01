@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, errorNull, showModalSignUp, getKey } 
-   from "../../../features/users/usersSlice";
+import {
+   addUser,
+   errorNull,
+   showModalSignUp,
+   showModalSignIn,
+   getKey,
+   errorKey,
+} from "../../../features/users/usersSlice";
 import { Form, Modal, Button, Spinner, Container } from "react-bootstrap";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
@@ -10,6 +16,8 @@ const SignUpPage = () => {
    const [password, setPassword] = useState("");
    const [email, setEmail] = useState("");
    const [keyEmail, setKeyEmail] = useState("");
+   const [infoKey, setInfoKey] = useState("");
+   const [counter, setCounter] = useState(2);
 
    const [showPassword, setShowPassword] = useState(false);
 
@@ -25,10 +33,28 @@ const SignUpPage = () => {
    const handleChangeEmail = (e) => setEmail(e.target.value);
    const handleChangeKey = (e) => setKeyEmail(e.target.value);
 
+   const attempt = (value) => {
+      return value === 1 ? "попытка" : "попытки";
+   };
+
    const handleSubmit = () => {
-      dispatch(addUser({ login, password }));
-      setLogin("");
-      setPassword("");
+      if (key.toString() === keyEmail.toString()) {
+         dispatch(addUser({ login, password }));
+         dispatch(showModalSignIn(true));
+         setLogin("");
+         setPassword("");
+         setEmail("");
+         setKeyEmail("");
+      } else {
+         setCounter(counter - 1);
+         setInfoKey(`Неверный код. У вас еще ${counter} ${attempt(counter)}`);
+      }
+
+      if (counter === 0) {
+         setInfoKey("запросите новый код");
+         dispatch(errorKey(""));
+         setCounter(3);
+      }
    };
 
    const handleChecked = (e) => {
@@ -42,6 +68,10 @@ const SignUpPage = () => {
    const handleClose = () => {
       dispatch(showModalSignUp(false));
       dispatch(errorNull());
+      setLogin("");
+      setPassword("");
+      setEmail("");
+      setKeyEmail("");
    };
 
    const handleOpenEye = () => {
@@ -54,7 +84,7 @@ const SignUpPage = () => {
 
    const handleSendKeyEmail = () => {
       dispatch(getKey(email));
-   }
+   };
 
    const colorTextError = error ? "red" : "white";
 
@@ -65,12 +95,20 @@ const SignUpPage = () => {
             onHide={handleClose}
             keyboard={true}
             backdrop="static"
+            style={{ fontFamily: "Roboto Condensed, sans-serif" }}
          >
             <Modal.Header>
-               <Modal.Title style={{ paddingLeft: "25%" }}>РЕГИСТРАЦИЯ</Modal.Title>
+               <Modal.Title style={{ margin: "0 auto", color: "black" }}>
+                  РЕГИСТРАЦИЯ
+               </Modal.Title>
                <Button
                   onClick={handleClose}
-                  style={{ color: "white", background: "black", border: "none", fontSize: "28px", }}
+                  style={{
+                     color: "#a80757",
+                     background: "transparent",
+                     border: "none",
+                     fontSize: "36px",
+                  }}
                >
                   &times;
                </Button>
@@ -79,12 +117,13 @@ const SignUpPage = () => {
             <Modal.Body>
                <Form>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
-                     <Form.Label>Email </Form.Label>
+                     <Form.Label style={{ color: "black" }}>Email</Form.Label>
                      <Form.Control
                         type="email"
                         placeholder="Введите email"
                         onChange={handleChangeEmail}
                         value={email}
+                        style={{ borderRadius: "0%" }}
                      />
                      <span style={{ color: colorTextError, fontSize: 14 }}>
                         {" "}
@@ -92,27 +131,48 @@ const SignUpPage = () => {
                      </span>
                   </Form.Group>
 
-                  <Container fluid className="d-flex justify-content-between p-0">
-                        <Button style={{width: "30%"}}
-                           onClick={handleSendKeyEmail}
-                        >
-                           Получить код
-                           </Button>
-                        <Form.Control style={{width: "65%"}}
+                  <Container
+                     fluid
+                     className="d-flex justify-content-between p-0"
+                     style={{ marginBottom: "22px" }}
+                  >
+                     <Button
+                        style={{
+                           backgroundColor: "#a80757",
+                           border: "none",
+                           borderRadius: "2%",
+                           padding: "6px 18px",
+                        }}
+                        onClick={handleSendKeyEmail}
+                        disabled={email.length < 5}
+                     >
+                        {signUp ? (
+                        <div>
+                           <Spinner size={14} />
+                        </div>
+                     ) : (
+                        "Получить код"
+                     )}
+                     </Button>
+                     <Form.Control
+                        style={{ width: "65%", borderRadius: "0%" }}
                         type="keyEmail"
-                        placeholder="Введите код"
+                        placeholder="Введите 6 значный код"
                         onChange={handleChangeKey}
                         value={keyEmail}
+                        maxLength="6"
                      />
-                     </Container>
+                  </Container>
+                  <Container style={{ color: "red" }}>{infoKey}</Container>
 
                   <Form.Group className="mb-3" controlId="formBasicLogin">
-                     <Form.Label>Логин </Form.Label>
+                     <Form.Label style={{ color: "black" }}>Логин</Form.Label>
                      <Form.Control
                         type="login"
                         placeholder="Введите логин"
                         onChange={handleChangeLogin}
                         value={login}
+                        style={{ borderRadius: "0%" }}
                      />
                      <span style={{ color: colorTextError, fontSize: 14 }}>
                         {" "}
@@ -123,12 +183,13 @@ const SignUpPage = () => {
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
-                     <Form.Label>Пароль </Form.Label>
+                     <Form.Label style={{ color: "black" }}>Пароль</Form.Label>
                      <Form.Control
                         type={showPassword ? "Text" : "Password"}
                         placeholder="Введите пароль"
                         onChange={handleChangePassword}
                         value={password}
+                        style={{ borderRadius: "0%" }}
                      />
                      {showPassword ? (
                         <div onClick={handleOpenEye}>
@@ -172,6 +233,12 @@ const SignUpPage = () => {
                   </Form.Group>
 
                   <Button
+                     style={{
+                        backgroundColor: "#a80757",
+                        border: "none",
+                        borderRadius: "2%",
+                        padding: "6px 18px",
+                     }}
                      variant="primary"
                      type="button"
                      className="mt-3"

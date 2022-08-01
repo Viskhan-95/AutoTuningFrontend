@@ -1,6 +1,7 @@
 .contacts {
   background: white;
-  margin-top: 3%;
+  margin: 6% auto;
+  width: 80%;
 }
 
 .street_and_we_contacts {
@@ -11,11 +12,9 @@
   font-size: 36px;
   font-weight: 600;
   color: #232325;
-  font-family: "Gilroy", Tahoma, Arial;
 }
 
 .street {
-  font-family: "Gilroy", Tahoma, Arial;
   color: #555555;
   font-size: 34px;
   margin-top: 0.6%;
@@ -24,41 +23,29 @@
 .share_block {
   width: 330px;
   float: right;
-  margin-right: 2%;
+
+  text-align: left;
 }
 
 .share_text {
   font-size: 20px;
+  margin-bottom: 28px;
 }
 
 .logo_block {
+  width: 14%;
+  height: 14%;
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
   margin-top: 3.5%;
 }
 
-.vk_logo {
-  width: 14%;
-  height: 14%;
+.social_logo {
   cursor: pointer;
+  transition: 0.3s;
 }
-
-.facebook_logo {
-  width: 13%;
-  height: 13%;
-  cursor: pointer;
-}
-
-.instagram_logo {
-  width: 13%;
-  height: 13%;
-  cursor: pointer;
-}
-
-.twitter_logo {
-  width: 13%;
-  height: 13%;
-  cursor: pointer;
+.social_logo:hover {
+  transform: scale(1.1);
 }
 
 .numbers_button_and_email {
@@ -70,7 +57,6 @@
   font-weight: 500;
   color: #232325;
   padding: 25px 0;
-  font-family: "Gilroy", Tahoma, Arial;
   font-weight: 400;
 }
 
@@ -114,6 +100,7 @@
   margin-top: 3%;
   filter: invert(100%);
   width: 100%;
+  filter: invert(100%);
 }
 
 .set_call_block {
@@ -185,7 +172,6 @@
   width: 100%;
   height: 60px;
   color: #000;
-  font-family: "Gilroy";
   font-size: 20px;
   padding-left: 15px;
 }

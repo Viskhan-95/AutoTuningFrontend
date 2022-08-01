@@ -1,6 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { useState } from "react";
 import styles from "./Services.module.css";
+import "./Services.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -13,7 +14,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Container } from "react-bootstrap";
-import { addTurns, getTurn } from "../../../features/turns/turnsSlice";
+import { addTurns, delTurn, getTurn } from "../../../features/turns/turnsSlice";
 import { Link } from "react-router-dom";
 
 function ServiceInfo() {
@@ -39,6 +40,10 @@ function ServiceInfo() {
     dispatch(getServices());
   }, [dispatch]);
 
+  const handleRemove = (i) => {
+    dispatch(delTurn(i));
+  };
+
   const reserved = turn.find((item) => {
     if (item.user === userId) {
       if (item.service === id) {
@@ -57,8 +62,10 @@ function ServiceInfo() {
 
   const checkInValue = checkInYear + "-" + checkInMonth + "-" + checkInDay;
 
-  const allDate = Date.parse(calendarValue) - Date.parse(new Date()) > -120253000;
+  const allDate =
+    Date.parse(calendarValue) - Date.parse(new Date()) > -120253000;
 
+  const qw = turn.map((item) => new Date(item.date));
 
   const handleAddDate = (title) => {
     handleCloseCalendar();
@@ -82,28 +89,69 @@ function ServiceInfo() {
                 <h1 className={styles.pagetitle}>{item.title}</h1>
                 <div>
                   <>
-                    <Button variant="primary" onClick={handleShow}>
-                      {reserved ? "записан" : "записаться на услугу"}
-                    </Button>
-
+                    {reserved ? (
+                      turn.map((item) => {
+                        return (
+                          userId === item.user &&
+                          item.service === id && (
+                            <>
+                              <div>Вы записаны на </div>
+                              <div>{item.date}</div>
+                              <button
+                                className={styles.enroll_btn}
+                                onClick={() => handleRemove(item._id)}
+                              >
+                                Отменить запись
+                              </button>
+                            </>
+                          )
+                        );
+                      })
+                    ) : (
+                      <Button
+                        className={styles.enroll_btn}
+                        variant="primary"
+                        onClick={handleShow}
+                      >
+                        Записаться
+                      </Button>
+                    )}
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Header closeButton>
                         <Container className="d-flex justify-content-between align-items-center">
                           <Modal.Title>Услуга</Modal.Title>
 
-                          {user}
-                        </Container>
-                      </Modal.Header>
+
+                    <Modal
+                      show={show}
+                      onHide={handleClose}
+                      style={{ fontFamily: "Roboto Condensed, sans-serif" }}
+                    >
+                      <Container className="d-flex justify-content-between align-items-center">
+                        <Modal.Title
+                          style={{
+                            margin: "10px auto",
+                            color: "black",
+                          }}
+                        >
+                          Запись на услугу
+                        </Modal.Title>
+                        <span style={{color: "black"}}>{user}</span>
+                      </Container>
+
                       <Modal.Body>
                         <Form>
                           <Form.Group
                             className="mb-3"
                             controlId="exampleForm.ControlInput1"
                           >
-                            <Form.Label>Номер телефона</Form.Label>
+                            <Form.Label style={{ color: "black" }}>
+                              Номер телефона
+                            </Form.Label>
                             <Form.Control
                               type="text"
-                              placeholder="введите номер телефона"
+                              placeholder="Введите номер телефона"
+                              style={{borderRadius: "0%"}}
                               onChange={handleContact}
                               value={contact}
                               autoFocus
@@ -115,51 +163,87 @@ function ServiceInfo() {
                           ></Form.Group>
                           <>
                             <Button
+                              className={styles.modal_btn}
                               variant="primary"
                               onClick={handleShowCalendar}
                             >
-                              Выберите дату
+                              Выбрать дату
                             </Button>
                             <Container
                               className="d-flex"
-                              style={{ fontSize: "17px", marginTop: "3%" }}
+                              style={{
+                                width: "60%",
+                                fontSize: "17px",
+                                marginTop: "30px",
+                                marginLeft: "-20px",
+                              }}
                             >
-                              <Container>
-                                <Form.Label>Выбранная услуга</Form.Label>
-                              </Container>
-                              <Container style={{ color: "orange" }}>
+                              <Container
+                                style={{ color: "#a80757", fontWeight: "bold" }}
+                              >
+                                <span style={{ color: "black" }}>
+                                  Выбранная услуга
+                                </span>
+                                <br></br>
                                 {item.title}
                               </Container>
                             </Container>
                             <Modal
                               show={calendarShow}
                               onHide={handleCloseCalendar}
+                              style={{
+                                fontFamily: "Roboto Condensed, sans-serif",
+                              }}
                             >
-                              <Modal.Header closeButton>
-                                <Modal.Title>Выберите дату</Modal.Title>
-                              </Modal.Header>
+                              <Modal.Title
+                                style={{ color: "black", margin: "10px auto" }}
+                              >
+                                Выберите дату
+                              </Modal.Title>
+
                               <Modal.Body className="d-flex justify-content-center">
                                 <div className="App">
                                   <Calendar
                                     onChange={onChangeCalendar}
                                     value={calendarValue}
+                                    // tileClassName="highlight"
+
+                                    tileDisabled={({ date, view }) =>
+                                      view === "month" &&
+                                      qw.some(
+                                        (qw) =>
+                                          date.getFullYear() ===
+                                            qw.getFullYear() &&
+                                          date.getFullYear() ===
+                                            qw.getFullYear() &&
+                                          date.getMonth() === qw.getMonth() &&
+                                          date.getDate() === qw.getDate()
+                                      )
+                                    }
                                   />
                                 </div>
                               </Modal.Body>
                               <Modal.Footer>
-                                  <Button
-                                    variant="secondary"
-                                    onClick={handleCloseCalendar}
-                                  >
-                                    Закрыть
-                                  </Button>
-                                {(allDate || calendarValue === Date.parse(new Date())) &&  (
                                 <Button
-                                  variant="primary"
-                                  onClick={() => handleAddDate(item._id)}
+                                  style={{
+                                    border: "none",
+                                    borderRadius: "2%",
+                                    padding: "6px 18px",
+                                  }}
+                                  variant="secondary"
+                                  onClick={handleCloseCalendar}
                                 >
-                                  Отправить
+                                  Закрыть
                                 </Button>
+                                {(allDate ||
+                                  calendarValue === Date.parse(new Date())) && (
+                                  <Button
+                                    className={styles.modal_btn}
+                                    variant="primary"
+                                    onClick={() => handleAddDate(item._id)}
+                                  >
+                                    Отправить
+                                  </Button>
                                 )}
                               </Modal.Footer>
                             </Modal>
@@ -167,10 +251,22 @@ function ServiceInfo() {
                         </Form>
                       </Modal.Body>
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button
+                          style={{
+                            border: "none",
+                            borderRadius: "2%",
+                            padding: "6px 18px",
+                          }}
+                          variant="secondary"
+                          onClick={handleClose}
+                        >
                           Закрыть
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button
+                          className={styles.modal_btn}
+                          variant="primary"
+                          onClick={handleClose}
+                        >
                           Отправить
                         </Button>
                       </Modal.Footer>

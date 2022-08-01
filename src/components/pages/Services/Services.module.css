@@ -7,7 +7,6 @@
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 3%;
-  font-family: Gilroy, Tahoma, Arial;
 }
 .services_content_parent {
   display: flex;
@@ -33,14 +32,12 @@
 .element_title {
   color: white;
   font-size: 30px;
-  font-family: Gilroy, Tahoma, Arial;
   width: 85%;
 }
 
 .btn a {
   text-decoration: none;
   color: white;
-  font-family: Gilroy, Tahoma, Arial;
   font-size: 14px;
   font-weight: 400;
 }
@@ -49,10 +46,11 @@
   background-color: #a80757;
   border: none;
   border-radius: 2%;
-  padding: 4px 16px;
+  padding: 8px 24px;
   top: 5;
   transition: 0.4s;
   outline: none;
+  color: white;
 }
 
 .btn:hover {
@@ -75,11 +73,15 @@
   margin-bottom: 30px;
 }
 .back_to_services a {
+  width: 200px;
   text-decoration: none;
   font-size: 18px;
   display: flex;
   align-items: center;
-  font-family: Gilroy, Tahoma, Arial;
+  color: #a80757;
+}
+.back_to_services a:hover {
+  color: #520a38;
 }
 .images_block {
   width: 100%;
@@ -108,4 +110,23 @@
   width: 99.5%;
   align-items: center;
   margin-bottom: 60px;
+}
+.enroll_btn {
+  color: white;
+  background-color: #a80757;
+  border: none;
+  border-radius: 2%;
+  padding: 12px 36px;
+}
+.enroll_btn:hover {
+  background-color: #520a38;
+}
+.modal_btn {
+  background-color: #a80757;
+  border: none;
+  border-radius: 2%;
+  padding: 6px 18px;
+}
+.modal_btn:hover {
+  background-color: #520a38;
 }

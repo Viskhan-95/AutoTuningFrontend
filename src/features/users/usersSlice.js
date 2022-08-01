@@ -40,7 +40,6 @@ export const addUser = createAsyncThunk(
       if (data.error) {
         return thunkAPI.rejectWithValue(data.error);
       } else {
-        localStorage.setItem("token", data.token);
         return thunkAPI.fulfillWithValue(data);
       }
     } catch (err) {
@@ -183,6 +182,9 @@ export const usersSlice = createSlice({
     showModalSignUp: (state, action) => {
       state.showSignUp = action.payload;
     },
+    errorKey: (state, action) => {
+      state.key = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -267,6 +269,6 @@ export const usersSlice = createSlice({
   },
 });
 
-export const { errorNull, showModalSignIn, showModalSignUp } =
+export const { errorNull, showModalSignIn, showModalSignUp, errorKey } =
   usersSlice.actions;
 export default usersSlice.reducer;

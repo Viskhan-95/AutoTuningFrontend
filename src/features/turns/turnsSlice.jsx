@@ -47,6 +47,25 @@ export const addTurns = createAsyncThunk(
   }
 );
 
+export const delTurn = createAsyncThunk(
+  "turn/del",
+  async (id, thunkAPI) => {
+    //  const state = thunkAPI.getState();
+     try {
+        await fetch(`http://localhost:4000/turn/${id}`, {
+           method: "DELETE",
+           headers: {
+              "Content-Type": "application/json",
+              // Authorization: `Bearer ${state.usersReducer.token}`,
+           },
+        });
+        return id;
+     } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+     }
+  }
+);
+
 export const turnSlice = createSlice({
   name: "turn",
   initialState,
@@ -74,6 +93,10 @@ export const turnSlice = createSlice({
     builder.addCase(getTurn.pending, (state, action) => {
       state.loading = true
     });
+    builder.addCase(delTurn.fulfilled, (state, action)=> {
+      state.turns = state.turns.filter((id) => id._id !== action.payload)
+
+    })
   },
 });
 
