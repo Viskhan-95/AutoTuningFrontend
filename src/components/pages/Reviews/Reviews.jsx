@@ -63,9 +63,28 @@ const Reviews = () => {
     setPlusText("");
   }
 
+  function handleAllRating() {
+    const reviewsCount =
+      reviews && reviews.filter((item) => item.servicesId === id);
+    const average = reviewsCount.map((item) => {
+      let result = 0;
+      for (let i = 0; i < item.rating; i++) {
+      result += item.rating;
+      return result;
+      }
+    });
+    const averageRating =
+      average && average.reduce((item, acc) => (item += acc));
+    return (averageRating / reviews.length).toFixed(2)
+  }
+
   return (
-    <div className="review_block" style={{ marginTop: "2%" }}>
-      <div className="tab">Отзывы({reviews.length})</div>
+    <div style={{ marginTop: "2%" }}>
+      <div className="tab">
+      Отзывы ({reviews.length})
+      <br />
+      <div style={{ fontSize: "18px" }}>Общий рейтинг: {reviews.length ? handleAllRating() : 0}</div>
+      </div>
       <div className="sort_block">
         <div className="sort_text">Сортировать по:</div>
         <div className="sort_new" onClick={handleSortNew}>
@@ -183,24 +202,24 @@ const Reviews = () => {
                       <hr />
                       <div className="review">
                         {loading && (
-                          <div class="loading-window">
-                            <div class="carr">
-                              <div class="strike"></div>
-                              <div class="strike strike2"></div>
-                              <div class="strike strike3"></div>
-                              <div class="strike strike4"></div>
-                              <div class="strike strike5"></div>
-                              <div class="car-detail spoiler"></div>
-                              <div class="car-detail back"></div>
-                              <div class="car-detail center"></div>
-                              <div class="car-detail center1"></div>
-                              <div class="car-detail front"></div>
-                              <div class="car-detail wheel"></div>
-                              <div class="car-detail wheel wheel2"></div>
+                          <div className="loading-window">
+                            <div className="carr">
+                              <div className="strike"></div>
+                              <div className="strike strike2"></div>
+                              <div className="strike strike3"></div>
+                              <div className="strike strike4"></div>
+                              <div className="strike strike5"></div>
+                              <div className="car-detail spoiler"></div>
+                              <div className="car-detail back"></div>
+                              <div className="car-detail center"></div>
+                              <div className="car-detail center1"></div>
+                              <div className="car-detail front"></div>
+                              <div className="car-detail wheel"></div>
+                              <div className="car-detail wheel wheel2"></div>
                             </div>
-                            <div class="text">
+                            <div className="text">
                               <span>Loading</span>
-                              <span class="dots">...</span>
+                              <span className="dots">...</span>
                             </div>
                           </div>
                         )}
@@ -221,27 +240,27 @@ const Reviews = () => {
                           )}
                         </div>
                         {loading && (
-                            <div class="loading-window">
-                              <div class="carr">
-                                <div class="strike"></div>
-                                <div class="strike strike2"></div>
-                                <div class="strike strike3"></div>
-                                <div class="strike strike4"></div>
-                                <div class="strike strike5"></div>
-                                <div class="car-detail spoiler"></div>
-                                <div class="car-detail back"></div>
-                                <div class="car-detail center"></div>
-                                <div class="car-detail center1"></div>
-                                <div class="car-detail front"></div>
-                                <div class="car-detail wheel"></div>
-                                <div class="car-detail wheel wheel2"></div>
-                              </div>
-                              <div class="text">
-                                <span>Loading</span>
-                                <span class="dots">...</span>
-                              </div>
+                          <div className="loading-window">
+                            <div className="carr">
+                              <div className="strike"></div>
+                              <div className="strike strike2"></div>
+                              <div className="strike strike3"></div>
+                              <div className="strike strike4"></div>
+                              <div className="strike strike5"></div>
+                              <div className="car-detail spoiler"></div>
+                              <div className="car-detail back"></div>
+                              <div className="car-detail center"></div>
+                              <div className="car-detail center1"></div>
+                              <div className="car-detail front"></div>
+                              <div className="car-detail wheel"></div>
+                              <div className="car-detail wheel wheel2"></div>
                             </div>
-                          )}
+                            <div className="text">
+                              <span>Loading</span>
+                              <span className="dots">...</span>
+                            </div>
+                          </div>
+                        )}
                         <div className="review_block">
                           <div className="user_name_2">{user.login}</div>
                           <div className="data">

@@ -52,9 +52,11 @@
   outline: none;
   color: white;
 }
+
 .btn:hover {
   background-color: #520a38;
 }
+
 
 .element_button {
   position: absolute;
@@ -85,11 +87,13 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .images_block img {
   width: 400px;
   height: 350px;
   margin: 1px;
+  border-radius: 2px;
 }
 .image_container {
   background: center center no-repeat;

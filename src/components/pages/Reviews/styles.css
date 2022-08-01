@@ -1,4 +1,6 @@
 .tab {
+  display: flex;
+  justify-content: space-between;
   font-size: 30px;
   font-weight: 600;
 }
@@ -166,7 +168,8 @@
   color: red;
   cursor: pointer;
   text-align: center;
-  margin-top: 8%;
+  vertical-align: middle;
+  margin-bottom: 0.5em;
   font-size: 22px;
 }
 
