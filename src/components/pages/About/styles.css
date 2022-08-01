@@ -1,42 +1,66 @@
-.site_title {
-   text-align: center;
-   color: white;
-   position: absolute;
-   bottom: 26%;
-   left: 17%;
+.countup_block {
+  color: white;
+  position: absolute;
+  bottom: 26%;
+  left: 6%;
+}
+.countup_content {
+  padding-left: 60px;
+  padding-top: 60px;
+  color: white;
+}
+.countup_number_and_text {
+  display: flex;
+  align-items: center;
+}
+.countup_number {
+  font-size: 68px;
+  color: white;
+  margin-right: 20px;
+}
+.countup_text {
+  font-size: 28px;
 }
 
-.title_text_1 {
-   font-family: 'Gilroy', Tahoma, Arial;
-   font-weight: 600;
-   font-size: 47px;
-   color: white;
-}
+/*///////////////////////////////////////*/
 
-.title_text_2 {
-   font-family: 'Gilroy', Tahoma, Arial;
-   font-size: 50px;
-   color: white;
+.benefits_block_parent {
+  position: relative;
+  margin-bottom: 80px;
 }
-
-.title_text_3 {
-   font-family: 'Gilroy', Tahoma, Arial;
-   font-weight: 600;
-   font-size: 24px;
-   margin-top: 3.5%;
-   color: white;
-}
-
 .benefits_block {
-   width: 93%;
-   margin: 0 auto;
-   background-color: white;
-   z-index: 2;
-   margin-top: -8%;
-   box-shadow: 0px 5px 29px 2px rgba(34, 60, 80, 0.2);
-   height: 100vh;
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: -12%;
+  box-shadow: 0px 5px 29px 2px rgba(34, 60, 80, 0.2);
+  height: 84vh;
+}
+.benefits_title {
+  padding: 25px 25px 15px 25px;
 }
 
-.benefits_title {
-   padding: 25px 25px 25px 0px;
+/*/ //////////////////////////////////////*/
+
+.trustUs {
+  width: 100%;
+  height: 680px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  top: 80%;
+}
+.trustUs_content {
+  width: 40%;
+  padding-left: 60px;
+  padding-top: 60px;
+  color: white;
+}
+.trustUs_title {
+  font-weight: 600;
+  font-size: 47px;
+}
+.trustUs_text {
+  margin-top: 40px;
+  font-size: 24px;
 }

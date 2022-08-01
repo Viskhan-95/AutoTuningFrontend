@@ -1,0 +1,61 @@
+.welcome_title {
+  margin-bottom: 70px;
+}
+.welcome_title h1 {
+  font-size: 60px;
+  color: white;
+}
+.welcome_title h2 {
+  font-size: 26px;
+}
+
+.slider {
+  height: 320px;
+  margin: 10px 8px;
+  box-shadow: 1px 5px 10px 0px rgba(34, 60, 80, 0.18);
+  border-radius: 4px;
+  background-color: white;
+}
+
+.slider_content {
+  height: 80%;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.slider_title {
+  width: 60%;
+  font-size: 28px;
+  position: absolute;
+  top: 25px;
+}
+
+.slider_text {
+  position: absolute;
+  top: 145px;
+  width: 85%;
+}
+
+.slider_btn {
+  background-color: #a80757;
+  border: none;
+  border-radius: 2%;
+  padding: 12px 36px;
+  top: 5;
+  transition: 0.4s;
+  outline: none;
+  position: absolute;
+  top: 255px;
+  color: white;
+}
+.slider_btn:hover {
+  background-color: #520a38;
+}
+
+.slider_btn a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+}

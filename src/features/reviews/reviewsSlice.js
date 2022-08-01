@@ -8,9 +8,9 @@ const initialState = {
 
 export const getReviews = createAsyncThunk(
    "reviews/get",
-   async (_, thunkAPI) => {
+   async ({id}, thunkAPI) => {
       try {
-         const res = await fetch("http://localhost:4000/reviews");
+         const res = await fetch(`http://localhost:4000/reviews/${id}`)
          const data = await res.json();
          return data;
       } catch (error) {
@@ -19,17 +19,17 @@ export const getReviews = createAsyncThunk(
    }
 );
 export const postReview = createAsyncThunk(
-   "review/get",
-   async ({ text, rating }, thunkAPI) => {
+   "reviews/add",
+   async ({ id, rating, plusText, minusText }, thunkAPI) => {
       const state = thunkAPI.getState();
       try {
-         const res = await fetch("http://localhost:4000/reviews", {
+         const res = await fetch(`http://localhost:4000/reviews/${id}`, {
             method: "POST",
             headers: {
                "Content-Type": "application/json",
                Authorization: `Bearer ${state.usersReducer.token}`,
             },
-            body: JSON.stringify({ text, rating }),
+            body: JSON.stringify({ servicesId: id, rating, plus: plusText, minus: minusText }),
          });
          return res.json();
       } catch (error) {
@@ -38,18 +38,18 @@ export const postReview = createAsyncThunk(
    }
 );
 export const delReview = createAsyncThunk(
-   "review/del",
-   async (el, thunkAPI) => {
+   "reviews/del",
+   async (id, thunkAPI) => {
       const state = thunkAPI.getState();
       try {
-         await fetch(`http://localhost:4000/reviews/${el._id}`, {
+         await fetch(`http://localhost:4000/reviews/${id}`, {
             method: "DELETE",
             headers: {
                "Content-Type": "application/json",
                Authorization: `Bearer ${state.usersReducer.token}`,
             },
          });
-         return el._id;
+         return id;
       } catch (error) {
          return thunkAPI.rejectWithValue(error);
       }
@@ -89,7 +89,7 @@ export const reviewSlice = createSlice({
             state.error = null
          })
          .addCase(delReview.fulfilled, (state, action) => {
-            state.reviews = state.reviews.filter((i) => i._id !== action.payload)
+            state.reviews = state.reviews.filter((id) => id._id !== action.payload)
             state.error = null
             state.loading = false
          })
@@ -105,3 +105,5 @@ export const reviewSlice = createSlice({
    },
 });
 export default reviewSlice.reducer
+
+

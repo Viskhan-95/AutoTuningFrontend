@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import Navibar from "../Navibar/Navibar";
+import Navibar from "../../Layout/Navibar/Navibar";
 import "./styles.css";
+import { useDispatch } from "react-redux";
+import { postCallReqs } from "../../../features/callReqs/callReqsSlice";
+import facebook from "../../../icon/facebook.png";
+import instagram from "../../../icon/instagram.png";
+import whatsapp from "../../../icon/whatsapp.png";
 
 const Constacts = () => {
   const [call, setCall] = useState(false);
   const [text, setText] = useState("");
   const [text_number, setTextNumber] = useState("");
+  const [email, setEmail] = useState("")
+  const dispatch = useDispatch();
 
   function handleText(e) {
     setText(e.target.value);
@@ -21,10 +28,16 @@ const Constacts = () => {
     setTextNumber("");
   }
   function handleBtn(e) {
-    e.preventDefault();
+    dispatch(postCallReqs({text, text_number, email}))
     setText("");
     setTextNumber("");
+    setEmail("")
+    
   }
+  function handleEmail(e) {
+    setEmail(e.target.value);
+  }
+
 
   return (
     <>
@@ -35,28 +48,19 @@ const Constacts = () => {
           <div className="street">Трошева ул., 7, Грозный</div>
         </div>
         <div className="share_block">
-          <div className="share_text">Присоединяйтесь к нам в соц.сетях:</div>
+          <div className="share_text">
+            Присоединяйтесь к нам в<br></br> социальных сетях:
+          </div>
           <div className="logo_block">
-            <img
-              className="vk_logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg"
-              alt=""
-            />
-            <img
-              className="facebook_logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Facebook_F_icon.svg"
-              alt=""
-            />
-            <img
-              className="instagram_logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
-              alt=""
-            />
-            <img
-              className="twitter_logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg"
-              alt=""
-            />
+            <a href="https://www.facebook.com/">
+              <img className="social_logo" src={facebook} alt="" />
+            </a>
+            <a href="https://www.instagram.com/">
+              <img className="social_logo" src={instagram} alt="" />
+            </a>
+            <a href="https://www.whatsapp.com/">
+              <img className="social_logo" src={whatsapp} alt="" />
+            </a>
           </div>
         </div>
         <div className="numbers_button_and_email">
@@ -78,20 +82,20 @@ const Constacts = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        {call && (
-          <div className="set_call_block">
-            <div className="call_block">
-              <form
-                onSubmit={(e) => handleBtn(e)}
-                className="call_form"
-                action=""
-              >
-                <div className="form_head">
-                  <div className="form_head_title">Обратный звонок</div>
-                  <div className="form_head_text">
-                    Заполните форму и наш менеджер свяжется с <br /> Вами в
-                    ближайщее время
-                  </div>
+      </div>
+      {call && (
+        <div className="set_call_block">
+          <div className="call_block">
+            <form
+              onSubmit={(e) => handleBtn(e)}
+              className="call_form"
+              action=""
+            >
+              <div className="form_head">
+                <div className="form_head_title">Обратный звонок</div>
+                <div className="form_head_text">
+                  Заполните форму и наш менеджер свяжется с <br /> Вами в
+                  ближайщее время
                 </div>
                 <div className="form_body">
                   <div className="form_body_data">
@@ -120,28 +124,28 @@ const Constacts = () => {
                       maxLength={12}
                       type="tel"
                       placeholder="7(999)999-99-99"
-                      pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
                     />
                     <br />
                     <br />
-                    <label htmlFor="">Email (не обязательно)</label>
+                    <label value={email} onChange={handleEmail} htmlFor="">Email (не обязательно)</label>
                     <br />
                     <input type="email" />
                     <br />
                     <button className="ship_button">Заказать звонок</button>
                   </div>
+
                 </div>
-              </form>
-              <div onClick={handleOpenCall} className="form_close">
-                <img
-                  src="https://tuning.sboxdemo.ru/assets/template/images/form_close.png"
-                  alt=""
-                />
               </div>
+            </form>
+            <div onClick={handleOpenCall} className="form_close">
+              <img
+                src="https://tuning.sboxdemo.ru/assets/template/images/form_close.png"
+                alt=""
+              />
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 };

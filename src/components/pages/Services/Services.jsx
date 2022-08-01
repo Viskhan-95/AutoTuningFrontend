@@ -9,19 +9,17 @@ function Services() {
   const services = useSelector((state) => state.services.services);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(getServices());
   }, [dispatch]);
 
   return (
-    
     <div className={styles.services_container}>
       <h1 className={styles.pagetitle}>Услуги</h1>
       <div className={styles.services_content_parent}>
-      {services.map((item) => (
-        <Service item={item} />
-      ))}
+        {services.map((item) => (
+          <Service item={item} />
+        ))}
       </div>
     </div>
   );

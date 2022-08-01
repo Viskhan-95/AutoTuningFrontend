@@ -1,97 +1,270 @@
-.car_service{
-    width: 1290px;
-    height: 770px;
-    margin-left: 6%;
-    margin-top: 6%;
-    background: url('../../icon/car.png');
-    background-repeat: no-repeat;
-    background-size: contain;
+.car{
+    position: relative;
+    overflow: hidden
 }
-.service-info{
-    font-family: 'Gilroy', Arial, Helvetica, sans-serif;
+.car_service {
+  width: 1290px;
+  height: 770px;
+  margin-left: 6%;
+  margin-top: 6%;
+  background: url("../../icon/car.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.service-info {
+  position: absolute;
+  top: 2%;
+}
+.link {
+  text-decoration: none;
+  color: #a80757;
+}
+.link:hover {
+  color: #520a38;
+}
+.service {
+  border: 10px solid #a80757;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  position: relative;
+  display: inline-block;
+  
+}
+.service:hover .card {
+  visibility: visible;
+  opacity: 1;
+  transition: all 350ms ease-in-out;
+  transform: translateX(-250%);
+}
+
+.card {
+  transition: 0.55s opacity, 0.55s visibility;
+  transition: all 350ms ease-in-out;
+  width: 390px;
+  max-height: 350px;
+  padding: 20px 20px;
+  box-shadow: 0 5px 25px rgb(149 149 149 / 73%);
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+  left: 100vh;
+  top: 20px;
+  
+}
+.antiGraviy {
+  position: absolute;
+  left: 19%;
+  top: 60%;
+}
+.tonirovka {
+  position: absolute;
+  left: 66%;
+  top: 17%;
+}
+.polirovka {
+  position: absolute;
+  left: 26%;
+  top: 50%;
+}
+.led {
+  position: absolute;
+  left: 35%;
+  top: 45%;
+}
+.ptf {
+  position: absolute;
+  left: 29%;
+  top: 61%;
+}
+.detailing {
+  position: absolute;
+  left: 48%;
+  top: 11%;
+}
+.dopOb{
+  position: absolute;
+  left: 78%;
+  top: 28%;
+}
+.chehli{
+  position: absolute;
+  left: 58%;
+  top: 21%;
+}
+.noiseless{
+  position: absolute;
+  left: 58%;
+  top: 40%;
+}
+.kuzov{
     position: absolute;
-    top: 106%;
+    left: 20%;
+    top: 32%;
 }
-.link{
-    text-decoration: none;
+.prot{
+  position: absolute;
+  left: 47%;
+  top: 24%;
 }
-.service{
-    border: 10px solid blue;
-    border-radius: 100%;
-    width: 30px;
-    height: 30px;
-    background-color: white;
-}
-.antiGraviy{
+.weels{
     position: absolute;
-    left: 19%;
-    top: 170% ;
+    left: 40%;
+    top: 61%; 
 }
-.Tonirovka{
-    position:absolute;
-    left: 65%;
-    top: 120%;
+
+.text {
+  color: gray;
 }
-.Polirovka{
-    position: absolute;
-    left: 26%;
-    top: 155% ;
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20%;
 }
-.led{
-    position: absolute;
-    left: 35%;
-    top: 152% ; 
+.more {
+  background-color: #a80757;;
+  transition: all 0.3s ease-in 0s;
+  color: white;
+  border: 1px solid #a80757;;
+  cursor: pointer;
+  font-size: 16px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 3px;
 }
-.Ptf{
-    position: absolute;
-    left: 29%;
-    top: 170% ;
+.more:hover {
+  background-color: white;
+  color: #a80757;;
+  border: 1px solid #a80757;;
 }
-.Detailing{
-    position: absolute;
-    left: 30%;
+.get_form {
+  background-color: #a80757;;
+  transition: all 0.2s ease-in 0s;
+  color: white;
+  border: 1px solid #a80757;;
+  cursor: pointer;
+  font-size: 16px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 3px;
 }
-.card{
-    border: 1px solid black;
-    width: 370px;
-    height: 250px;
-    padding: 0 20px;
+.get_form:hover {
+  background-color: white;
+  color: #a80757;;
+  border: 1px solid #a80757;;
 }
-.title{
-    font-family: 'Gilroy', Arial, Helvetica, sans-serif;
+
+.set_call_block1 {
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100%;
 }
-.text{
-    font-family: 'Gilroy', Arial, Helvetica, sans-serif;
-    color: gray;
+
+.call_block1 {
+  width: 450px;
+  left: 50%;
+  margin-left: -225px;
+  top: calc(50% - 291px);
+  position: fixed;
 }
-.buttons{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 38%;
+
+.call_form1 {
+  width: 400px;
+  float: left;
 }
-.more{
-    background-color: blue;
-    transition: all 0.2s ease-in 0s;
-    color: white;
-    border: 1px solid blue;
-    cursor: pointer;
-    font-size: 16px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 3px; 
+
+.form_head1 {
+  height: 145px;
+  background: url("https://tuning.sboxdemo.ru/assets/template/images/form_head.jpg")
+    top center no-repeat;
+  background-size: cover;
+  text-align: center;
 }
-.get_form{
-    background-color: red;
-    transition: all 0.2s ease-in 0s;
-    color: white;
-    border: 1px solid red;
-    cursor: pointer;
-    font-size: 16px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 3px;  
+
+.form_head_title1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #eaeced;
+  padding: 25px 0 10px;
+}
+
+.form_head_text1 {
+  font-size: 16px;
+  color: #fff;
+}
+
+.form_body1 {
+  background: #fff;
+}
+
+.form_body_data1 {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.form_body_data1 .label1 {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  color: #282828;
+  display: inline-block;
+}
+
+.form_body1 span {
+  color: #ff0000;
+  font-size: 16px;
+}
+
+.form_body1 input {
+  width: 100%;
+  height: 60px;
+  color: #000;
+  font-size: 20px;
+  padding-left: 15px;
+}
+
+.ship_button1 {
+  background: #a80757;
+  border: 1px solid #a80757;
+  transition: all 0.2s ease-in 0s;
+  font-size: 16px;
+  width: 100%;
+  height: 60px;
+  margin: 20px 0;
+  border-radius: 2%;
+  cursor: pointer;
+  color: #fff;
+}
+
+.ship_button1:hover {
+  background: white;
+  border: 1px solid #a80757;
+  transition: all 0.2s ease-in 0s;
+  font-size: 16px;
+  width: 100%;
+  height: 60px;
+  margin: 20px 0;
+  border-radius: 2%;
+  cursor: pointer;
+  color: #a80757;
+}
+
+.form_close1 img {
+  display: block;
+  width: 23px;
+  height: 23px;
+  margin-left: 25px;
+  cursor: pointer;
+  float: left;
 }

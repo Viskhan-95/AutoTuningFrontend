@@ -3,13 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-class-static-block": "^7.18.6",
+    "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@babel/plugin-syntax-class-static-block": "^7.14.5",
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.0",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-alice-carousel": "^2.6.4",
     "react-bootstrap": "^2.4.0",
+    "react-calendar": "^3.7.0",
+    "react-countup": "^6.3.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
@@ -41,5 +49,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-class-static-block": "^7.18.6",
+    "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@babel/plugin-syntax-class-static-block": "^7.14.5",
+    "@csstools/postcss-is-pseudo-class": "^2.0.7",
+    "postcss": "^8.4.14",
+    "postcss-dir-pseudo-class": "^6.0.5",
+    "postcss-pseudo-class-any-link": "^7.1.6"
   }
 }

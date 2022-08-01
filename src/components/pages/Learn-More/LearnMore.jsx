@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { postCallReqs } from "../../../features/callReqs/callReqsSlice";
+import { useDispatch } from "react-redux";
 import "./styles.css";
 
 const LearnMore = () => {
    const [text, setText] = useState("");
    const [text_number, setTextNumber] = useState("");
+   const [email, setEmail] = useState("")
+   const services = useSelector((state) => state.services.services);
+   const dispatch = useDispatch()
 
    function handleText(e) {
       setText(e.target.value);
@@ -14,11 +20,18 @@ const LearnMore = () => {
       setTextNumber(e.target.value);
    }
 
-   function handleBtn(e) {
-      e.preventDefault();
+   function handleEmail(e) {
+      setEmail(e.target.value);
+    }
+
+    function handleBtn(e) {
+      dispatch(postCallReqs({text, text_number, email}))
       setText("");
       setTextNumber("");
-   }
+      setEmail("")
+      
+    }
+   
 
    return (
       <div className="learn-container">
@@ -36,17 +49,11 @@ const LearnMore = () => {
                покраски.
             </div>
             <div className="learn-tags">
-               <Link to="#" className="tag">Оклейка автомобиля</Link>
-               <Link to="#" className="tag">Тонировка стекол</Link>
-               <Link to="#" className="tag">Защита от угона</Link>
-               <Link to="#" className="tag">Полировка кузова</Link>
-               <Link to="#" className="tag">Установка доп. оборудования</Link>
-               <Link to="#" className="tag">Пошив чехлов, переобтяжка салона</Link>
-               <Link to="#" className="tag">Шумоизоляция</Link>
-               <Link to="#" className="tag">Установка led и ксенона</Link>
-               <Link to="#" className="tag">Покраска дисков и суппортов</Link>
-               <Link to="#" className="tag">Тюнинг и восстановление фар</Link>
-               <Link to="#" className="tag">Антигравийная защита</Link>
+              {services.map((el)=>{
+               return(
+                  <Link key={el._id} to={`service/${el._id}`} className='tag'>{el.title}</Link>
+               )
+              })}
             </div>
          </div>
          <div className="learn-form">
@@ -84,13 +91,12 @@ const LearnMore = () => {
                         maxLength={12}
                         type="tel"
                         placeholder="7(999)999-99-99"
-                        pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
                      />
                      <br />
                      <br />
                      <label htmlFor="">Email (не обязательно)</label>
                      <br />
-                     <input type="email" />
+                     <input value={email} onChange={handleEmail} type="email" />
                      <br />
                      <button className="ship_button">Получить консультацию</button>
                      <br />
