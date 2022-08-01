@@ -201,8 +201,6 @@ function ServiceInfo() {
                                   <Calendar
                                     onChange={onChangeCalendar}
                                     value={calendarValue}
-                                    // tileClassName="highlight"
-
                                     tileDisabled={({ date, view }) =>
                                       view === "month" &&
                                       qw.some(
