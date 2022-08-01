@@ -40,7 +40,6 @@ export const addUser = createAsyncThunk(
       if (data.error) {
         return thunkAPI.rejectWithValue(data.error);
       } else {
-        localStorage.setItem("token", data.token);
         return thunkAPI.fulfillWithValue(data);
       }
     } catch (err) {
