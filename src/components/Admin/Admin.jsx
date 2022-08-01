@@ -42,60 +42,66 @@ const Admin = () => {
   
 
   return (
-    <div>
-      <div className={css.creatyImage}>
-        <div>
-          <input
-            type="file"
-            id="upload"
-            multiple
-            hidden
-            accept="image/*"
-            onChange={(e) => {
-              const file = e.target.files[0];
-              if (file && file.type.substring(0, 5) === "image") {
-                setPhoto(file);
-              } else {
-                setPhoto(null);
-              }
-            }}
-          />
-          {preview ? (
-            <>
-              <div className={css.divImg}>
-                <img className={css.img2} src={preview} alt="" />
-              </div>
+    <div className={css.admin_page}>
+      <div className={css.admin_page_content}>
+        <div className={css.createImage}>
+          <div>
+            <input
+              type="file"
+              id="upload"
+              multiple
+              hidden
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                if (file && file.type.substring(0, 5) === "image") {
+                  setPhoto(file);
+                } else {
+                  setPhoto(null);
+                }
+              }}
+            />
+            {preview ? (
+              <>
+                <div className={css.divImg}>
+                  <img className={css.img2} src={preview} alt="" />
+                </div>
+                <label htmlFor="upload">
+                  <ion-icon name="create-outline"></ion-icon>
+                </label>{" "}
+              </>
+            ) : (
               <label htmlFor="upload">
-                <ion-icon name="create-outline"></ion-icon>
-              </label>{" "}
-            </>
-          ) : (
-            <label htmlFor="upload">
-              <div className={css.addDiv}>
-                <img
-                  className={css.img1}
-                  src="https://www.babypillowth.com/images/templates/upload.png"
-                  alt=""
-                />
-                <div className={css.add}>Выбрать файл</div>
-              </div>
-            </label>
-          )}
+                <div className={css.addDiv}>
+                  <img
+                    className={css.img1}
+                    src="https://www.babypillowth.com/images/templates/upload.png"
+                    alt=""
+                  />
+                  <div className={css.add}>Выбрать файл</div>
+                </div>
+              </label>
+            )}
+          </div>
         </div>
+        <div className={css.input_block}>
+          <div>
+            <div>Название услуги </div>
+            <input value={usluga} onChange={changeUsluga} type="text" />
+          </div>
+          <div>
+            <div>Об услуге</div>
+            <input value={obUsluge} onChange={changeObUsluge} type="text" />
+          </div>
+          <div>
+            <div>Класс услуги</div>
+            <input value={classUslugi} onChange={changeClass} type="text" />
+          </div>
+        </div>
+        <button className={css.btn_send} onClick={handleAdd}>
+          Отправить
+        </button>
       </div>
-      <div>
-        <div>Название услуги </div>
-        <input value={usluga} onChange={changeUsluga} type="text" />
-      </div>
-      <div>
-        <div>Об услуге</div>
-        <input value={obUsluge} onChange={changeObUsluge} type="text" />
-      </div>
-      <div>
-        <div>Какая услуга</div>
-        <input value={classUslugi} onChange={changeClass} type="text" />
-      </div>
-      <button onClick={handleAdd}>Отправить</button>
     </div>
   );
 };
