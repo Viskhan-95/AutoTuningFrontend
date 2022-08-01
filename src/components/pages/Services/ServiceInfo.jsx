@@ -116,11 +116,6 @@ function ServiceInfo() {
                         Записаться
                       </Button>
                     )}
-                    <Modal show={show} onHide={handleClose}>
-                      <Modal.Header closeButton>
-                        <Container className="d-flex justify-content-between align-items-center">
-                          <Modal.Title>Услуга</Modal.Title>
-
 
                     <Modal
                       show={show}
@@ -281,9 +276,9 @@ function ServiceInfo() {
                 </Link>
               </div>
               <div className={styles.text_description}>
-                <p style={{ fontSize: "20px", textAlign: "center" }}>{item.text}</p>
+                <p>{item.text}</p>
               </div>
-              <div style={{ textAlign: "center" }} className={styles.images_block}>
+              <div className={styles.images_block}>
                 {item.img.map((itemImg) => {
                   return (
                     <div className={styles.image_container}>
@@ -293,7 +288,7 @@ function ServiceInfo() {
                 })}
               </div>
               <hr
-                style={{ width: "100%", border: "1px solid", marginTop: "5%" }}
+                style={{ width: "99%", border: "1px solid", marginTop: "5%" }}
               />
               <Reviews />
             </div>
