@@ -134,7 +134,7 @@ const SignUpPage = () => {
                   <Container
                      fluid
                      className="d-flex justify-content-between p-0"
-                     style={{ marginBottom: "22px" }}
+                     style={{ marginBottom: "12px" }}
                   >
                      <Button
                         style={{
@@ -163,7 +163,7 @@ const SignUpPage = () => {
                         maxLength="6"
                      />
                   </Container>
-                  <Container style={{ color: "red" }}>{infoKey}</Container>
+                  <Container style={{ color: "red", marginLeft: "-10px", marginBottom: "15px" }}>{infoKey}</Container>
 
                   <Form.Group className="mb-3" controlId="formBasicLogin">
                      <Form.Label style={{ color: "black" }}>Логин</Form.Label>
