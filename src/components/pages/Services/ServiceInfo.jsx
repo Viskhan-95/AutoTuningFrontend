@@ -116,6 +116,11 @@ function ServiceInfo() {
                         Записаться
                       </Button>
                     )}
+                    <Modal show={show} onHide={handleClose}>
+                      <Modal.Header closeButton>
+                        <Container className="d-flex justify-content-between align-items-center">
+                          <Modal.Title>Услуга</Modal.Title>
+
 
                     <Modal
                       show={show}
