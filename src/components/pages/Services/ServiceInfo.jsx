@@ -179,7 +179,7 @@ function ServiceInfo() {
                               }}
                             >
                               <Container
-                                style={{ color: "#a80757", fontWeight: "bold" }}
+                                style={{ color: "#a80757" }}
                               >
                                 <span style={{ color: "black" }}>
                                   Выбранная услуга
