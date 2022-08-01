@@ -131,8 +131,7 @@ function ServiceInfo() {
                         >
                           Запись на услугу
                         </Modal.Title>
-
-                        {user}
+                        <span style={{color: "black"}}>{user}</span>
                       </Container>
 
                       <Modal.Body>
@@ -147,6 +146,7 @@ function ServiceInfo() {
                             <Form.Control
                               type="text"
                               placeholder="Введите номер телефона"
+                              style={{borderRadius: "0%"}}
                               onChange={handleContact}
                               value={contact}
                               autoFocus
@@ -170,7 +170,7 @@ function ServiceInfo() {
                                 width: "60%",
                                 fontSize: "17px",
                                 marginTop: "30px",
-                                marginLeft: "-20px"
+                                marginLeft: "-20px",
                               }}
                             >
                               <Container

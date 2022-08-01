@@ -85,8 +85,10 @@ const SignInPage = () => {
             <Form.Label style={{ color: "black" }}>Логин</Form.Label>
             <Form.Control
               type="login"
+              placeholder="Введите логин"
               onChange={handleChangeLogin}
               value={login}
+              style={{borderRadius: "0%"}}
             />
             <span style={{ color: colorTextError, fontSize: 14 }}>
               {" "}
@@ -98,8 +100,10 @@ const SignInPage = () => {
             <Form.Label style={{ color: "black" }}>Пароль</Form.Label>
             <Form.Control
               type={showPassword ? "Text" : "Password"}
+              placeholder="Введите пароль"
               onChange={handleChangePassword}
               value={password}
+              style={{borderRadius: "0%"}}
             />
             {showPassword ? (
               <div onClick={handleOpenEye}>
