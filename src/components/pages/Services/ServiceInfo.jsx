@@ -185,9 +185,9 @@ function ServiceInfo() {
                 </Link>
               </div>
               <div className={styles.text_description}>
-                <p style={{ fontSize: "20px" }}>{item.text}</p>
+                <p style={{ fontSize: "20px", textAlign: "center" }}>{item.text}</p>
               </div>
-              <div className={styles.images_block}>
+              <div style={{ textAlign: "center" }} className={styles.images_block}>
                 {item.img.map((itemImg) => {
                   return (
                     <div className={styles.image_container}>
@@ -197,7 +197,7 @@ function ServiceInfo() {
                 })}
               </div>
               <hr
-                style={{ width: "99%", border: "1px solid", marginTop: "5%" }}
+                style={{ width: "100%", border: "1px solid", marginTop: "5%" }}
               />
               <Reviews />
             </div>

@@ -1,4 +1,6 @@
 .tab {
+  display: flex;
+  justify-content: space-between;
   font-size: 30px;
   font-weight: 600;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
