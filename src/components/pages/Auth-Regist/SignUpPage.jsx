@@ -53,7 +53,7 @@ const SignUpPage = () => {
       if (counter === 0) {
          setInfoKey("запросите новый код");
          dispatch(errorKey(""));
-         setCounter(3);
+         setCounter(2);
       }
    };
 
