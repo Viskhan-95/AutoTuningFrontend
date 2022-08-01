@@ -14,7 +14,7 @@ import { GiExitDoor } from "react-icons/gi";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
-import backgroundImage from "../../../icon/newBackgroundImg.jpg"
+import backgroundImage from "../../../icon/newBackgroundImg.jpg";
 import { GoTools } from "react-icons/go";
 
 const Navibar = (heightHeader) => {
@@ -29,6 +29,7 @@ const Navibar = (heightHeader) => {
   const handleShowSignin = () => {
     dispatch(showModalSignIn(true));
   };
+  const role = localStorage.getItem("role");
 
   const handleExit = () => {
     dispatch(clearToken());
@@ -73,7 +74,7 @@ const Navibar = (heightHeader) => {
             justifyContent: "center",
             textDecoration: "none",
             color: "white",
-            gap: "8px"
+            gap: "8px",
           }}
         >
           <div>
@@ -140,15 +141,15 @@ const Navibar = (heightHeader) => {
             </Nav>
           </Container>
 
-
           {token ? (
             <Nav>
-            <Link to = "/admin">
-                     <Button variant="link" 
-                        className="mx-1">
-                        {<BiUser size={40} color={"#a80757"}/>}
-                     </Button>
-                     </Link>
+              {role === "admin" && (
+                <Link to="/admin">
+                  <Button variant="link" className="mx-1">
+                    {<BiUser size={40} color={"#a80757"} />}
+                  </Button>
+                </Link>
+              )}
               <Button variant="link" onClick={handleExit} className="mx-1">
                 {<GiExitDoor size={40} color={"#a80757"} />}
               </Button>

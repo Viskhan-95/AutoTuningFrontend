@@ -39,6 +39,7 @@ const Admin = () => {
       setPreview(null);
     }
   }, [dispatch, photo]);
+  
 
   return (
     <div>
