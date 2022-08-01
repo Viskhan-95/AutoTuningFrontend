@@ -12,12 +12,9 @@ import {
 import { ImUserPlus, ImEnter } from "react-icons/im";
 import { GiExitDoor } from "react-icons/gi";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../../../icon/iconAutoTuning.png";
 import { Link } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
 import backgroundImage from "../../../icon/newBackgroundImg.jpg"
-import backgroundImage from "../../../icon/newBackgroundImg.jpg";
-import { AiOutlineTool } from "react-icons/ai";
 import { GoTools } from "react-icons/go";
 
 const Navibar = (heightHeader) => {
