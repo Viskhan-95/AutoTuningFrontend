@@ -8,14 +8,14 @@ function Service({ item }) {
     <div
       style={{
 
-        backgroundImage: `url(${`http://localhost:4000${item.img[0]}`})`,
+        backgroundImage: `url(${`http://localhost:4000/${item.img[0]}`})`,
       }}
       className={styles.services_content}
-    >
-      
+      >
       <div className={styles.title_and_btn}>
         <div className={styles.element_title}>{item.title}</div>
         <div className={styles.element_button}>
+      {console.log(item.img[0])}
         <Link to={`/service/${item._id}`}><button className={styles.btn}>
             Подробнее
           </button></Link>

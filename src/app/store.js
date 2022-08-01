@@ -9,6 +9,6 @@ export const store = configureStore({
       usersReducer: usersReducer,
       review: reviewSlice,
       services: serviceReducer,
-      turn: turnSlice
+      turn: turnSlice,
    }
 });

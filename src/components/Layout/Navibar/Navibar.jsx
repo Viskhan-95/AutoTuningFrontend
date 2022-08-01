@@ -10,6 +10,7 @@ import { GiExitDoor } from 'react-icons/gi';
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../../icon/iconAutoTuning.png"
 import { Link } from "react-router-dom";
+import { BiUser } from "react-icons/bi";
 import backgroundImage from "../../../icon/newBackgroundImg.jpg"
 
 const Navibar = (heightHeader) => {
@@ -86,6 +87,12 @@ const Navibar = (heightHeader) => {
 
                {token ?
                   <Nav>
+                     <Link to = "/admin">
+                     <Button variant="link" 
+                        className="mx-1">
+                        {<BiUser size={40} color={"#a80757"}/>}
+                     </Button>
+                     </Link>
                      <Button variant="link" onClick={handleExit}
                         className="mx-1">
                         {<GiExitDoor size={40} color={"#a80757"}/>}

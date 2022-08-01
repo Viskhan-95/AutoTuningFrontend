@@ -8,6 +8,7 @@ import Layout from "./components/Layout/Layout";
 import ServiceInfo from "./components/pages/Services/ServiceInfo";
 import ScrollToTop from "./components/ScrollToTop";
 import Calendar from "react-calendar";
+import Admin from "./components/Admin/Admin";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="services" element={<Services />} />
             <Route path="calendar" element={<Calendar/>}/>
             <Route path="service/:id" element={<ServiceInfo />} />
+            <Route path="admin" element={<Admin/>}/>
           </Route>
 
           <Route path="/contacts" element={<Contacts />} />
