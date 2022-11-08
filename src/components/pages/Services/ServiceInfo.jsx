@@ -16,6 +16,7 @@ import Modal from "react-bootstrap/Modal";
 import { Container } from "react-bootstrap";
 import { addTurns, delTurn, getTurn } from "../../../features/turns/turnsSlice";
 import { Link } from "react-router-dom";
+import { serverUrl } from "../../../server";
 
 function ServiceInfo() {
   const user = localStorage.getItem("user");
@@ -280,7 +281,7 @@ function ServiceInfo() {
                 {item.img.map((itemImg) => {
                   return (
                     <div className={styles.image_container}>
-                      <img src={`http://localhost:4000${itemImg}`} alt="" />
+                      <img src={`${serverUrl}${itemImg}`} alt="" />
                     </div>
                   );
                 })}
@@ -290,7 +291,7 @@ function ServiceInfo() {
               />
               <Reviews />
             </div>
-          );
+          ); 
         }
       })}
     </div>
