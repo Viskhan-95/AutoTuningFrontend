@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Services.module.css";
+import { serverUrl } from "../../../server";
+
 
 function Service({ item }) {
 
   return (
     <div
       style={{
-        backgroundImage: `url(${`http://localhost:4000${item.img[0]}`})`, 
+        backgroundImage: `url(${`${serverUrl}${item.img[0]}`})`, 
       
 
       }}

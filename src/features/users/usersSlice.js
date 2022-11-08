@@ -105,8 +105,7 @@ export const updateUser = createAsyncThunk(
   async ({ firstName, lastName, email, login, password, role }, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const res = await fetch(
-        `${serverUrl}/user/update/:${state.usersReducer.id}`,
+      const res = await fetch(`${serverUrl}/user/update/:${state.usersReducer.id}`,
         {
           method: "UPDATE",
           headers: {
