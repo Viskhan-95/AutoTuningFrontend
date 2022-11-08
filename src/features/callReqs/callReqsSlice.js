@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { serverUrl } from "../../server";
 
 const initialState = {
     callReqs: []
@@ -6,7 +7,7 @@ const initialState = {
 
 export const getCallReqs = createAsyncThunk('reqs/get', async(_, thunkAPI)=>{
     try {
-        const res = await fetch('http://localhost:4000/callReqs')
+        const res = await fetch(`${serverUrl}/callReqs`)
         const data = await res.json()
         return data
     } catch (error) {
@@ -15,7 +16,7 @@ export const getCallReqs = createAsyncThunk('reqs/get', async(_, thunkAPI)=>{
 })
 export const postCallReqs = createAsyncThunk('reqs/post', async({text, text_number, email}, thunkAPI)=>{
     try {
-        const res = await fetch('http://localhost:4000/callReqs',{
+        const res = await fetch(`${serverUrl}/callReqs`,{
             method: "POST",
             headers: {"Content-Type": "application/json"},   
             body: JSON.stringify({userName: text, phoneNumber: text_number, email})
@@ -27,7 +28,7 @@ export const postCallReqs = createAsyncThunk('reqs/post', async({text, text_numb
 })
 export const delCallReqs = createAsyncThunk('reqs/delete', async(id, thunkAPI)=>{
     try{
-        await fetch(`http://localhost:4000/callReqs/${id}`,{
+        await fetch(`${serverUrl}/callReqs/${id}`,{
             method: 'DELETE',
             headers: {"Content-Type": "application/json"},
         })

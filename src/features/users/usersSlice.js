@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { serverUrl } from "../../server";
 
 const initialState = {
   signUp: false,
@@ -16,7 +17,7 @@ const initialState = {
 
 export const getUsers = createAsyncThunk("users/get", async (_, thunkAPI) => {
   try {
-    const res = await fetch("http://localhost:4000/user");
+    const res = await fetch(`${serverUrl}/user`);
     const data = await res.json();
     return data;
   } catch (error) {
@@ -28,7 +29,7 @@ export const addUser = createAsyncThunk(
   "user/add",
   async ({ login, password }, thunkAPI) => {
     try {
-      const res = await fetch("http://localhost:4000/user", {
+      const res = await fetch(`${serverUrl}/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +53,7 @@ export const auth = createAsyncThunk(
   "login",
   async ({ login, password }, thunkAPI) => {
     try {
-      const res = await fetch("http://localhost:4000/login", {
+      const res = await fetch(`${serverUrl}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -78,7 +79,7 @@ export const auth = createAsyncThunk(
 
 export const getKey = createAsyncThunk("email", async (email, thunkAPI) => {
   try {
-    const res = await fetch("http://localhost:4000/email", {
+    const res = await fetch(`${serverUrl}/email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -105,7 +106,7 @@ export const updateUser = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const res = await fetch(
-        `http://localhost:4000/user/update/:${state.usersReducer.id}`,
+        `${serverUrl}/user/update/:${state.usersReducer.id}`,
         {
           method: "UPDATE",
           headers: {
@@ -142,7 +143,7 @@ export const deleteUser = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const res = await fetch(
-        `http://localhost:4000/user/delete/:${state.usersReducer.id}`,
+        `${serverUrl}/user/delete/:${state.usersReducer.id}`,
         {
           method: "DELETE",
           headers: {

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { serverUrl } from "../../server";
 
 const initialState = {
    services: [],
@@ -10,7 +11,7 @@ export const getServices = createAsyncThunk(
    "services/get",
    async (_, thunkAPI) => {
       try {
-         const res = await fetch("http://localhost:4000/services", {});
+         const res = await fetch(`${serverUrl}/services`, {});
          const data = await res.json();
          if (data.error) {
             return thunkAPI.rejectWithValue(data.error);

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { serverUrl } from "../../server";
 
 const initialState = {
    reviews: [],
@@ -10,7 +11,7 @@ export const getReviews = createAsyncThunk(
    "reviews/get",
    async ({id}, thunkAPI) => {
       try {
-         const res = await fetch(`http://localhost:4000/reviews/${id}`)
+         const res = await fetch(`${serverUrl}/reviews/${id}`)
          const data = await res.json();
          return data;
       } catch (error) {
@@ -23,7 +24,7 @@ export const postReview = createAsyncThunk(
    async ({ id, rating, plusText, minusText }, thunkAPI) => {
       const state = thunkAPI.getState();
       try {
-         const res = await fetch(`http://localhost:4000/reviews/${id}`, {
+         const res = await fetch(`${serverUrl}/reviews/${id}`, {
             method: "POST",
             headers: {
                "Content-Type": "application/json",
@@ -42,7 +43,7 @@ export const delReview = createAsyncThunk(
    async (id, thunkAPI) => {
       const state = thunkAPI.getState();
       try {
-         await fetch(`http://localhost:4000/reviews/${id}`, {
+         await fetch(`${serverUrl}reviews/${id}`, {
             method: "DELETE",
             headers: {
                "Content-Type": "application/json",

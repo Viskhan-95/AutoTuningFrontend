@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
+import { serverUrl } from "../../server";
 const initialState = {
   turns: [],
   loading: false,
@@ -8,7 +9,7 @@ const initialState = {
 
 export const getTurn = createAsyncThunk("turn/get", async (_, thunkAPI) => {
   try {
-    const res = await fetch("http://localhost:4000/turn");
+    const res = await fetch(`${serverUrl}/turn`);
     const data = await res.json();
     return data;
   } catch (error) {
@@ -21,7 +22,7 @@ export const addTurns = createAsyncThunk(
   async ({ contact, checkInValue, title, userId }, thunkAPI) => {
     console.log("fwfe", checkInValue);
     try {
-      const res = await fetch("http://localhost:4000/turn", {
+      const res = await fetch(`${serverUrl}/turn`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,13 +51,11 @@ export const addTurns = createAsyncThunk(
 export const delTurn = createAsyncThunk(
   "turn/del",
   async (id, thunkAPI) => {
-    //  const state = thunkAPI.getState();
      try {
-        await fetch(`http://localhost:4000/turn/${id}`, {
+        await fetch(`${serverUrl}/turn/${id}`, {
            method: "DELETE",
            headers: {
               "Content-Type": "application/json",
-              // Authorization: `Bearer ${state.usersReducer.token}`,
            },
         });
         return id;
